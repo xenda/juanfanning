@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title= title
+  %body
+    %header
+      %h1= link_to "DigitalMuni", root_path
+      %nav.util
+        %ul
+          %li= link_to "Login", new_user_session_path
+          %li= link_to "Create new account", new_user_registration_path
+          %li= link_to "RSS", #
+    #content
+      #wrapper
+        %nav#menu
+          %ul
+            %li= link_to "Home", root_path
+            %li= link_to "About",
+            %li
+        #main
+          = display_flashes
+          = yield
+    %footer
+      %ul
+        %li= link_to "home", root_path
