@@ -10,6 +10,5 @@ formtastic
 inherited_resources -v 1.0.6
 will_paginate -v 2.3.11
 haml
-thinking-sphinx -v 1.3.11
 aws-s3
 cancan
