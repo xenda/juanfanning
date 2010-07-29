@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100729061206) do
+ActiveRecord::Schema.define(:version => 20100729164043) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "",           :null => false
@@ -58,13 +58,13 @@ ActiveRecord::Schema.define(:version => 20100729061206) do
   add_index "pages", ["user_id"], :name => "index_pages_on_user_id"
 
   create_table "projects", :force => true do |t|
-    t.string   "project_type",                                        :default => "preliminary", :null => false
-    t.string   "state",                                               :default => "unpublished", :null => false
+    t.string   "project_type",                                         :default => "preliminary", :null => false
+    t.string   "state",                                                :default => "unpublished", :null => false
     t.text     "description"
     t.datetime "published_at"
     t.string   "issuer"
-    t.decimal  "bond_amount",           :precision => 6, :scale => 2
-    t.string   "sale_type",                                           :default => "competitive"
+    t.decimal  "bond_amount",           :precision => 12, :scale => 2
+    t.string   "sale_type",                                            :default => "competitive"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"

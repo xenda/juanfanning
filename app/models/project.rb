@@ -45,6 +45,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -55,7 +56,7 @@ end
 #  description           :text
 #  published_at          :datetime
 #  issuer                :string(255)
-#  bond_amount           :decimal(6, 2)
+#  bond_amount           :decimal(12, 2)
 #  sale_type             :string(255)     default("competitive")
 #  status                :string(255)
 #  created_at            :datetime
