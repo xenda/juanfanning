@@ -1,0 +1,30 @@
+%section
+  %h2 Download Info
+  
+  %section#description
+    %h3= @download.project.project_type
+    %p
+  
+  %section#disclaimer.left
+    %h3= @download.project.issuer
+    %p= truncate(@download.project.description, 400)
+    %br
+    %strong Sale Type
+    %em= @download.project.sale_type
+    %br
+    %strong Underwriter(s)
+    %em= @download.project.underwriters
+    %br
+    %strong Published At
+    %em= @download.project.published_at
+    %br
+    %strong Document Size
+    %em= @download.project.document_file_size
+    %br
+    
+  %section#document.left
+    =link_to "Download file", @download.project.document.url
+    
+    .pdf_preview
+    
+  .clear

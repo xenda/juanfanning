@@ -19,6 +19,20 @@ body {
 	float: right;
 }
 
+
+
+#main span.message {
+	padding: 15px 30px;
+	background-color: #feff80;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	border-top: 1px dotted #cbcc68;
+	border-bottom: 1px dotted #cbcc68;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	display: block;
+	color: #484848;
+}
+
 #header{
 	
 }
@@ -63,7 +77,7 @@ header h1 {
 	padding-bottom: 0px;
 	margin-bottom: 0em;
 	color: #404040;
-
+	text-transform: capitalize;
 }
 
 .registrations fieldset {
@@ -76,11 +90,82 @@ fieldset#additional {
 	border: none;	
 }
 
-.pages #main section p {
+.pages #main section p,
+.downloads #main section#disclaimer p {
 	color: #404040;
 	font-size: 12px;
 	width: 600px;
 	line-height: 1.6em;
+}
+
+.downloads section#description h3 {
+	font-size: 18px !important;
+	letter-spacing: 0;
+	color: #005bba;
+}
+
+#disclaimer label {
+	font-weight: bold;
+	color: #454545;
+}
+
+#disclaimer p {
+	margin-bottom: 20px;
+	margin-top: 0px;
+}
+
+#disclaimer strong {
+	color: #404040;
+	font: bold 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#disclaimer em {
+	color: #818181;
+	font: 12px Helvetica, "Helvetica Neue", Arial, Geneva, sans-serif;
+}
+
+section#disclaimer.left {
+	width: 200px;
+}
+
+section#document.left {
+	margin-left: 40px;
+	margin-top: 20px;
+	text-align: center;
+	width: 400px;
+}
+
+section#document.left a {
+	font-weight: bold;
+	color: #404040;
+	font-size: 22px;
+	text-decoration: none;
+}
+section#document.left .pdf_preview {
+	width: 300px;
+	height: 400px;
+	background-color: #bcebe4;	
+	margin: 10px auto;
+}
+
+#new_download fieldset {
+	border: none;	
+	padding: 0;
+}
+
+#new_download fieldset ol {
+	padding-left: 0;
+}
+#new_download fieldset ol li {
+	
+}
+#new_download fieldset ol li.hidden ,
+#new_download fieldset ol li.hidden {
+	display: none;
+}
+.downloads section#description p {
+	margin: 0px;
+	color: #727373;
 }
 
 #main section p a {

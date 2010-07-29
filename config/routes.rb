@@ -14,7 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'home'
   
   map.namespace :member do |member|
-    member.resources :downloads, :collection => { :recent => :get }    
+    member.resources :downloads, :collection => { :recent => :get }  
+    member.resources :projects, :has_many => :downloads  
   end
   
   map.namespace :admin do |admin|

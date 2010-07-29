@@ -15,7 +15,7 @@
           %td= p.status.humanize if p.status
           %td= p.state.upcase
           %td
-            = link_to p.issuer, p.document.url
+            = link_to p.issuer, new_member_project_download_path(p)
             %br
             = truncate(p.description, 400)
           %td= p.published_at.to_s(:short) if p.published_at

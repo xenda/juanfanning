@@ -12,6 +12,7 @@
     %tbody
       - @downloads.each do |p|
         %tr
+          - p = p.project
           %td= p.status.humanize if p.status
           %td= p.state.upcase
           %td
