@@ -33,7 +33,7 @@ class Project < ActiveRecord::Base
   #    has user_id, created_at, updated_at
   #  end
   
-   has_attached_file :document,:storage => :s3, :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),  :bucket => "xendacentral.com-digitalmuni", :path => ":attachment/:id/:style.:extension"
+   has_attached_file :document,:path => ":attachment/:id/:style.:extension", :storage => :s3, :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),  :bucket => "xendacentral.com-digitalmuni"
   
   named_scope :published, :conditions=>{:state => STATUS[:published]}
   named_scope :pending, :conditions=>{:state => STATUS[:unpublished]}
