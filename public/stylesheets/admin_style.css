@@ -196,7 +196,8 @@ fieldset.inputs {
 	width: 100%;
 }
 
-input.submit.create {
+input.submit.create,
+input.submit.update {
   color: #76706e !important; 
   font: bold 84% 'trebuchet ms',helvetica,sans-serif !important; 
   background-color: #e8f39c; 

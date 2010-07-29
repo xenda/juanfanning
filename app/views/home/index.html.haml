@@ -15,7 +15,9 @@
           %td= p.status.humanize if p.status
           %td= p.state.upcase
           %td
-            = link_to p.issuer, new_member_project_download_path(p)
+            - link_to new_member_project_download_path(p) do
+              = (p.issuer || "Unknown")
+
             %br
             = truncate(p.description, 400)
           %td= p.published_at.to_s(:short) if p.published_at
@@ -33,7 +35,7 @@
                     .content
                       %strong Ratings
                       - if p.ratings
-                        p.ratings.split(",").join("<br />")
+                        = p.ratings.split(",").join("<br />")
                 - if p.underwriters
                   %li
                     .content
