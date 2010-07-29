@@ -1,0 +1,12 @@
+%section
+  %h2 Dashboard
+  .message
+    %strong= "Welcome back #{current_admin.name}!"
+    = "There are"
+    = link_to "#{Project.all.size} registered projects.", admin_projects_path
+    = "#{Project.pending.size} pending and #{Project.published.size} on the wild"
+%latest
+
+%actions
+  %ul
+    %li= link_to "Upload new project", new_admin_project_path

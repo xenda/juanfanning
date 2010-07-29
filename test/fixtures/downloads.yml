@@ -1,0 +1,24 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  document_id: 1
+  enabled_at: 2010-07-26 12:37:56
+
+two:
+  user_id: 1
+  document_id: 1
+  enabled_at: 2010-07-26 12:37:56
+
+# == Schema Information
+#
+# Table name: downloads
+#
+#  id          :integer(4)      not null, primary key
+#  user_id     :integer(4)
+#  document_id :integer(4)
+#  enabled_at  :datetime
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

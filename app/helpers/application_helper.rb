@@ -10,6 +10,9 @@ module ApplicationHelper
     content_tag(:span,flash[type],:class=>tag_class) unless flash[type].blank?
   end
 
+  def body_classes
+    [controller.controller_name,controller.action_name,@body_class].join(" ")
+  end
   
   def title
     title_name = "DigitalMuni"

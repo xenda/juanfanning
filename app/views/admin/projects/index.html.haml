@@ -1,0 +1,43 @@
+- @title = "Managing #{I18n.t('activerecord.models.project').pluralize} "
+
+#admin.index
+  %section
+    %h2= "Managing #{I18n.t('activerecord.models.project').pluralize}"
+
+    #admin_menu
+      .message
+        %strong= link_to "Create a new #{I18n.t('activerecord.models.project')}", new_admin_project_path
+        , it's easy and fun
+
+  %table{:id=>"projects_table"}
+    %thead
+      %tr
+        %td= I18n.t("activerecord.attributes.projects.project_type").humanize
+        %td= I18n.t("activerecord.attributes.projects.state").humanize
+        %td= I18n.t("activerecord.attributes.projects.description").humanize
+        %td= I18n.t("activerecord.attributes.projects.published_at").humanize
+        %td= I18n.t("activerecord.attributes.projects.issuer").humanize
+        %td= I18n.t("activerecord.attributes.projects.bond_amount").humanize
+        %td= I18n.t("activerecord.attributes.projects.sale_type").humanize
+        %td= I18n.t("activerecord.attributes.projects.status").humanize
+        %td= I18n.t("activerecord.attributes.projects.user_name").humanize
+        %td= I18n.t("activerecord.attributes.projects.delivery_date").humanize
+        %td
+        %td
+    %tbody
+    - @projects.each do |project|
+      %tr{:class=>cycle('even','odd') }
+        %td= project.project_type
+        %td= project.state
+        %td= project.description
+        %td= project.published_at.to_s(:long) if project.published_at
+        %td= project.issuer
+        %td= project.bond_amount
+        %td= project.sale_type
+        %td= project.status
+        %td= project.try(:user).try(:name)
+        %td= project.delivery_date.to_s(:short) if project.delivery_date
+        %td= link_to 'Edit', edit_admin_project_path(project)
+        %td= link_to 'Delete', ["admin",project], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
+      
+  .pagination= will_paginate @projects

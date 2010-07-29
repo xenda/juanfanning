@@ -1,0 +1,16 @@
+- semantic_form_for ["admin",@project], :html => { :enctype => "multipart/
+form-data" } do |form|
+  - form.inputs do
+    = form.inputs :document, :required => false
+    = form.input :state, :input_html => {:class=> "small"}
+    = form.input :project_type, :collection => Project::PROJECT_TYPES, :required => false
+    
+    = form.input :description, :required => false
+    = form.input :issuer, :required => false
+    = form.input :bond_amount, :required => false
+    = form.input :sale_type, :collection => Project::SALE_TYPE, :required => false
+    = hidden_field_tag "project[user_id]", current_admin.id
+    = form.input :delivery_date, :required => false, :as => :date, :order => [:month, :day, :year] #, :selected => Time.now
+    
+  - form.buttons do
+    = form.commit_button 'Save',:button_html => { :class => "submit" }

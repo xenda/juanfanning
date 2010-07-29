@@ -26,6 +26,14 @@ Rails::Initializer.run do |config|
   config.gem "inherited_resources", :version=>"1.0.6"
   config.gem 'will_paginate', :version => '~> 2.3.11'
   config.gem "haml"
+  config.gem(
+    'thinking-sphinx',
+    :lib     => 'thinking_sphinx',
+    :version => '1.3.11'
+  )
+  
+  config.gem "aws-s3", :lib => "aws/s3"
+  config.gem "cancan"
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

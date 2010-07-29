@@ -1,0 +1,23 @@
+%section
+  %h2 Current Projects documents
+  
+  %table
+    %thead
+      %tr
+        %th Status
+        %th State
+        %th Issuer Description
+        %th Date Posted
+        %th 
+    %tbody
+      - @projects.each do |p|
+        %tr
+          %td= p.status.humanize if p.status
+          %td= p.state.upcase
+          %td
+            = link_to p.issuer, p.document.url
+            %br
+            = truncate(p.description, 400)
+          %td= p.published_at.to_s(:short) if p.published_at
+          %td= link_to "Quick info", "#"
+          

@@ -1,0 +1,12 @@
+- @title = "New Project"
+
+#admin
+  %section
+    %h2 New project
+    .message
+      %strong= "Use the below form to insert your new project"
+
+  = render :partial => 'form'
+
+  .bottom_menu
+    %p= link_to "See all", admin_projects_path

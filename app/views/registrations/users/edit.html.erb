@@ -1,0 +1,47 @@
+<h2>Edit Profile</h2>
+
+<p>The Following information is your current profile
+<% form_for resource_name, resource, :url => registration_path(resource_name), :html => { :method => :put } do |f| -%>
+  <%= f.error_messages %>
+
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+
+  <p><%= f.label :email %></p>
+  <p><%= f.text_field :email %></p>
+
+  <p><%= f.label :password%> <i>(leave blank if you don't want to change it)</i></p>
+  <p><%= f.password_field :password, :value => "" %></p>
+
+  <p><%= f.label :password_confirmation %></p>
+  <p><%= f.password_field :password_confirmation %></p>
+
+  <p><%= f.label :company %></p>
+  <p><%= f.text_field :company %></p>
+
+  <p><%= f.label :address1 %></p>
+  <p><%= f.text_field :address1 %></p>
+
+  <p><%= f.label :address2 %></p>
+  <p><%= f.text_field :address2 %></p>
+
+  <p><%= f.label :city %></p>
+  <p><%= f.text_field :city %></p>
+
+  <p><%= f.label :state %></p>
+  <p><%= f.text_field :state %></p>
+
+  <p><%= f.label :zip %></p>
+  <p><%= f.text_field :zip %></p>
+
+  <p><%= f.label :phone %></p>
+  <p><%= f.text_field :phone %></p>
+
+  <p><%= f.submit "Update" %></p>
+<% end -%>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+<%= render :partial => "shared/devise_links" %>

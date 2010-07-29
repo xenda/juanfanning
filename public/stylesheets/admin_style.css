@@ -1,0 +1,252 @@
+/* @override 
+	http://localhost:3000/stylesheets/admin_style.css?1280183621
+	http://localhost:3000/stylesheets/admin_style.css
+*/
+
+body {
+	margin: 0px;
+	font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+.clear {
+	clear: both;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+div#header_content {
+	overflow: auto;
+}
+div#header_content h1 {
+	margin: 0px;
+	float: left;
+	margin-right: 10px;
+}
+div#header_content h1 a {
+	color: #bbbabc;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+#header_content h1 a strong {
+	color: #fffeff;
+}
+div#header {
+	background-color: black;	
+	padding: 10px;
+}
+
+.wrap {
+	width: 980px;
+	margin: 0px auto;	
+}
+
+#container {
+	margin-top: 2em;
+}
+
+#main section h2 {
+	font: bold 26px Arial, Helvetica, Geneva, sans-serif;
+	letter-spacing: -1px;
+	border-bottom: 1px dotted #b0b0b0;
+	padding-bottom: 10px;
+	margin-bottom: 1em;
+}
+
+#main section div.message {
+	
+	padding: 15px 30px;
+	background-color: #feff80;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	border-top: 1px dotted #cbcc68;
+	border-bottom: 1px dotted #cbcc68;
+	margin-bottom: 2em;
+}
+
+#main section div.message a{
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #cb6763;
+}
+
+table#projects_table {
+	font: 12px Helvetica, "Helvetica Neue", Arial, Geneva, sans-serif;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+table#projects_table td,
+table#projects_table th 
+{
+	padding: 10px;
+}
+table#projects_table thead tr {
+	background-color: #ebebeb;
+	border-bottom: 2px solid #bdbdbd;
+}
+div#header a {
+	color: #a1a1a1;
+	text-decoration: underline;
+	font-style: normal;
+	font-weight: normal;
+}
+div#options {
+	float: right;
+	width: 600px;
+	color: #fffeff;
+	display: inline-table;
+}
+
+#options ul.menu {
+	padding-left: 0px;
+	margin: 0px;
+	float: left;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+	width: 300px;
+}
+
+div#logged_as {
+	float: right;
+	font-size: 12px;
+	padding-top: 10px;
+}
+
+#options ul.menu li {
+	float: left;
+	margin-left: 10px;	
+	list-style: none;
+	overflow: hidden;
+	height: 30px;
+	padding-top: 10px;
+
+}
+
+#options ul.menu li a {
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: lowercase;
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding: 5px 15px;
+
+	color: #a2d5fb;
+	background-color: #133273;
+
+}
+
+#options ul.menu li a:hover,
+#options ul.menu li a.active {
+	color: #905c24;
+	background-color: #feb700;	
+}
+
+#options ul.menu li a:active {
+	color: #86866f;
+	background-color: #f1ebd9;	
+}
+
+#footer {
+	margin-top: 2em;
+	padding-top: 2em;
+	clear: both;
+	color: #909090;
+	font-size: 10px;
+	border-top: 1px dotted #b0b0b0;
+}
+
+#footer a {
+	color: #585858;
+}
+
+div#admin label {
+	font: bold 16px Arial, Helvetica, Geneva, sans-serif;
+}
+div#admin input{
+	width: 500px;
+	padding: 5px;
+	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+	color: #8b8d8d;
+	border-style: solid;
+	border-width: 1px;
+}
+
+div#admin textarea {
+	border: 1px solid #a1a1a1;
+	width: 510px;
+}
+
+fieldset.inputs {
+	width: 100%;
+}
+
+input.submit.create {
+  color: #76706e !important; 
+  font: bold 84% 'trebuchet ms',helvetica,sans-serif !important; 
+  background-color: #e8f39c; 
+  border: 1px solid !important; 
+  border-color: #8f7631 #cc895a #8f7631 #cc895a !important; 
+  border-right-color: #cc895a;
+  width: 90px !important; 
+
+}
+input#project_document {
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #fff0b6;
+	border: 1px dotted #fdff69;
+	width: 500px;
+}
+
+li#project_delivery_date_input fieldset ol {
+	float: left;
+	padding-left: 245px !important;
+}
+
+#admin select {
+	width: auto;
+	font-size: 15px;
+}
+
+input.small {
+	width: 100px !important;
+	
+}
+
+#admin div.bottom_menu p {
+	margin-top: 3em;
+	border-top: 1px dotted #cccfcf;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px dotted #cccfcf;
+
+	padding-left: 2em;
+	background-color: #f0f3f3;
+}
+
+#admin div.bottom_menu p a {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	background-color: #edffa1;
+	padding: 5px 15px;
+	color: #000;
+	text-decoration: none;
+	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+}
+
+#admin div.bottom_menu p a:hover {
+	background-color: #f4f819;
+}
+
+fieldset.buttons {
+	clear: both !important;
+	float: none !important;
+	margin-top: 10em;
+	display: block !important;
+	padding-left: 665px !important;
+}

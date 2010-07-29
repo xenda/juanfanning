@@ -1,0 +1,26 @@
+- @title = "Managing #{I18n.t('activerecord.models.<%= singular_name -%>').pluralize} "
+
+#admin.index
+  %h1= "Managing #{I18n.t('activerecord.models.<%= singular_name -%>').pluralize}"
+
+  #admin_menu
+    = link_to "New #{I18n.t('activerecord.models.<%= singular_name -%>')}", new_admin_<%= singular_name -%>_path
+
+  %table{:id=>"<%= plural_name %>_table"}
+    %thead
+      %tr
+        <%- column_names.each do |column| -%>
+        %td= I18n.t("activerecord.attributes.<%= plural_name %>.<%= column %>").humanize
+        <%- end -%>
+        %td
+        %td
+    %tbody
+    - @<%= plural_name -%>.each do |<%= singular_name -%>|
+      %tr{:class=>cycle('even','odd') }
+        <%- column_names.each do |column| -%>
+        %td= <%= singular_name %>.<%= column %>
+        <%- end -%>
+        %td= link_to 'Edit', edit_admin_<%= singular_name %>_path(<%= singular_name %>)
+        %td= link_to 'Delete', ["admin",<%= singular_name %>], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
+      
+  .pagination= will_paginate @<%= plural_name %>

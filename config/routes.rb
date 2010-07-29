@@ -1,7 +1,27 @@
 ActionController::Routing::Routes.draw do |map|
+  
+
+  map.devise_for :admins
+
+  map.resources :projects
+
+  map.resources :downloads
+
   map.resources :pages
 
   map.devise_for :users
+  map.site "/web/:id", :controller=>"pages", :action=>"show"
+  map.root :controller => 'home'
+  
+  map.namespace :member do |member|
+    member.resources :downloads, :collection => { :recent => :get }    
+  end
+  
+  map.namespace :admin do |admin|
+    admin.connect "/", :controller => "home", :action => "index"
+		admin.resources :projects 
+  end
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -42,7 +62,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.root :controller => 'home'
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+
+  # map.connect ':controller/:action/:id'
+  # map.connect ':controller/:action/:id.:format'
 end

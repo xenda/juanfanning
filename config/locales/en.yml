@@ -3,3 +3,20 @@
 
 en:
   hello: "Hello world"
+  
+  activerecord:
+    models:
+      project: project
+    attributes:
+      projects:
+        id: Id
+        project_type: Project Type
+        state: State
+        description: Description
+        published_at: Published at
+        issuer: Issuer
+        bond_amount: Bond Amount
+        sale_type: Sale Type
+        status: Status
+        delivery_date: Delivery Date
+        user_name: User Name
