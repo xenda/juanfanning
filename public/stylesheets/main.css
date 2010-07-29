@@ -48,7 +48,46 @@ header h1 {
 
 #header_content nav.util ul.secondary {
 	float: right;
-	margin-top: 20px;
+	margin-top: 25px;
+}
+
+.registrations.edit #main section p {
+	color: #597b93;
+	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+	margin-bottom: 20px;
+}
+
+#main section h3 {
+	font: bold 20px Arial, Helvetica, Geneva, sans-serif;
+	letter-spacing: -1px;
+	padding-bottom: 0px;
+	margin-bottom: 0em;
+	color: #404040;
+
+}
+
+.registrations fieldset {
+	border: none;	
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #b0b0b0;
+}
+
+fieldset#additional {
+	border: none;	
+}
+
+.pages #main section p {
+	color: #404040;
+	font-size: 12px;
+	width: 600px;
+	line-height: 1.6em;
+}
+
+#main section p a {
+	color: #585858;
+	font-family: Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+	font-weight: normal;
+	font-style: normal;
 }
 
 div#search_bar {
@@ -69,9 +108,17 @@ div#search_bar {
 	margin: 0px;
 }
 header div#header_content.wrap nav.util {
-	width: 400px;
+	width: 500px;
 	overflow: auto;
 	float: right;
+}
+
+#header_content nav.util span {
+	margin-top: 8px;
+	display: block;
+	float: left;
+	margin-left: 60px;
+	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 }
 
 header div#header_content.wrap nav.util ul.main {
@@ -267,6 +314,7 @@ display: none;
 	border: 2px solid #90c6e9;
 }
 
+
 .tdtip .top ul {
 	padding-left: 0px;
 	margin-top: 5px;
@@ -300,4 +348,55 @@ display: none;
 .tdtip {
 margin: 0 auto;
 display: block;
+}
+
+
+.sessions #main section form p label,
+.passwords #main section form p label,
+.registrations #main section form p label {
+	color: #404040;
+	font-family: Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+	font-size: 16px;
+}
+
+.sessions #main section form p input,
+.passwords #main section form p input,
+.registrations #main section form p input {
+	padding: 5px;
+	width: 300px;
+}
+
+input#user_remember_me {
+	width: 20px !important;
+}
+
+input#user_submit {
+	
+  color: #76706e !important; 
+  font: bold 84% 'trebuchet ms',helvetica,sans-serif !important; 
+  background-color: #e8f39c; 
+  border: 1px solid !important; 
+  border-color: #8f7631 #cc895a #8f7631 #cc895a !important; 
+  border-right-color: #cc895a;
+  width: 90px !important; 
+	margin-left: 225px;
+}
+#main section nav.navigation {
+	overflow: auto;
+	padding-top: 1em;
+	border-top: 1px dotted #b0b0b0;
+	margin-top: 2em;
+}
+#main section nav.navigation a {
+	float: left;
+	display: block;
+	width: auto;
+	margin-right: 20px;
+	color: #182862;
+	padding-bottom: 2px;
+	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+	margin-bottom: 10px;
+	text-decoration: none;
+	text-transform: lowercase;
+	border-bottom: 1px dotted #bbafba;
 }

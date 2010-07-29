@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
   after_save :generate_slug
   validates_presence_of :title
   
-  belongs_to :user
+  belongs_to :admin, :foreign_key => "user_id"
   
   def generate_slug
     unless self.slug

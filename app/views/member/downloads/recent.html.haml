@@ -1,0 +1,47 @@
+%section
+  %h2 Recent downloads
+  
+  %table
+    %thead
+      %tr
+        %th Status
+        %th State
+        %th Issuer Description
+        %th Date Posted
+        %th 
+    %tbody
+      - @downloads.each do |p|
+        %tr
+          %td= p.status.humanize if p.status
+          %td= p.state.upcase
+          %td
+            = link_to p.issuer, p.document.url
+            %br
+            = truncate(p.description, 400)
+          %td= p.published_at.to_s(:short) if p.published_at
+          %td.tdtip
+            = link_to "Quick info", "#", :class=>"tip"
+            .top 
+              %h3 Quick info
+              %ul
+                %li 
+                  .content
+                    %strong= p.issuer
+                    = p.description
+                - if p.ratings
+                  %li
+                    .content
+                      %strong Ratings
+                      - if p.ratings
+                        p.ratings.split(",").join("<br />")
+                - if p.underwriters
+                  %li
+                    .content
+                      %strong Underwriter(s)
+                      = p.underwriters
+                - if p.bond_amount
+                  %li
+                    .content
+                      %strong Dollar value
+                      = p.bond_amount
+                  

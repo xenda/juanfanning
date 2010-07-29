@@ -1,6 +1,9 @@
 class Download < ActiveRecord::Base
   
-  belongs_to :object, :class_name => "Object", :foreign_key => "object_id"
+  belongs_to :user
+  belongs_to :document
+  
+  named_scope :recent, :order=>"created_at DESC", :limit => 10
   
 end
 

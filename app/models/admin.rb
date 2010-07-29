@@ -8,6 +8,8 @@ class Admin < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :role,:name,:remember_me
   
   ROLES = %w[admin moderator banned]
+  
+  has_many :pages, :class_name => "page", :foreign_key => "user_id"
     
 end
 
