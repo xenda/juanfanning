@@ -21,17 +21,17 @@ class Project < ActiveRecord::Base
   
   
   
-  define_index do
-     indexes project_type, :sortable => true
-     indexes state
-     indexes description
-     indexes issuer
-     indexes bond_amount
-     indexes sale_type
-     indexes status
-     indexes author(:name), :as => :author, :sortable => true
-     has user_id, created_at, updated_at
-   end
+  # define_index do
+  #    indexes project_type, :sortable => true
+  #    indexes state
+  #    indexes description
+  #    indexes issuer
+  #    indexes bond_amount
+  #    indexes sale_type
+  #    indexes status
+  #    indexes author(:name), :as => :author, :sortable => true
+  #    has user_id, created_at, updated_at
+  #  end
   
    has_attached_file :document,:storage => :s3,:s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension"
   
