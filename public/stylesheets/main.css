@@ -84,18 +84,24 @@ header div#header_content.wrap nav.util ul.main {
 	-webkit-border-bottom-right-radius: 8px;
 	-moz-border-radius-bottomleft: 8px;
 	-moz-border-radius-bottomright: 8px;
-	width: 185px;
+	width: auto;
 	float: right;
 }
 
-#header_content h1 a {
+#header_content h1 a,
+#header_content h1 a:active,
+#header_content h1 a:visited {
 	text-indent: -9999px !important;
 	font-size: 0px;
+	text-decoration: none !important;
+	border: none !important;
 }
 
 #header_content h1 a img {
 	width: 250px;
 	margin-top: 20px;
+	text-decoration: none;
+	border: none;
 }
 
 #menu a {
@@ -126,10 +132,12 @@ nav.util ul.secondary a {
 	text-decoration: none;
 }
 div#main {
-	overflow: auto;
+	overflow: hidden;
 	border-top-style: solid;
 	border-top-width: 3px;
 	color: #90c6e9;
+	height: auto;
+	padding-bottom: 80px;
 }
 
 nav.util ul.secondary a {
@@ -232,4 +240,64 @@ table tbody tr.odd {
 }
 table tbody tr:hover {
 background-color: #fdff7d;	
+}
+
+.tdtip {
+margin: 100px auto;
+padding: 0;
+width: 100px;
+position: relative;
+vertical-align: bottom;
+}
+
+#main section table tbody tr td.tdtip a.tip {
+	margin-top: 15px;
+	display: block;
+}
+ 
+.tdtip .top {
+background: #fffeff url(bubble.png) no-repeat;
+width: 200px;
+height: 210px;
+position: absolute;
+top: -105px;
+left: -60px;
+z-index: 2;
+display: none;
+	border: 2px solid #90c6e9;
+}
+
+.tdtip .top ul {
+	padding-left: 0px;
+	margin-top: 5px;
+}
+
+.tdtip .top ul li {
+	list-style: none;
+	text-align: left;
+	font-size: 11px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+
+}
+.tdtip .top ul li  strong {
+	display: block;
+}
+.tdtip .top ul li .content {
+	padding-left: 10px;
+	border-bottom: 1px dotted #bfbfbf;
+	padding-bottom: 3px;
+}
+#main section table tbody tr td.tdtip div.top h3 {
+	margin: 0;
+	padding: 5px;
+	background-color: #ccfff6;
+}
+.tdtip .top em{
+	color: black;
+}
+ 
+.tdtip {
+margin: 0 auto;
+display: block;
 }

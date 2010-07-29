@@ -84,10 +84,21 @@ table#projects_table th
 {
 	padding: 10px;
 }
+table#projects_table td a {
+	color: #5b5c5c;
+}
+
 table#projects_table thead tr {
 	background-color: #ebebeb;
 	border-bottom: 2px solid #bdbdbd;
 }
+#projects_table tbody tr.odd {
+	background-color: #faffd1;
+}
+#projects_table tbody tr:hover {
+background-color: #fdff7d;	
+}
+
 div#header a {
 	color: #a1a1a1;
 	text-decoration: underline;

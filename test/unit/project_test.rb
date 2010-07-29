@@ -12,6 +12,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -34,5 +35,6 @@ end
 #  document_content_type :string(255)
 #  document_updated_at   :datetime
 #  underwriters          :string(255)
+#  ratings               :string(255)
 #
 

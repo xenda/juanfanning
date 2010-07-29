@@ -11,12 +11,12 @@
             = image_tag ("logo.jpg")
             = "DigitalMuni"
         %nav.util
+          = "Welcome back #{current_user.name}!" if current_user
           %ul.main
             - unless user_signed_in?
               %li= link_to "Login", new_user_session_path
               %li= link_to "Create new account", new_user_registration_path
             - else
-              %li= "Welcome back #{current_user.name}!"
               %li= link_to "Account", edit_user_registration_path            
               %li= link_to "Logout", destroy_user_session_path
               %li.last= link_to "Recent downloads", recent_member_downloads_path

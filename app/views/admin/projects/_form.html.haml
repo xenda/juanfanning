@@ -6,6 +6,8 @@ form-data" } do |form|
     = form.input :project_type, :collection => Project::PROJECT_TYPES, :required => false
     
     = form.input :description, :required => false
+    = form.input :underwriters, :required => false
+    = form.input :ratings, :required => false, :hint => "Separate them by commas, such as: 'S&P: AA-, Moody\'s: Aa2'"
     = form.input :issuer, :required => false
     = form.input :bond_amount, :required => false
     = form.input :sale_type, :collection => Project::SALE_TYPE, :required => false
