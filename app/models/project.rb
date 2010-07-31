@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   
-  belongs_to :user
+  belongs_to :admin, :foreign_key => "user_id"
   has_many :downloads, :foreign_key => "document_id"
   
   PROJECT_TYPES = {
