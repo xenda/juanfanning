@@ -35,7 +35,7 @@
         %td= project.bond_amount
         %td= project.sale_type
         %td= project.status
-        %td= project.try(:user).try(:name)
+        %td= project.try(:admin).try(:name)
         %td= project.delivery_date.to_s(:short) if project.delivery_date
         %td= link_to 'Edit', edit_admin_project_path(project)
         %td= link_to 'Delete', ["admin",project], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
