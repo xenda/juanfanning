@@ -1,0 +1,32 @@
+- @title = "Managing #{I18n.t('activerecord.models.page').pluralize} "
+
+#admin.index
+  %h1= "Managing #{I18n.t('activerecord.models.page').pluralize}"
+
+  #admin_menu
+    = link_to "New #{I18n.t('activerecord.models.page')}", new_admin_page_path
+
+  %table{:id=>"pages_table"}
+    %thead
+      %tr
+        %td= I18n.t("activerecord.attributes.pages.title").humanize
+        %td= I18n.t("activerecord.attributes.pages.content").humanize
+        %td= I18n.t("activerecord.attributes.pages.slug").humanize
+        %td= I18n.t("activerecord.attributes.pages.published_at").humanize
+        %td= I18n.t("activerecord.attributes.pages.status").humanize
+        %td= I18n.t("activerecord.attributes.pages.user_id").humanize
+        %td
+        %td
+    %tbody
+    - @pages.each do |page|
+      %tr{:class=>cycle('even','odd') }
+        %td= page.title
+        %td= page.content
+        %td= page.slug
+        %td= page.published_at
+        %td= page.status
+        %td= page.user.name
+        %td= link_to 'Edit', edit_admin_page_path(page)
+        %td= link_to 'Delete', ["admin",page], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
+      
+  .pagination= will_paginate @pages

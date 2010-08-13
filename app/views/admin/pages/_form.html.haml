@@ -1,0 +1,11 @@
+- semantic_form_for ["admin",@page] do |form|
+  - form.inputs do
+    = form.input :title
+    = form.input :content
+    = form.input :slug, :hint => "If none is entered, we will create one based on your title"
+    = form.input :published_at
+    = form.input :status
+    = form.input :user
+    
+  - form.buttons do
+    = form.commit_button 'Save',:button_html => { :class => "submit" }

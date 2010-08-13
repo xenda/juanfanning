@@ -3,6 +3,9 @@
   %head
     %title= title
     = stylesheet_link_tag "reset", "main", "#{controller.controller_name}"
+    /[if IE]
+      :erb
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   %body{:class=>body_classes}
     %header
       #header_content.wrap

@@ -7,6 +7,7 @@ en:
   activerecord:
     models:
       project: project
+      page: page
     attributes:
       projects:
         id: Id
@@ -20,3 +21,11 @@ en:
         status: Status
         delivery_date: Delivery Date
         user_name: User Name
+      pages:
+        id: Id
+        title: Title
+        content: Content
+        slug: Slug
+        published_at: Published at
+        status: Status
+        user_id: User
