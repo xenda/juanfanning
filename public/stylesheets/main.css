@@ -335,6 +335,7 @@ footer .wrap ul li {
 }
 footer a {
 	color: white;
+	font-size: 11px;
 }
 footer a:hover {
 	color: black;
