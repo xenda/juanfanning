@@ -110,7 +110,7 @@ div#header a {
 }
 div#options {
 	float: right;
-	width: 700px;
+	width: 740px;
 	color: #fffeff;
 	display: inline-table;
 }
@@ -120,7 +120,7 @@ div#options {
 	margin: 0px;
 	float: left;
 	font-family: Arial, Helvetica, Geneva, sans-serif;
-	width: 450px;
+	width: 500px;
 }
 
 div#logged_as {
@@ -149,8 +149,8 @@ div#logged_as {
 	-moz-border-radius: 5px;
 	padding: 5px 15px;
 
-	color: #a2d5fb;
-	background-color: #133273;
+	color: #fff8f0;
+	background-color: #3c3d3d;
 
 }
 
@@ -225,6 +225,13 @@ li#project_delivery_date_input fieldset ol {
 #admin select {
 	width: auto;
 	font-size: 11px !important;
+}
+
+#main actions ul {
+	padding: 10px;
+	padding-left: 40px;
+	padding-top: 20px;
+	background-color: #f8ffb3;
 }
 
 input.small {
@@ -306,8 +313,19 @@ input#number {
 	font-size: 11px;
 	padding: 5px;
 	display: block;
+	overflow: hidden;
 }
 #filters li a:hover {
 	color: #fffeff;
 	background-color: #3b3b3b;
+}
+
+#main actions ul li {
+	margin-bottom: 10px;
+}
+#main actions ul li a {
+	color: #4e4e4e;
+}
+#main actions ul li a:hover {
+	color: black;
 }

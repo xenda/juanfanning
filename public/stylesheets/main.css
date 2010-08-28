@@ -366,9 +366,12 @@ table th
 	padding: 8px 10px;
 }
 table td a {
-	color: #315f7b;
+	color: #2e6fb4;
 	font-weight: bold;
 	text-decoration: none;
+	font-size: 12px;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
 }
 
 table td a:hover {
