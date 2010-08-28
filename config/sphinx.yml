@@ -1,0 +1,25 @@
+development:
+ enable_star:    1
+ min_prefix_len: 3
+ html_strip:     1
+ # morphology: stem_es
+ charset_table: "0..9, A..Z->a..z, _, -, a..z, U+410..U+42F->U+430..U+44F, U+430..U+44F, \
+                 U+C7->U+E7, U+E7, \
+                 U+D1->U+F1, U+F1, \
+                 U+DD->y, U+FD->y, \
+                 U+C0->a, U+C1->a, U+C2->a, U+C3->a, U+C4->a, U+C5->a, \
+                 U+E0->a, U+E1->a, U+E2->a, U+E3->a, U+E4->a, U+E5->a, \
+                 U+C8->e, U+C9->e, U+CA->e, U+CB->e, \
+                 U+E8->e, U+E9->e, U+EA->e, U+EB->e, \
+                 U+CC->i, U+CD->i, U+CE->i, U+CF->i, \
+                 U+EC->i, U+ED->i, U+EE->i, U+EF->i, \
+                 U+D2->o, U+D3->o, U+D4->o, U+D5->o, U+D6->o, \
+                 U+F2->o, U+F3->o, U+F4->o, U+F5->o, U+F6->o, \
+                 U+D9->u, U+DA->u, U+DB->u, U+DC->u, \
+                 U+F9->u, U+FA->u, U+FB->u, U+FC->u" 
+
+production:
+ bin_path: '/usr/local/bin'
+ enable_star:    1
+ min_prefix_len: 3
+ html_strip:     1

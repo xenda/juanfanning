@@ -26,14 +26,17 @@ Rails::Initializer.run do |config|
   config.gem "inherited_resources", :version=>"1.0.6"
   config.gem 'will_paginate', :version => '~> 2.3.11'
   config.gem "haml"
-  # config.gem(
-  #   'thinking-sphinx',
-  #   :lib     => 'thinking_sphinx',
-  #   :version => '1.3.11'
-  # )
+  config.gem(
+    'thinking-sphinx',
+    :lib     => 'thinking_sphinx',
+    :version => '1.3.11'
+  )
   
   config.gem "aws-s3", :lib => "aws/s3"
   config.gem "cancan"
+  config.gem "docsplit"
+  config.gem "hominid"
+  
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -54,3 +57,9 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+api_key = "SOMETHING_HERE"
+$hominid = Hominid::Base.new :api_key => api_key
+# $all_id = $hominid.find_list_id_by_name("All")
+# $competitive_id = $hominid.find_list_id_by_name("Competitive")
+# $negotiated_id = $hominid.find_list_id_by_name("Negotiated")

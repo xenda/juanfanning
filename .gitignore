@@ -1,3 +1,6 @@
 log/
 tmp/
-
+example.pdf
+.DS_Store
+db/sphinx
+public/system

@@ -11,6 +11,10 @@ class Page < ActiveRecord::Base
     end
   end
   
+  def self.get(name)
+    Page.find_by_title(name)
+  end
+  
 end
 
 # == Schema Information

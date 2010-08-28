@@ -7,14 +7,61 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :name, :role,:company, :address1, :address2, :city, :state, :zip, :phone 
   
- 
-
+ before_save :verify_change
+ after_save :update_suscription
 
   ROLES = %w[user banned]
-  
+  SALE_TYPE = {
+                :all => "all",
+                :competitive => "competitive",
+                :negotiated => "negotiated"
+                
+              }
 
   has_many :downloads
   named_scope :downloaders, :joins=>:downloads,:conditions=>["id in (select user_id from downloads group by user_id)"]
+  
+  def download_for(project)
+    download = self.downloads.find(:all, :conditions => {:document_id => project.id })
+    return download.first if download
+    return nil
+  end
+  
+  def verify_change
+    @changed = self.interest != self.interest_was
+    @interested = self.interest_was
+  end
+  
+  def update_suscription
+    if @changed
+      case @interested
+        when SALE_TYPE[:all]
+          unsuscribe_from($all_id)
+        when SALE_TYPE[:competitive]
+          unsuscribe_from($competitive_id)
+        when SALE_TYPE[:negotiated]
+          unsuscribe_from($negotiated_id)
+      end
+      
+      case self.interest
+        when SALE_TYPE[:all]
+          suscribe_to($all_id)
+        when SALE_TYPE[:competitive]
+          suscribe_to($competitive_id)
+        when SALE_TYPE[:negotiated]
+          suscribe_to($negotiated_id)
+      end
+    end
+    
+  end
+  
+  def unsuscribe_from(list_id)
+    $hominid.unsuscribe(list_id,self.email,{:delete_member => false})
+  end
+  
+  def suscribe_to(list_id)
+    $hominid.suscribe(list_id,self.email)
+  end
   
   
 end

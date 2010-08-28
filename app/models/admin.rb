@@ -11,6 +11,10 @@ class Admin < ActiveRecord::Base
   
   has_many :pages, :class_name => "page", :foreign_key => "user_id"
     
+  def complete?
+    role != "supervisor"
+  end
+    
 end
 
 

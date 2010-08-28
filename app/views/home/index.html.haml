@@ -11,16 +11,16 @@
         %th 
     %tbody
       - @projects.each do |p|
-        %tr
+        %tr{:class => (cycle("even","odd"))}
           %td= p.status.humanize if p.status
           %td= p.state.upcase
           %td
-            - link_to new_member_project_download_path(p) do
-              = (p.issuer || "Unknown")
+            - link_to access_member_project_path(p) do
+              = p.issuer_name
 
             %br
             = truncate(p.description, 400)
-          %td= p.published_at.to_s(:short) if p.published_at
+          %td= p.created_at.to_s(:short) if p.created_at
           %td.tdtip
             = link_to "Quick info", "#", :class=>"tip"
             .top 
@@ -28,7 +28,7 @@
               %ul
                 %li 
                   .content
-                    %strong= p.issuer
+                    %strong= p.issuer_name
                     = p.description
                 - if p.ratings
                   %li

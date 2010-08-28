@@ -1,6 +1,7 @@
 /* @override 
 	http://localhost:3000/stylesheets/admin_style.css?1280183621
 	http://localhost:3000/stylesheets/admin_style.css
+	http://digitalmuni.xendacentral.com/stylesheets/admin_style.css?1282013480
 */
 
 body {
@@ -31,6 +32,7 @@ div#header_content h1 a {
 	font-weight: bold;
 	text-decoration: none;
 	text-transform: lowercase;
+	font-size: 20px;
 }
 
 #header_content h1 a strong {
@@ -77,8 +79,8 @@ table#projects_table {
 	font: 12px Helvetica, "Helvetica Neue", Arial, Geneva, sans-serif;
 	text-align: center;
 	border-collapse: collapse;
+	width: 100%;
 }
-
 table#projects_table td,
 table#projects_table th 
 {
@@ -89,8 +91,9 @@ table#projects_table td a {
 }
 
 table#projects_table thead tr {
-	background-color: #ebebeb;
-	border-bottom: 2px solid #bdbdbd;
+	background-color: #3c3d3d;
+	border-bottom: 2px solid #141515;
+	color: white;
 }
 #projects_table tbody tr.odd {
 	background-color: #faffd1;
@@ -107,7 +110,7 @@ div#header a {
 }
 div#options {
 	float: right;
-	width: 600px;
+	width: 700px;
 	color: #fffeff;
 	display: inline-table;
 }
@@ -117,7 +120,7 @@ div#options {
 	margin: 0px;
 	float: left;
 	font-family: Arial, Helvetica, Geneva, sans-serif;
-	width: 300px;
+	width: 450px;
 }
 
 div#logged_as {
@@ -183,8 +186,7 @@ div#admin input{
 	padding: 5px;
 	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	color: #8b8d8d;
-	border-style: solid;
-	border-width: 1px;
+	border: 1px solid #838383;
 }
 
 div#admin textarea {
@@ -222,7 +224,7 @@ li#project_delivery_date_input fieldset ol {
 
 #admin select {
 	width: auto;
-	font-size: 15px;
+	font-size: 11px !important;
 }
 
 input.small {
@@ -261,4 +263,51 @@ fieldset.buttons {
 	margin-top: 10em;
 	display: block !important;
 	padding-left: 665px !important;
+}
+
+#filters {
+	margin: 10px 0px;
+	margin-top: 0px;
+	overflow: auto;
+	padding: 0px;
+}
+#filters li {
+	float: left;
+	list-style: none;
+	margin-right: 0px;	
+	overflow: auto;
+}
+
+body.reports #filters li {
+	margin-right: 30px;
+}
+
+#filters li form {
+	font-size: 11px;
+}
+
+#filters li form input {
+	width: 40px;
+	font-size: 11px !important;
+	background-color: #3c3d3d;
+	color: #fffeff;
+	padding: 5px 10px;
+	border: none;
+}
+
+input#number {
+	background-color: #fffeff !important;
+	border: 1px solid #888 !important;
+	color: #323232 !important;
+}
+
+#filters li a {
+	color: #383838;
+	font-size: 11px;
+	padding: 5px;
+	display: block;
+}
+#filters li a:hover {
+	color: #fffeff;
+	background-color: #3b3b3b;
 }

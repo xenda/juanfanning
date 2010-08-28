@@ -14,10 +14,12 @@
               <strong>DigitalMuni</strong>Dashboard
           #options
             %ul.menu
-              %li= link_to 'Home', root_path
+              %li= link_to 'Site', root_path
               %li= link_to 'Dashboard', "/admin"
               = display_app_models_links :ul => false
-
+              - if current_admin.complete?
+                %li= link_to 'Reports', admin_reports_path
+              
             - if admin_signed_in?
               #logged_as
                 = "Logged as"

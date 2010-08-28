@@ -1,0 +1,50 @@
+- @title = "Managing #{I18n.t('activerecord.models.download').pluralize} "
+
+#admin.index
+  %section
+    %h2= "Managing #{I18n.t('activerecord.models.download').pluralize}"
+
+    #admin_menu
+      .message
+        %strong Listing
+        users who downloaded projects
+
+    %ul#filters
+      %li= link_to "All downloads", admin_reports_path
+      %li
+        - form_tag filter_date_path do
+          From: 
+          = select_date Time.zone.now, :prefix => "from"
+          To:
+          = select_date Time.zone.now, :prefix => "to"
+          = submit_tag "filter"
+      %li
+        - form_tag filter_number_path do
+          By bond number
+          = text_field_tag "number"
+          = submit_tag "filter"
+  
+
+  %table{:id=>"projects_table"}
+    %thead
+      %tr
+        %td Bond #
+        %td Issuer name
+        %td Issue amount
+        %td User name
+        %td Email
+        %td Date of download
+    %tbody
+    - if @downloads.empty?
+      %tr
+        %td{:colspan => 13} No registered downloads found
+    - @downloads.each do |download|
+      %tr{:class=>cycle('even','odd') }
+        %td= download.project.bond_number
+        %td= download.project.issuer_name
+        %td= download.project.bond_amount
+        %td= download.user.name
+        %td= download.user.email
+        %td= download.created_at.to_s(:short)
+      
+  .pagination= will_paginate @downloads

@@ -22,9 +22,12 @@
     %em= @download.project.document_file_size
     %br
     
+    .button=link_to "Share", share_member_download_path(@download)
+    
   %section#document.left
     =link_to "Download file", @download.project.document.url
     
     .pdf_preview
+      = image_tag @download.project.preview.url(:small)
     
   .clear

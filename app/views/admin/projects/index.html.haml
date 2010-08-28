@@ -9,6 +9,12 @@
         %strong= link_to "Create a new #{I18n.t('activerecord.models.project')}", new_admin_project_path
         , it's easy and fun
 
+  - if current_admin.complete?
+    %ul#filters
+      %li= link_to "All projects", admin_projects_path
+      %li= link_to "Active projects", :filter => "active"
+      %li= link_to "Pending projects", :filter => "pending"
+
   %table{:id=>"projects_table"}
     %thead
       %tr
@@ -24,7 +30,12 @@
         %td= I18n.t("activerecord.attributes.projects.delivery_date").humanize
         %td
         %td
+        %td
+        %td
     %tbody
+    - if @projects.empty?
+      %tr
+        %td{:colspan => 13} No registered projects found
     - @projects.each do |project|
       %tr{:class=>cycle('even','odd') }
         %td= project.project_type
@@ -37,6 +48,8 @@
         %td= project.status
         %td= project.try(:admin).try(:name)
         %td= project.delivery_date.to_s(:short) if project.delivery_date
+        %td= (link_to "Activate", publish_admin_project_path(project)) unless (project.published? or not current_admin.complete?)
+        %td= link_to "Show", admin_project_path(project)
         %td= link_to 'Edit', edit_admin_project_path(project)
         %td= link_to 'Delete', ["admin",project], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
       

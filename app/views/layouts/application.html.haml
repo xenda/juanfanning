@@ -2,7 +2,7 @@
 %html
   %head
     %title= title
-    = stylesheet_link_tag "reset", "main", "#{controller.controller_name}"
+    = stylesheet_link_tag "reset", "main", "#{controller.controller_name}", "formtastic"
     /[if IE]
       :erb
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,14 +23,14 @@
               %li= link_to "Account", edit_user_registration_path            
               %li= link_to "Logout", destroy_user_session_path
               %li= link_to "Recent downloads", recent_member_downloads_path
-            %li.last= link_to "RSS", "#"
+            %li.last= link_to "RSS", rss_path
           %ul.secondary
             %li= link_to "Securex", "http://secfile.net"
             %li.last= link_to "DigitalMuni.com is a qualified Portal under MSRB Rule G-32", "http://emma.msrb.org"          
         .clear
     #content
-      #wrapper.wrap
-        %nav#menu
+      %nav#menu
+        .wrap
           %ul.principal.left
             %li= link_to "Home", root_path
             %li= link_to "About", site_path("about")
@@ -39,10 +39,11 @@
             %li.last= link_to "FAQ", site_path("faq")
           #search_bar.right
             - form_tag "/search" do
-              = text_field_tag "terms", "Search documents"
+              = text_field_tag "terms", "Search documents by any term (Issuer, CUSIP, Description, etc)"
               = submit_tag "Search"
           .clear 
-            
+
+      #wrapper.wrap    
         #main
           = display_flashes
           = yield
@@ -57,7 +58,7 @@
             %li= link_to "Home", root_path
             %li= link_to "Copyright", site_path("copyright")
             %li= link_to "Terms and Conditions ", site_path("terms-and-conditions")
-            %li= link_to "Print", "#", :class=>"print_pdf"
-            %li= link_to "Email", "#", :class=>"email"
+            %li= link_to "Print", site_path("print"), :class=>"print_pdf"
+            %li= link_to "Email", site_path("email"), :class=>"email"
             %li= link_to "Privacy Policy", site_path("privacy-policy"), :class=>"email"
     = javascript_include_tag "jquery", "jquery-ui", "jrails", "application", :cache => true

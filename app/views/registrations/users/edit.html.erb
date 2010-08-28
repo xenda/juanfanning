@@ -46,6 +46,10 @@
   
   </fieldset>
 
+  <fieldset id="suscriptions">
+    <p><%= f.label :interest, "Subscribe to receive projects from type:" %></p>
+    <p><%= collection_select :user, :interest, User::SALE_TYPE.values, :to_s, :to_s %></p>
+  </fieldset>
 
   <p><%= f.submit "Update" %></p>
 <% end -%>

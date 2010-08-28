@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100729164043) do
+ActiveRecord::Schema.define(:version => 20100827182953) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "",           :null => false
@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(:version => 20100729164043) do
 
   create_table "projects", :force => true do |t|
     t.string   "project_type",                                         :default => "preliminary", :null => false
-    t.string   "state",                                                :default => "unpublished", :null => false
+    t.string   "state",                                                :default => "0",           :null => false
     t.text     "description"
     t.datetime "published_at"
     t.string   "issuer"
     t.decimal  "bond_amount",           :precision => 12, :scale => 2
     t.string   "sale_type",                                            :default => "competitive"
-    t.string   "status"
+    t.string   "status",                                               :default => "unpublished"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -76,6 +76,24 @@ ActiveRecord::Schema.define(:version => 20100729164043) do
     t.datetime "document_updated_at"
     t.string   "underwriters"
     t.string   "ratings"
+    t.string   "preview_file_name"
+    t.integer  "preview_file_size"
+    t.string   "preview_content_type"
+    t.datetime "preview_updated_at"
+    t.string   "cusip"
+    t.boolean  "delta",                                                :default => true,          :null => false
+    t.string   "bond_number"
+  end
+
+  create_table "shares", :force => true do |t|
+    t.string   "from"
+    t.string   "from_email"
+    t.string   "to_email"
+    t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+    t.text     "content"
   end
 
   create_table "users", :force => true do |t|
@@ -104,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20100729164043) do
     t.string   "state"
     t.string   "zip"
     t.string   "phone"
+    t.string   "interest",                            :default => "all"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

@@ -1,0 +1,25 @@
+%section
+  %h2 Sharing Link
+
+  %p Share the project with someone you know through the following form:
+  
+  %section#description
+    %h3= @download.project.issuer
+    %p= truncate(@download.project.description, 400)
+  
+  %section#disclaimer
+  
+    #sharing
+      - semantic_form_for ["member",@share] do |f|
+        - f.inputs do 
+          = f.input :from
+          = f.input :from_email
+          = f.input :to_email
+          = f.input :subject
+          = f.input :content
+          = f.hidden_field "project_id", :value => @share.project.id
+        - f.buttons do
+          = f.commit_button "Send"
+      =link_to "Cancel", member_download_path(@download)
+    
+  .clear

@@ -8,6 +8,8 @@ en:
     models:
       project: project
       page: page
+      download: download
+      admin: admin users
     attributes:
       projects:
         id: Id

@@ -4,10 +4,45 @@
 
   %h1= "Viewing #{I18n.t 'activerecord.models.project'}"
 
-  - show_for @project do |a| 
-    = a.attribute :project_type        = a.attribute :state        = a.attribute :description        = a.attribute :published_at        = a.attribute :issuer        = a.attribute :bond_amount        = a.attribute :sale_type        = a.attribute :status        = a.attribute :user        = a.attribute :delivery_date    
+  %p
+    %strong Issuer
+    = @project.issuer        
+
+  %section#document
+    =link_to "Download file", @project.document.url
+
+    .pdf_preview
+      - link_to @project.document.url do
+        = image_tag @project.preview.url(:small), :width => 100
+
+  %p
+    %strong Project Type:
+    = @project.project_type        
+  %p
+    %strong State:
+    = @project.state       
+  %p
+    %strong Description
+    = @project.description        
+  %p
+    %strong Description
+    = @project.published_at        
+  %p
+    %strong Bond amount
+    = @project.bond_amount        
+  %p
+    %strong Sale Type:
+    = @project.sale_type        
+
+  %p
+    %strong Delivery Date
+    = @project.delivery_date    
+
+  %p
+    %strong Uploader:
+    = @project.admin.name        
 
   .bottom_menu
     = link_to "See all", admin_projects_path
-    = link_to "Edit #{I18n.t 'activerecord.models.project'}",  edit_admin_project_path(project)
+    = link_to "Edit #{I18n.t 'activerecord.models.project'}",  edit_admin_project_path(@project)
     = link_to "Create another", new_admin_project_path

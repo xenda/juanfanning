@@ -1,17 +1,23 @@
 - semantic_form_for ["admin",@project], :html => { :enctype => "multipart/form-data" } do |form|
   - form.inputs do
+    = form.input :issuer, :required => false
+    = "Uploaded: #{file_name}"
     = form.inputs :document, :required => false
+
+    = form.input :bond_number, :required => false  
     = form.input :state, :input_html => {:class=> "small"}
     = form.input :project_type, :collection => Project::PROJECT_TYPES, :required => false
     
-    = form.input :description, :required => false
+    = form.input :description, :required => false, :input_html => {:class => "tinymce"}
     = form.input :underwriters, :required => false
     = form.input :ratings, :required => false, :hint => "Separate them by commas, such as: 'S&P: AA-, Moody\'s: Aa2'"
-    = form.input :issuer, :required => false
+
     = form.input :bond_amount, :required => false
+    = form.input :cusip, :required => false, :label => "CUSIP"
+
     = form.input :sale_type, :collection => Project::SALE_TYPE, :required => false
-    = hidden_field_tag "project[user_id]", current_admin.id
     = form.input :delivery_date, :required => false, :as => :date, :order => [:month, :day, :year] #, :selected => Time.now
+    = hidden_field_tag "project[user_id]", current_admin.id
     
   - form.buttons do
     = form.commit_button 'Save',:button_html => { :class => "submit" }

@@ -16,7 +16,7 @@
           %td= p.status.humanize if p.status
           %td= p.state.upcase
           %td
-            = link_to p.issuer, p.document.url
+            = link_to p.issuer_name, p.document.url
             %br
             = truncate(p.description, 400)
           %td= p.published_at.to_s(:short) if p.published_at
@@ -34,7 +34,7 @@
                     .content
                       %strong Ratings
                       - if p.ratings
-                        p.ratings.split(",").join("<br />")
+                        = p.ratings.split(",").join("<br />")
                 - if p.underwriters
                   %li
                     .content

@@ -5,8 +5,19 @@ module Admin::AdminHelper
     Dir.glob( RAILS_ROOT + '/app/models/*' ).each do |f| 
       models << File.basename( f ).gsub( /^(.+).rb/, '\1') 
     end 
-    models.reject{|i| ["admin","download","user","page"].include? i }
+    models = models.reject{|i| ["download","user", "share"].include? i }
+    models = models.reject{|i| ["admin","page"].include? i } unless current_admin.complete?
+    models
   end
+  
+  def file_name
+    if @project.document_file_name
+      @project.document_file_name
+    else
+      "None"
+    end
+  end
+  
   
     
   def display_app_models_links(options = {})

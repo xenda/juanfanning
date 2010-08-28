@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   
 	map.namespace :admin do |admin| 
 		admin.resources :pages 
+		admin.resources :admins
 	end
 
 
@@ -20,16 +21,21 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'home'
   
   map.namespace :member do |member|
-    member.resources :downloads, :collection => { :recent => :get }  
-    member.resources :projects, :has_many => :downloads  
+    member.resources :downloads, :collection => { :recent => :get}, :member => { :share => :get }  
+    member.resources :projects, :has_many => :downloads, :member => {:access => :get}  
+    member.resources :shares
   end
   
   map.namespace :admin do |admin|
     admin.connect "/", :controller => "home", :action => "index"
-		admin.resources :projects 
+		admin.resources :projects, :member => { :publish => :get }
+		admin.reports "/reports", :controller => "reports", :action => "index"
   end
   
-
+  map.rss "/feed", :controller => "home", :action => "rss", :format => "atom"
+  map.search "/search", :controller => "home", :action => "search"
+  map.filter_date "/admin/reports/filter", :controller => "admin/reports", :action => "filter_date"
+  map.filter_number "/admin/reports/filter/number", :controller => "admin/reports", :action => "filter_number"  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
