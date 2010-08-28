@@ -59,7 +59,7 @@ Rails::Initializer.run do |config|
 end
 
 api_key = "SOMETHING_HERE"
-$hominid = Hominid::Base.new :api_key => api_key
+# $hominid = Hominid::Base.new :api_key => api_key
 # $all_id = $hominid.find_list_id_by_name("All")
 # $competitive_id = $hominid.find_list_id_by_name("Competitive")
 # $negotiated_id = $hominid.find_list_id_by_name("Negotiated")
