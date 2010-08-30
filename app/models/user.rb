@@ -28,16 +28,19 @@ class User < ActiveRecord::Base
   end
   
   def verify_change
-    puts "Verifying"
+    logger.info "Verifying"
     @changed = (self.interest != self.interest_was)
     @interested = self.interest_was
-    puts "Was #{@interested}"
+    logger.info "Was #{@interested}"
+    logger.info "Is now #{self.interest}"
   end
   
   def update_suscription
-    puts @changed
+    logger.info "Changing"
+    logger.info @changed
     if @changed
-      puts "Changing"
+      logger.info "Changing"
+      logger.info "Unsubscribing from #{@interested}"
       case @interested
         when SALE_TYPE[:all]
           unsuscribe_from($all_id)
@@ -60,11 +63,13 @@ class User < ActiveRecord::Base
   end
   
   def unsuscribe_from(list_id)
-    $hominid.unsuscribe(list_id,self.email,{:delete_member => false})
+    logger.info "Unsuscribing from #{list_id}, email #{self.email}"
+    $hominid.unsubscribe(list_id,self.email)
   end
   
   def suscribe_to(list_id)
-    $hominid.suscribe(list_id,self.email)
+    logger.info "Suscribing to #{list_id}"
+    $hominid.subscribe(list_id,self.email)
   end
   
   
