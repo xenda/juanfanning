@@ -10,6 +10,7 @@ class Project < ActiveRecord::Base
                     :notice => "preliminary Official Statement + Notice of Sale"
                   }
                   
+                  
   STATUS = { 
               :unpublished => "unpublished",
               :published => "published"
@@ -58,6 +59,17 @@ class Project < ActiveRecord::Base
     self.preview = File.open("#{@output_file_path}/original_1.png")
     
   end
+  
+  # def short_project_type
+  #   case self.project_type 
+  #     when "preliminary"
+  #       "Preliminary"
+  #     when "final"
+  #       "Final"
+  #     when "notice"
+  #       "Preliminary + Notice"
+  #   end
+  # end
   
   def document=(file)
     update_thumbnail(file)    

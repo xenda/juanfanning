@@ -4,9 +4,9 @@
   %table
     %thead
       %tr
-        %th Status
-        %th State
-        %th Issuer Description
+        %th{:width => 100} Status
+        %th{:width => 100} State
+        %th{:width => 400} Issuer Description
         %th Date Posted
         %th 
     %tbody
@@ -30,19 +30,19 @@
                 %li 
                   .content
                     %strong= p.issuer_name
-                    = p.description
-                - if p.ratings
+                    = strip_tags p.description
+                - unless p.ratings.blank?
                   %li
                     .content
                       %strong Ratings
                       - if p.ratings
                         = p.ratings.split(",").join("<br />")
-                - if p.underwriters
+                - unless p.underwriters.blank?
                   %li
                     .content
                       %strong Underwriter(s)
                       = p.underwriters
-                - if p.bond_amount
+                - unless p.bond_amount.blank?
                   %li
                     .content
                       %strong Dollar value
