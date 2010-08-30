@@ -10,6 +10,10 @@ class Admin::ReportsController < ApplicationController
         
   end
   
+  def print
+    @downloads = Download.for_print.paginate :page => params[:page]
+  end
+  
   def filter_date
     to = params[:to]
     from = params[:from]

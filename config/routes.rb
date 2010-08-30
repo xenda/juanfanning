@@ -36,6 +36,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.connect "/", :controller => "home", :action => "index"
 		admin.resources :projects, :member => { :publish => :get, :unpublish => :get }
 		admin.reports "/reports", :controller => "reports", :action => "index"
+		admin.prints "/reports/printed", :controller => "reports", :action => "print"
   end
   
   map.rss "/feed", :controller => "home", :action => "rss", :format => "atom"
