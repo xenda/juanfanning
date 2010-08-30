@@ -81,7 +81,7 @@ class Project < ActiveRecord::Base
   <p>A new project has been uploaded to DigitalMuni:</p>
   <p>You can check the details following the link below:</p>
   
-  <a href="http://#{HOST}/member/projects/#{self.id}/access">#{self.issuer_name}</a>
+  <a href="http://digitalmuni.com/member/projects/#{self.id}/access">#{self.issuer_name}</a>
   
 TEXT
     
