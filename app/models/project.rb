@@ -97,12 +97,14 @@ TEXT
                 :from_name=> "DigitalMuni"}
     content = {:html => content_text}
     campaign_id = $hominid.create_campaign(options, content, "trans")
-     $hominid.send(campaign_id)
+    $hominid.send(campaign_id)
+    $hominid.delete(campaign_id)
+    
     
     options[:list_id] = all_list_id
     campaign_id = $hominid.create_campaign(options, content, "trans")
     $hominid.send(campaign_id)
-        
+    $hominid.delete(campaign_id)    
   end
   
   
