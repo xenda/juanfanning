@@ -3,6 +3,8 @@
 $(document).ready(function(){
  
 $("a.tip").click(function() {
+
+%(this).next(".top_wrapper").css({position:"absolute",top:"0",left:"0",width:"100%",height:"100%"})
 $(this).next("div.top").stop(true, true).animate({opacity: "show", top: "-105"}, "slow");
 });
  
