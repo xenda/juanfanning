@@ -28,7 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.connect "/", :controller => "home", :action => "index"
-		admin.resources :projects, :member => { :publish => :get }
+		admin.resources :projects, :member => { :publish => :get, :unpublish => :get }
 		admin.reports "/reports", :controller => "reports", :action => "index"
   end
   

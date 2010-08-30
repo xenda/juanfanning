@@ -48,7 +48,11 @@
         %td= project.status
         %td= project.try(:admin).try(:name)
         %td= project.delivery_date.to_s(:short) if project.delivery_date
-        %td= (link_to "Activate", publish_admin_project_path(project)) unless (project.published? or not current_admin.complete?)
+        - if current_admin.complete? 
+          - unless project.published? 
+            %td= (link_to "Activate", publish_admin_project_path(project)) 
+          - else
+            %td= (link_to "Deactivate", unpublish_admin_project_path(project)) 
         %td= link_to "Show", admin_project_path(project)
         %td= link_to 'Edit', edit_admin_project_path(project)
         %td= link_to 'Delete', ["admin",project], :confirm => 'Are you sure? All related data will be deleted', :method => :delete

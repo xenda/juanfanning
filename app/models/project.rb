@@ -74,6 +74,12 @@ class Project < ActiveRecord::Base
     self.save
   end
   
+  def unpublish
+    self.status = STATUS[:unpublished]
+    # notify_suscribers
+    self.save
+  end
+  
   def notify_suscribers
     
   content_text = <<TEXT 

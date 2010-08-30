@@ -23,6 +23,12 @@ class Admin::ProjectsController < InheritedResources::Base
     redirect_to admin_projects_path
   end
   
+  def unpublish
+    @project = Project.find(params[:id])
+    @project.unpublish
+    redirect_to admin_projects_path
+  end
+  
   def index
     if params[:filter]
       if params[:filter] == "active"
