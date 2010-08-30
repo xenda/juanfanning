@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :name, :role,:company, :address1, :address2, :city, :state, :zip, :phone 
+  attr_accessible :email, :password, :password_confirmation, :name, :role,:company, :address1, :address2, :city, :state, :zip, :phone, :interest 
   
  before_save :verify_change
  after_save :update_suscription
@@ -28,12 +28,16 @@ class User < ActiveRecord::Base
   end
   
   def verify_change
-    @changed = self.interest != self.interest_was
+    puts "Verifying"
+    @changed = (self.interest != self.interest_was)
     @interested = self.interest_was
+    puts "Was #{@interested}"
   end
   
   def update_suscription
+    puts @changed
     if @changed
+      puts "Changing"
       case @interested
         when SALE_TYPE[:all]
           unsuscribe_from($all_id)
