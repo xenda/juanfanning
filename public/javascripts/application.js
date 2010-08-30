@@ -9,7 +9,11 @@ $("a.tip").click(function() {
 $(this).next("div.top").stop(true, true).animate({opacity: "show", top: "-105"}, "slow");
 });
  
+ 
 });
+
+
+
 
 $(".top").click(function(){
   

@@ -13,6 +13,13 @@ class Member::DownloadsController < InheritedResources::Base
     @download = @project.downloads.build
   end
   
+  def request_print
+    @download = Download.find(params[:id])
+    @download.request_print
+    redirect_to member_download_path(@download)
+    flash[:notice] = "We've received your request for a printed copy and will respond shortly."
+  end
+  
   def share
     @download = Download.find(params[:id])
     @share = Share.new

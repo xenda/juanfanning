@@ -27,7 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'home'
   
   map.namespace :member do |member|
-    member.resources :downloads, :collection => { :recent => :get}, :member => { :share => :get }  
+    member.resources :downloads, :collection => { :recent => :get}, :member => { :share => :get , :request_print => :get}  
     member.resources :projects, :has_many => :downloads, :member => {:access => :get}  
     member.resources :shares
   end

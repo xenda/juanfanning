@@ -8,7 +8,15 @@ class Download < ActiveRecord::Base
   
   validates_acceptance_of :terms
   
+  named_scope :for_print, :conditions=>{:printed => true }
+  
+  def request_print
+    self.printed = true
+    self.save
+  end
+  
 end
+
 
 # == Schema Information
 #
@@ -20,5 +28,6 @@ end
 #  enabled_at  :datetime
 #  created_at  :datetime
 #  updated_at  :datetime
+#  printed     :boolean(1)      default(FALSE)
 #
 

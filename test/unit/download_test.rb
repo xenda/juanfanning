@@ -7,6 +7,7 @@ class DownloadTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: downloads
@@ -17,5 +18,6 @@ end
 #  enabled_at  :datetime
 #  created_at  :datetime
 #  updated_at  :datetime
+#  printed     :boolean(1)      default(FALSE)
 #
 

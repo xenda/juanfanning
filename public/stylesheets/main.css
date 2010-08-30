@@ -267,7 +267,7 @@ nav.util ul.secondary a {
 	text-decoration: none;
 }
 div#main {
-	overflow: hidden;
+/*  overflow: hidden;*/
 	/*border-top-style: solid;
 	border-top-width: 3px;*/
 	color: #90c6e9;

@@ -10,6 +10,7 @@ two:
   document_id: 1
   enabled_at: 2010-07-26 12:37:56
 
+
 # == Schema Information
 #
 # Table name: downloads
@@ -20,5 +21,6 @@ two:
 #  enabled_at  :datetime
 #  created_at  :datetime
 #  updated_at  :datetime
+#  printed     :boolean(1)      default(FALSE)
 #
 

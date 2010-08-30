@@ -77,6 +77,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -107,5 +108,6 @@ end
 #  state                :string(255)
 #  zip                  :string(255)
 #  phone                :string(255)
+#  interest             :string(255)     default("all")
 #
 
