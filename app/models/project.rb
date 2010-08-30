@@ -33,7 +33,7 @@ class Project < ActiveRecord::Base
      indexes admin(:name), :as => :author, :sortable => true
      has user_id, created_at, updated_at
      set_property :delta => true
-     where "status = 'published'"
+     where "status like 'published'"
    end
   
    has_attached_file :document,:path => "#{RAILS_ROOT}/public/system/:attachment/:id/:style.:extension", :url => "/system/:attachment/:id/:style.:extension" #, :storage => :s3, :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),  :bucket => "xendacentral.com-digitalmuni"
