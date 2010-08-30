@@ -1,0 +1,31 @@
+- @title = "Managing #{I18n.t('activerecord.models.admin').pluralize} "
+
+
+#admin.index
+  %section
+    %h2= "Managing uploaders"
+
+    #admin_menu
+      .message
+        %strong Upgrade any uploaders account
+        and allow whole admin privileges
+
+
+  %table{:id=>"projects_table"}
+    %thead
+      %tr
+        %td= I18n.t("activerecord.attributes.admins.email").humanize
+        %td= I18n.t("activerecord.attributes.admins.name").humanize
+        %td Role
+        %td
+        %td
+    %tbody
+    - @admins.each do |admin|
+      %tr{:class=>cycle('even','odd') }
+        %td= admin.email
+        %td= admin.name
+        %td= admin.role        
+        %td= link_to 'Edit', edit_admin_admin_path(admin)
+        %td= link_to 'Delete', ["admin",admin], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
+      
+  .pagination= will_paginate @admins

@@ -1,0 +1,13 @@
+- @title = "Viewing #{I18n.t 'activerecord.models.admin'}"
+
+#admin
+
+  %h1= "Viewing #{I18n.t 'activerecord.models.admin'}"
+
+  - show_for @admin do |a| 
+    = a.attribute :email        = a.attribute :encrypted_password        = a.attribute :password_salt        = a.attribute :confirmation_token        = a.attribute :confirmed_at        = a.attribute :confirmation_sent_at        = a.attribute :reset_password_token        = a.attribute :remember_token        = a.attribute :remember_created_at        = a.attribute :sign_in_count        = a.attribute :current_sign_in_at        = a.attribute :last_sign_in_at        = a.attribute :current_sign_in_ip        = a.attribute :last_sign_in_ip        = a.attribute :role        = a.attribute :name    
+
+  .bottom_menu
+    = link_to "See all", admin_admins_path
+    = link_to "Edit #{I18n.t 'activerecord.models.admin'}",  edit_admin_admin_path(admin)
+    = link_to "Create another", new_admin_admin_path

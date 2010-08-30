@@ -1,0 +1,9 @@
+- @title = "New #{I18n.t 'activerecord.models.admin'}"
+
+#admin
+  %h1= "New #{I18n.t 'activerecord.models.admin'}"
+
+  = render :partial => 'form'
+
+  .bottom_menu
+    %p= link_to "See all", admin_admins_path

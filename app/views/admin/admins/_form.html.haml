@@ -1,0 +1,8 @@
+%h3= "Editing user #{@admin.email}"
+- semantic_form_for ["admin",@admin] do |form|
+  - form.inputs do
+    = form.input :name
+    = form.input :role, :as => :select , :collection => Admin::ROLES, :hint => "Supervisors are only allowed to upload projects but can't activate them nor edit site contents"
+    
+  - form.buttons do
+    = form.commit_button 'Save',:button_html => { :class => "submit" }
