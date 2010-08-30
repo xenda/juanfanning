@@ -7,10 +7,17 @@ class Admin < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :role,:name,:remember_me
   
-  ROLES = %w[admin moderator banned]
+  ROLES = %w[admin supervisor]
   
   has_many :pages, :class_name => "page", :foreign_key => "user_id"
-    
+  has_many :projects,:foreign_key => "user_id"
+  named_scope :uploaders, :conditions=>{:role => "supervisor"}
+  
+  def upgrade
+    self.role = "admin"
+    self.save
+  end
+  
   def complete?
     role != "supervisor"
   end

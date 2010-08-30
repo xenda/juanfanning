@@ -23,7 +23,7 @@
             - if admin_signed_in?
               #logged_as
                 = "Logged as"
-                = link_to current_admin.email, edit_registration_path(current_admin)
+                = link_to current_admin.name, edit_registration_path(current_admin)
                 = link_to "logout", destroy_admin_session_path
           .clear
           

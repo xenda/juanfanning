@@ -102,15 +102,20 @@ TEXT
     options = {:list_id => list_id, :subject => "[DigitalMuni] A new project uploaded", :from_email => "contact@digitalmuni.com",
                 :from_name=> "DigitalMuni"}
     content = {:html => content_text}
+    logger.info "Creating a new campaign"
     campaign_id = $hominid.create_campaign(options, content, "trans")
     $hominid.send(campaign_id)
-    $hominid.delete(campaign_id)
+    logger.info "Sending email to suscribers"
+    #$hominid.delete(campaign_id)
     
     
     options[:list_id] = all_list_id
     campaign_id = $hominid.create_campaign(options, content, "trans")
+
+    logger.info "Sending email to suscribers"
     $hominid.send(campaign_id)
-    $hominid.delete(campaign_id)    
+
+    #$hominid.delete(campaign_id)    
   end
   
   

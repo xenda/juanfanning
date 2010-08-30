@@ -20,7 +20,7 @@ body {
 }
 
 div#header_content {
-	overflow: auto;
+	overflow: hidden;
 }
 div#header_content h1 {
 	margin: 0px;
@@ -113,6 +113,7 @@ div#options {
 	width: 740px;
 	color: #fffeff;
 	display: inline-table;
+	overflow: hidden;
 }
 
 #options ul.menu {
@@ -127,6 +128,7 @@ div#logged_as {
 	float: right;
 	font-size: 12px;
 	padding-top: 10px;
+	overflow: hidden;
 }
 
 #options ul.menu li {
@@ -282,7 +284,7 @@ fieldset.buttons {
 	float: left;
 	list-style: none;
 	margin-right: 0px;	
-	overflow: auto;
+	overflow: hidden;
 }
 
 body.reports #filters li {

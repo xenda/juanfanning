@@ -3,11 +3,17 @@
   .message
     %strong= "Welcome back #{current_admin.name}!"
     = "There are"
-    = link_to "#{Project.all.size} registered projects.", admin_projects_path
-    = "#{Project.pending.size} pending and #{Project.published.size} on the wild"
+    - if current_admin.complete?
+      = link_to "#{Project.all.size} registered projects on the site.", admin_projects_path
+      = "#{Project.pending.size} pending and #{Project.published.size} on the wild"
+      %p= "We have alse #{Admin.uploaders.size} uploaders registered so far."
+    - else
+      = link_to "#{current_admin.projects.all.size} registered projects on your account.", admin_projects_path
+      = "#{current_admin.projects.pending.size} pending to be approved and #{current_admin.projects.published.size} published"
 %latest
 
 %actions
   %ul
     %li= link_to "Upload new project", new_admin_project_path
-    %li= link_to "Update your site contents", admin_pages_path
+    - if current_admin.complete?
+      %li= link_to "Update your site contents", admin_pages_path

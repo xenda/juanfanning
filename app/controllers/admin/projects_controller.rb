@@ -30,14 +30,20 @@ class Admin::ProjectsController < InheritedResources::Base
   end
   
   def index
+    if current_admin.complete?
+      projects = Project
+    else
+      projects = current_admin.projects
+    end
+    
     if params[:filter]
       if params[:filter] == "active"
-        @projects = Project.published.paginate :page => params[:page] 
+        @projects = projects.published.paginate :page => params[:page] 
       else
-        @projects = Project.pending.paginate :page => params[:page]
+        @projects = projects.pending.paginate :page => params[:page]
       end
     else
-      @projects = Project.paginate :page => params[:page]
+      @projects = projects.paginate :page => params[:page]
     end
     index!
   end

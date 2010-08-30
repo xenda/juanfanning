@@ -31,3 +31,6 @@ en:
         published_at: Published at
         status: Status
         user_id: User
+      admins:
+        email: Email
+        name: Name
