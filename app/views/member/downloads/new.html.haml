@@ -14,6 +14,6 @@
         = i.input :document_id, :value => @download.project.id, :as => :hidden, :label => false
         = i.input :user_id, :value => current_user.id, :as => :hidden, :label => false
         = check_box_tag "download[terms]"
-        = label_tag "download[terms]", "I have the foregoing disclaimer and expressly agree to each of its terms"
+        = label_tag "download[terms]", "I have read the foregoing disclaimer and expressly agree to each of its terms"
       - i.buttons do
         = i.commit_button "Accept"
