@@ -605,3 +605,9 @@ input#admin_remember_me {
 	-moz-border-radius-topright: 8px;
 
 }
+
+#new_download fieldset.buttons {
+	clear: both;
+	display: block;
+	margin-top: 10px;
+}
