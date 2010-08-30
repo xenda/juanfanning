@@ -19,7 +19,7 @@
               = p.issuer_name
 
             %br
-            = truncate(p.description, 400)
+            = truncate(strip_tags(p.description), 400)
           %td= p.created_at.to_s(:short) if p.created_at
           %td.tdtip
             = link_to "Quick info", "#", :class=>"tip"
