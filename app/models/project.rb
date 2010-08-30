@@ -81,28 +81,27 @@ class Project < ActiveRecord::Base
   <p>A new project has been uploaded to DigitalMuni:</p>
   <p>You can check the details following the link below:</p>
   
-  <a href="#{access_member_project_url(self)}">#{self.issuer_name}</a>
+  <a href="http://#{HOST}/member/projects/#{self.id}/access">#{self.issuer_name}</a>
   
 TEXT
     
     case self.sale_type
       when  SALE_TYPE[:competitive]
-        # list_id = $competitive_id
+         list_id = $competitive_id
       when SALE_TYPE[:negotiated]
-        # list_id = $negotiated_id
+         list_id = $negotiated_id
     end
     
-    # all_list_id = $all_id
+    all_list_id = $all_id
     options = {:list_id => list_id, :subject => "[DigitalMuni] A new project uploaded", :from_email => "contact@digitalmuni.com",
                 :from_name=> "DigitalMuni"}
-    content = {:html => content}
-    type = {:type => "trans"}
-    #campaign_id = $hominid.create_campaign(options, content, {}, type)
-    # $hominid.send(campaign_id)
+    content = {:html => content_text}
+    campaign_id = $hominid.create_campaign(options, content, "trans")
+     $hominid.send(campaign_id)
     
     options[:list_id] = all_list_id
-    #campaign_id = $hominid.create_campaign(options, content, {}, type)
-    # $hominid.send(campaign_id)
+    campaign_id = $hominid.create_campaign(options, content, "trans")
+    $hominid.send(campaign_id)
         
   end
   

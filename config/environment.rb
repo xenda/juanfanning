@@ -58,8 +58,8 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-api_key = "SOMETHING_HERE"
-# $hominid = Hominid::Base.new :api_key => api_key
-# $all_id = $hominid.find_list_id_by_name("All")
-# $competitive_id = $hominid.find_list_id_by_name("Competitive")
-# $negotiated_id = $hominid.find_list_id_by_name("Negotiated")
+api_key = "8a19960db8d192c0d7857bd434e277b7-us1"
+$hominid = Hominid::Base.new :api_key => api_key
+$all_id = $hominid.find_list_id_by_name("All")
+$competitive_id = $hominid.find_list_id_by_name("Competitive")
+$negotiated_id = $hominid.find_list_id_by_name("Negotiated")
