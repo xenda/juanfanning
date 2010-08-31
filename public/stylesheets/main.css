@@ -1,8 +1,8 @@
-A/* @override 
+/* @override 
 	http://localhost:3000/stylesheets/admin_style.css?1280183621
 	http://localhost:3000/stylesheets/admin_style.css
-	http://localhost:3000/stylesheets/main.css
 	http://digitalmuni.xendacentral.com/stylesheets/main.css?1282866455
+	http://localhost:3000/stylesheets/main.css
 */
 
 body {
@@ -214,6 +214,8 @@ div#search_bar {
 
 #main section form.formtastic.search fieldset.inputs {
 	display: block;
+	padding: 10px 5px;
+	margin-bottom: 10px;
 }
 
 #main section form.formtastic.search label {
@@ -238,6 +240,7 @@ div#search_bar {
 
 #search_search_type_input fieldset ol {
 	width: 600px;
+	padding-left: 80px;
 }
 
 #search_bar form {
@@ -245,7 +248,7 @@ div#search_bar {
 }
 
 #search_bar a {
-	margin-left: 5x;
+	margin-left: 5px;
 	color: #fffeff;
 	font: 11px Arial, Helvetica, Geneva, sans-serif;
 	text-decoration: underline !important;
@@ -276,8 +279,9 @@ header div#header_content.wrap nav.util {
 	margin-top: 8px;
 	display: block;
 	float: left;
-	margin-left: 60px;
-	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+	margin-left: 80px;
+	font: normal 11px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+	color: #5e5f5f;
 }
 
 header div#header_content.wrap nav.util ul.main {
