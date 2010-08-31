@@ -1,6 +1,13 @@
 %section
   %h2 Current Projects documents
   
+  #filters.right
+    = page_entries_info @projects
+    - form_tag url_for(:action => "index") do
+      View
+      = select_tag "per_page", options_for_select([["10 per page", "10"], ["25 per page", "25"],["50 per page", "50"],["100 per page", "100"]])
+      = submit_tag "filter"
+  
   %table
     %thead
       %tr
@@ -20,7 +27,7 @@
 
             %br
             = truncate(strip_tags(p.description), 400)
-          %td= p.created_at.to_s(:short) if p.created_at
+          %td= p.created_at.to_s() if p.created_at
           %td.tdtip
             = link_to "Quick info", "#", :class=>"tip"
             .top 
@@ -46,5 +53,8 @@
                     .content
                       %strong Dollar value
                       = p.bond_amount
+                      
+  
+  #pagination= will_paginate(@projects)
                   
           
