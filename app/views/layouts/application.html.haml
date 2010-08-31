@@ -55,6 +55,7 @@
             - form_tag "/search" do
               = text_field_tag "terms", "Search documents by any term (Issuer, CUSIP, Description, etc)"
               = submit_tag "Search"
+            = link_to "advanced", advanced_search_path
           .clear 
 
       #wrapper.wrap    
@@ -68,6 +69,7 @@
           = link_to "DigitalMuni", root_path
           All rights reserved &reg;
         .right
+          .opt Optimized for a 1024x768 resolution
           %ul
             %li= link_to "Home", root_path
             %li= link_to "Copyright", site_path("copyright")

@@ -208,6 +208,19 @@ section#document.left .pdf_preview {
 div#search_bar {
   height:28px;
   margin-top:-2px;
+  width: 485px;
+  overflow: hidden;
+}
+
+#search_bar form {
+	display: inline;
+}
+
+#search_bar a {
+	margin-left: 5x;
+	color: #fffeff;
+	font: 11px Arial, Helvetica, Geneva, sans-serif;
+	text-decoration: underline !important;
 }
 
 #header_content nav.util ul li a:hover {
@@ -382,11 +395,18 @@ footer .wrap ul {
 	padding-left: 0px;
 	overflow: auto;
 	margin: 0px;
+	display: inline;
 }
 footer .wrap ul li {
 	list-style: none;
 	float: left;
 	margin-right: 10px;
+}
+footer .opt {
+	display: inline;
+	float: left;
+	margin-right: 10px;
+	color: #d5d5d5;
 }
 footer a {
 	color: white;

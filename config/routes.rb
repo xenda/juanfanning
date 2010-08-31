@@ -41,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.rss "/feed", :controller => "home", :action => "rss", :format => "atom"
   map.search "/search", :controller => "home", :action => "search"
+  map.advanced_search "/search/advanced", :controller => "home", :action => "advanced"
   map.filter_date "/admin/reports/filter", :controller => "admin/reports", :action => "filter_date"
   map.filter_number "/admin/reports/filter/number", :controller => "admin/reports", :action => "filter_number"  
   # The priority is based upon order of creation: first created -> highest priority.

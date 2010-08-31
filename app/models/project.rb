@@ -60,6 +60,14 @@ class Project < ActiveRecord::Base
     
   end
   
+  def self.underwriters
+    Project.find(:all, :select => "distinct underwriters").map(&:underwriters)
+  end
+  
+  def self.states
+    Project.find(:all, :select => "distinct state").map(&:state)
+  end
+  
   # def short_project_type
   #   case self.project_type 
   #     when "preliminary"
