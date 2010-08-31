@@ -124,7 +124,7 @@ TEXT
     content = {:html => content_text}
     logger.info "Creating a new campaign"
     campaign_id = $hominid.create_campaign(options, content, "trans")
-    $hominid.send(campaign_id)
+    $hominid.send_now(campaign_id)
     logger.info "Sending email to suscribers"
     #$hominid.delete(campaign_id)
     
@@ -133,7 +133,7 @@ TEXT
     campaign_id = $hominid.create_campaign(options, content, "trans")
 
     logger.info "Sending email to suscribers"
-    $hominid.send(campaign_id)
+    $hominid.send_now(campaign_id)
 
     #$hominid.delete(campaign_id)    
   end
