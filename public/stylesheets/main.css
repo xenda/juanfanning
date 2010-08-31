@@ -216,6 +216,23 @@ div#search_bar {
 	display: block;
 	padding: 10px 5px;
 	margin-bottom: 10px;
+	border-bottom: 1px dotted #ca5242;
+}
+
+#main section form.formtastic.search fieldset.inputs legend span {
+	font-weight: bold;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+	color: #ca5242;
+}
+
+#search_results_type_input fieldset ol li {
+	float: left;
+	margin-right: 20px;
+}
+
+#search_results_type_input fieldset ol {
+	width: 400px;
+	padding: 0px;
 }
 
 #main section form.formtastic.search label {
