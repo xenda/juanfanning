@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   
  before_save :verify_change
  after_save :update_suscription
+ 
+ after_create :register_on_mailchimp
 
   ROLES = %w[user banned]
   SALE_TYPE = {
@@ -70,6 +72,10 @@ class User < ActiveRecord::Base
   def suscribe_to(list_id)
     logger.info "Suscribing to #{list_id}"
     $hominid.subscribe(list_id,self.email)
+  end
+  
+  def register_on_mailchimp
+    suscribe_to($all_id)
   end
   
   
