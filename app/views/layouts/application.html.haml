@@ -12,7 +12,7 @@
         %h1
           - link_to root_path do
             = image_tag ("logo.jpg")
-            = "DigitalMuni"
+            %span.hide= "DigitalMuni"
         %nav.util
           %span= "Welcome back #{current_user.name}!" if current_user
           %ul.main

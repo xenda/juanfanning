@@ -4,19 +4,15 @@ $(document).ready(function(){
  
 $("a.tip").click(function() {
 
-// $(this).next("div.top_wrapper").css({position:"absolute",top:"0",left:"0",width:"100%",height:"100%"});
+       $(this).next("div.top").stop(true, true).animate({opacity: "show", top: "-105"}, "slow");
 
-$(this).next("div.top").stop(true, true).animate({opacity: "show", top: "-105"}, "slow");
+      $(document).trigger('click').one('click', {element:this}, function(e){
+      $(e.data.element).next("div.top").animate({opacity: "hide", top: "-150"}, "fast");
+      });
+
+      return false;
+  });
+
 });
- 
- 
-});
 
-
-
-
-$(".top").click(function(){
-  
-  $(this).animate({opacity: "hide", top: "-150"}, "fast");
-})
 

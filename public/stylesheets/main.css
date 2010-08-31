@@ -10,6 +10,28 @@ body {
 	font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
 }
 
+body {text-align:center;}
+
+body .wrap *{
+       text-align:left;
+       }
+       
+       #header_content {
+              position:relative;
+              height:90px;
+       }
+
+       .hide {
+              display:none;
+              visibility:hidden;
+       }
+
+       #header_content h1 a {
+              display:block;
+              width:auto;
+              height:auto;
+       }
+
 .clear {
 	clear: both;
 }
@@ -46,8 +68,10 @@ header {
 }
 
 header h1 {
-	margin: 0px;
-	float: left;
+  margin: 0px;
+  position:absolute;
+  left:0;
+  top:20px;
 }
 #header_content nav.util ul li {
 	float: left;
@@ -224,19 +248,25 @@ header div#header_content.wrap nav.util ul.main {
 #header_content h1 a,
 #header_content h1 a:active,
 #header_content h1 a:visited {
-	text-indent: -9999px !important;
-	font-size: 0px;
-	text-decoration: none !important;
-	border: none !important;
-	overflow: auto;
+/*  text-indent: -9999px !important;
+  font-size: 0px;
+  text-decoration: none !important;
+  border: none !important;
+  overflow: auto;
+*/
+border: none !important;
+overflow: auto;	
 }
 
 #header_content h1 a img {
-	width: 250px;
-	margin-top: 20px;
-	text-decoration: none;
-	border: none;
-	height: 70px;
+/*  width: 250px;
+  margin-top: 20px;
+  text-decoration: none;
+  border: none;
+  height: 70px;*/
+  width: 250px;
+    border: none;
+    height: 70px;
 }
 
 #menu a {
@@ -585,6 +615,8 @@ footer {
 	margin-top: 4.5em;
 	display: block;
 }
+
+footer {left:0;}
 
 #disclaimer div.button a {
 	
