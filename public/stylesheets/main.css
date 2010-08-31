@@ -86,8 +86,13 @@ header h1 {
 }
 
 #header_content nav.util ul.secondary {
-	float: right;
-	margin-top: 15px;
+/*  float: right;
+  margin-top: 15px;*/
+  
+  bottom:0;
+  margin-top:15px;
+  position:absolute;
+  right:0;
 }
 
 .registrations.edit #main section p {
@@ -218,9 +223,11 @@ div#search_bar {
 	margin: 0px;
 }
 header div#header_content.wrap nav.util {
-	width: 500px;
-	overflow: auto;
-	float: right;
+  float:right;
+  height:56px;
+  overflow:auto;
+  position:relative;
+  width:500px;
 }
 
 #header_content nav.util span {
@@ -645,7 +652,7 @@ input#admin_remember_me {
 }
 
 #menu div.wrap {
-	height: auto;
+       height: 30px;
 	/*background-color: rgba(190,42,22,0.81);*/
 	padding: 5px 15px 5px 10px;
 	-webkit-border-top-left-radius: 18px;
