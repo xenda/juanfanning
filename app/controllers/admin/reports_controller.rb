@@ -26,11 +26,8 @@ class Admin::ReportsController < ApplicationController
   end
   
   def filter_number
-    @downloads = [].paginate
-    project = Project.find(:all, :conditions => ["bond_number like ?","%#{params[:number]}%"])
-    if project and not project.empty?
-      @downloads = project.first.downloads.paginate :page => params[:page]
-    end
+    
+    @downloads = Download.paginate(:all, :joins => :project, :conditions => ["projects.bond_number like ?","%#{params[:number]}%"], :page => params[:page])
     render "index"
   end
   
