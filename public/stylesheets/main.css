@@ -206,7 +206,8 @@ section#document.left .pdf_preview {
 }
 
 div#search_bar {
-
+  height:28px;
+  margin-top:-2px;
 }
 
 #header_content nav.util ul li a:hover {
@@ -653,6 +654,7 @@ input#admin_remember_me {
 
 #menu div.wrap {
        height: 30px;
+       overflow:hidden;
 	/*background-color: rgba(190,42,22,0.81);*/
 	padding: 5px 15px 5px 10px;
 	-webkit-border-top-left-radius: 18px;
