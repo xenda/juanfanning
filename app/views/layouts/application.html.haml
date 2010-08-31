@@ -6,10 +6,18 @@
     /[if IE]
       :erb
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  /[if lt IE 7 ] <body class="ie6 #{body_classes}">
-  /[if IE 7 ] <body class="ie7">
-  /[if IE 8 ] <body class="ie8">
-  /[if IE 9 ] <body class="ie9">
+  /[if lt IE 7 ] 
+    :erb
+      <body class="ie6 <%= body_classes %>">
+  /[if IE 7 ]
+    :erb
+      <body class="ie7 <%= body_classes %>">
+  /[if IE 8 ]
+    :erb
+      <body class="ie8 <%= body_classes %>">
+  /[if IE 9 ] 
+    :erb
+      <body class="ie9 <%= body_classes %>">
   / [if (gt IE 9)|!(IE)]><!
   %body{:class=>body_classes}
     / <![endif]>        
