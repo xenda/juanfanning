@@ -677,6 +677,20 @@ div#filters.right {
 	font-size: 11px;
 	margin-bottom: 5px;
 }
+body.registrations #main div.right h3 {
+	margin-top: 60px;
+	margin-bottom: 0px;
+	color: #ca5242;
+	font: normal 25px Arial, Helvetica, Geneva, sans-serif;
+}
+body.registrations #main div.right p {
+	margin-top: 5px;
+	color: #2a2b2b;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	line-height: 1.5em;
+	padding: 5px;
+	background-color: #e9e7ea;
+}
 
 #filters form {
 	display: inline;
