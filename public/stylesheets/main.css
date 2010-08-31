@@ -465,12 +465,14 @@ vertical-align: middle !important;
 	display: block;
 	vertical-align: middle !important;
 	margin-top: 15px;
+	width: 60px;
 }
  
 .tdtip .top {
 background: #fffeff url(bubble.png) no-repeat;
 width: 200px;
-height: 210px;
+/*height: 210px;*/
+height: auto;
 position: absolute;
 top: -105px;
 left: -60px;
