@@ -9,6 +9,7 @@
     %h3 Disclaimer
     %p= Page.get("Disclaimer").content
 
+    = flash[:error]
     - semantic_form_for ["member",@download] do |i|
       - i.inputs do
         = i.input :document_id, :value => @download.project.id, :as => :hidden, :label => false

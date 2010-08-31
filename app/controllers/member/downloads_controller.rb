@@ -5,12 +5,27 @@ class Member::DownloadsController < InheritedResources::Base
   # actions :index, :show
   
   def recent
-    @downloads = current_user.downloads.recent
+    @downloads = current_user.downloads.recent.paginate :page => params[:page]
   end
   
   def new
     @project = Project.find(params[:project_id])
+    flash[:notice] = ""
     @download = @project.downloads.build
+  end
+  
+  def create
+    create! do |success, failure|
+        
+        success.html { 
+            flash[:notice] = ""
+            redirect_to ["member",@download] 
+            }
+        failure.html { 
+          flash[:notice] = "You need to accept the terms and conditions before continuing"
+          render :new
+        }
+      end
   end
   
   def request_print

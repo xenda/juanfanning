@@ -24,7 +24,7 @@
     
     .button=link_to "Share", share_member_download_path(@download)
     - unless @download.printed
-      .button{:style => "width: 300px !important;"}=link_to "Request Frint", request_print_member_download_path(@download)
+      .button{:style => "width: 300px !important;"}=link_to "Request Print", request_print_member_download_path(@download)
     
   %section#document.left
     =link_to "Download file", @download.project.document.url

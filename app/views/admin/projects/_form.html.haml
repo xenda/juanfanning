@@ -5,7 +5,7 @@
     = form.inputs :document, :required => false
 
     = form.input :bond_number, :required => false  
-    = form.input :state, :input_html => {:class=> "small"}
+    = form.input :state, :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES
     = form.input :project_type, :collection => Project::PROJECT_TYPES, :required => false
     
     = form.input :description, :required => false, :input_html => {:class => "tinymce"}

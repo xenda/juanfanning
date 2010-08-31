@@ -331,3 +331,17 @@ input#number {
 #main actions ul li a:hover {
 	color: black;
 }
+
+.pagination div.pagination {
+	margin-top: 10px;
+	font-size: 12px;
+	color: #838383;
+}
+
+.pagination .pagination a {
+	font-size: 12px !important;	
+	color: #313232;
+}
+.pagination div.pagination a:hover {
+	color: black;
+}

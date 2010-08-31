@@ -1,7 +1,7 @@
 %section
   %h2 Advanced search
   
-  - semantic_form_for :search, :url => advanced_search_path do |f|
+  - semantic_form_for :search, :url => search_path do |f|
     - f.inputs do
       = f.input :keywords, :hint => "Filter by issues, CUSIP or any other term"
       = f.input :search_type, :as => :radio, :collection => Search::SEARCH_TYPES, :label => false
@@ -13,8 +13,15 @@
       = f.input :timeframe, :as => :select, :collection => Search::TIMEFRAMES
     
     - f.inputs "Sort results" do
-      = f.input :sort, :as => :select, :collection => Search::SORT_LIST
-      = f.input :sort_type, :as => :select, :collection => Search::SORT_TYPES
+      %li
+        %label{:for => "search_sort"} Sort by
+        = f.select :sort, options_for_select(Search::SORT_LIST)
+        = f.select :sort_type, options_for_select(Search::SORT_TYPES)
+    - f.buttons do
+      = f.commit_button "Search"
+      /     
+      / = f.input :sort, :as => :select, :collection => Search::SORT_LIST
+      / = f.input :sort_type, :as => :select, :collection => Search::SORT_TYPES, :label => "Order"
 
   / :keywords, :search_type, :results_type, :state, :underwriter, :timeframe, :sort, :sort_type
                   

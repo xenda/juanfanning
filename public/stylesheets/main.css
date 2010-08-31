@@ -1,6 +1,4 @@
 /* @override 
-	http://localhost:3000/stylesheets/admin_style.css?1280183621
-	http://localhost:3000/stylesheets/admin_style.css
 	http://digitalmuni.xendacentral.com/stylesheets/main.css?1282866455
 	http://localhost:3000/stylesheets/main.css
 */
@@ -233,6 +231,10 @@ div#search_bar {
 #search_results_type_input fieldset ol {
 	width: 400px;
 	padding: 0px;
+}
+
+#main section form.formtastic.search fieldset.buttons {
+	padding-left: 0px;
 }
 
 #main section form.formtastic.search label {
@@ -612,9 +614,32 @@ input#user_remember_me {
 	width: 20px !important;
 }
 
+input#search_submit.submit {
+	padding: 5px;
+	margin: 0px;
+}
+
+span#share_content_parent.mceEditor.defaultSkin {
+	float: left;
+	clear: both;
+}
+
+#pagination div.pagination {
+	margin-top: 10px;
+	font-size: 12px;
+	color: #838383;
+}
+
+#pagination div.pagination a {
+	font-size: 12px;	
+}
+#pagination div.pagination a:hover {
+	color: black;
+}
 input#user_submit,
 input#admin_submit,
 input#share_submit,
+input#search_submit,
 .button a {
 	
   color: #fff5f2; 

@@ -11,7 +11,7 @@
         %th 
     %tbody
       - @downloads.each do |p|
-        %tr
+        %tr{:class=>cycle("odd","even")}
           - p = p.project
           %td= p.status.humanize if p.status
           %td= p.state.upcase
@@ -19,7 +19,7 @@
             = link_to p.issuer_name, p.document.url
             %br
             = truncate(p.description, 400)
-          %td= p.published_at.to_s(:short) if p.published_at
+          %td= p.updated_at.to_s(:short) if p.updated_at
           %td.tdtip
             = link_to "Quick info", "#", :class=>"tip"
             .top 
@@ -46,3 +46,4 @@
                       %strong Dollar value
                       = p.bond_amount
                   
+    #pagination= will_paginate(@projects)

@@ -6,7 +6,7 @@ class Download < ActiveRecord::Base
   named_scope :recent, :order=>"created_at DESC", :limit => 10
   attr_accessible :terms, :document_id, :user_id, :enabled_at
   
-  validates_acceptance_of :terms
+  validates_acceptance_of :terms, :allow_nil => false, :message => "You must accept the terms before continuing"
   
   named_scope :for_print, :conditions=>{:printed => true }
   

@@ -124,6 +124,7 @@ TEXT
     content = {:html => content_text}
     logger.info "Creating a new campaign"
     campaign_id = $hominid.create_campaign(options, content, "trans")
+    logger.info campaign_id
     $hominid.send_now(campaign_id)
     logger.info "Sending email to suscribers"
     #$hominid.delete(campaign_id)
@@ -133,8 +134,9 @@ TEXT
     campaign_id = $hominid.create_campaign(options, content, "trans")
 
     logger.info "Sending email to suscribers"
+    logger.info campaign_id    
     $hominid.send_now(campaign_id)
-
+    
     #$hominid.delete(campaign_id)    
   end
   
@@ -146,6 +148,10 @@ TEXT
   
   def published?
     self.status == STATUS[:published]
+  end
+  
+  def self.per_page
+    10
   end
   
 end

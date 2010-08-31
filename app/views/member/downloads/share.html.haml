@@ -16,7 +16,7 @@
           = f.input :from_email
           = f.input :to_email
           = f.input :subject
-          = f.input :content
+          = f.input :content, :input_html => {:class => "tinymce"}
           = f.hidden_field "project_id", :value => @share.project.id
         - f.buttons do
           = f.commit_button "Send"
