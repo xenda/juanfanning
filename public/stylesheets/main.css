@@ -13,8 +13,8 @@ body {
 body {text-align:center;}
 
 body .wrap *{
-       text-align:left;
-       }
+/*       text-align:left;*/
+}
        
        #header_content {
               position:relative;
