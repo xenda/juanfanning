@@ -5,7 +5,7 @@ module Admin::AdminHelper
     Dir.glob( RAILS_ROOT + '/app/models/*' ).each do |f| 
       models << File.basename( f ).gsub( /^(.+).rb/, '\1') 
     end 
-    models = models.reject{|i| ["download","user", "share"].include? i }
+    models = models.reject{|i| ["download","user", "search", "share"].include? i }
     models = models.reject{|i| ["admin","page"].include? i } unless current_admin.complete?
     models
   end
