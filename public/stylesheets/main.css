@@ -212,6 +212,34 @@ div#search_bar {
   overflow: hidden;
 }
 
+#main section form.formtastic.search fieldset.inputs {
+	display: block;
+}
+
+#main section form.formtastic.search label {
+	color: #494949;
+	font-size: 12px;
+}
+
+#search_keywords_input label {
+	width: 70px;
+}
+
+#search_keywords_input p.inline-hints {
+	font-size: 11px;
+	font-style: italic;
+	color: #8a8a8a;
+}
+
+#search_search_type_input fieldset ol li {
+	float: left;
+	margin-right: 10px;
+}
+
+#search_search_type_input fieldset ol {
+	width: 600px;
+}
+
 #search_bar form {
 	display: inline;
 }

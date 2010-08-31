@@ -3,8 +3,8 @@
   
   - semantic_form_for :search, :url => advanced_search_path do |f|
     - f.inputs do
-      = f.input :keywords
-      = f.input :search_type, :as => :radio, :collection => Search::SEARCH_TYPES
+      = f.input :keywords, :hint => "Filter by issues, CUSIP or any other term"
+      = f.input :search_type, :as => :radio, :collection => Search::SEARCH_TYPES, :label => false
 
     - f.inputs "Filter results" do
       = f.input :results_type, :as => :radio, :collection => Search::RESULT_TYPES
@@ -13,7 +13,7 @@
       = f.input :timeframe, :as => :select, :collection => Search::TIMEFRAMES
     
     - f.inputs "Sort results" do
-      = f.input :sort, :as => :radio, :collection => Search::SORT_LIST
+      = f.input :sort, :as => :select, :collection => Search::SORT_LIST
       = f.input :sort_type, :as => :select, :collection => Search::SORT_TYPES
 
   / :keywords, :search_type, :results_type, :state, :underwriter, :timeframe, :sort, :sort_type
