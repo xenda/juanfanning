@@ -68,10 +68,9 @@ class Search
         when RESULT_TYPES["Both"]
           nil
         when RESULT_TYPES["Preliminaries only"]
-          Project::PROJECT_TYPES[:preliminary]
+          0
         when RESULT_TYPES["Finals Only"]
-          Project::PROJECT_TYPES[:final]
-        
+          1
       end
     else
       nil

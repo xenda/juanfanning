@@ -26,13 +26,14 @@ class Project < ActiveRecord::Base
      indexes state
      indexes cusip
      indexes description
-     indexes issuer
+     indexes issuer, :sortable => true
      indexes bond_amount
      indexes sale_type
      indexes underwriters
      indexes ratings
      indexes admin(:name), :as => :author, :sortable => true
      has user_id, created_at, updated_at
+     has "IF (project_type like '%preliminary%',0,1)", :type => :integer, :as => :project_type_mapping
      set_property :delta => true
      where "status like 'published'"
    end

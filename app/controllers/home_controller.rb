@@ -10,55 +10,40 @@ class HomeController < ApplicationController
      
      if params[:search]
        search = Search.new(params[:search])
-       
-       terms = search.keywords
+       logger.info search.inspect
        conditions, with  = {},{}
        
-       conditions.merge! ({:underwriters => search.underwriters}) if search.underwriters.present?
-       conditions.merge! ({:project_type => Project::PROJECT_TYPES[search.sphinx_result_type]}) if search.results_type.present?
+       conditions.merge! ({:underwriters => search.underwriter}) if search.underwriter.present?
+       conditions.merge! ({:state => search.state}) if search.state.present?
        
        range = search.timeframe_range 
        with.merge! ({:updated_at => range}) if range
        
        match_mode = search.sphinx_search_type
        
-       # SEARCH_TYPES = { "All Keywords" => "all", "Any Keywords" => "any", "Exact Keywords" => "exact"}
-       # RESULT_TYPES = { "Both" => "both", "Preliminaries only" => "preliminaries", "Finals Only" => "finals"}
-       # TIMEFRAMES = { "Past day" => "day", "Past week" => "week", "Past month" => "month", "Past year" => "year"}
-       # 
-       # SORT_LIST = { "By date" => "date", "Alphabetically" => "alpha"}
-       # SORT_TYPES = { "Descending" => "desc", "Ascending" => "asc"  }
-       # 
-       #"results_type"=>"preliminaries", "sort_type"=>"desc", "sort"=>"alpha", "keywords"=>"Alvaro", "state"=>"Alabama"}
+       results_type = search.sphinx_result_type
        
+       if results_type
+         with.merge! ( {:project_type_mapping => results_type } )
+       end
        
-       # PROJECT_TYPES = {
-       #                   :preliminary=>"preliminary Official Statement",
-       #                   :final=> "final Official Statement",
-       #                   :notice => "preliminary Official Statement + Notice of Sale"
-       #                 }
+       if search.sort == "alpha"
+         order = :issuer
+       elsif search.sort == "date"
+         order = :updated_at
+       end
 
+       sort_type = search.sort_type.to_sym if search.sort_type.present?
        
-       # define_index do
-       #    indexes project_type, :sortable => true
-       #    indexes state
-       #    indexes cusip
-       #    indexes description
-       #    indexes issuer
-       #    indexes bond_amount
-       #    indexes sale_type
-       #    indexes underwriters
-       #    indexes ratings
-       #    indexes admin(:name), :as => :author, :sortable => true
-       #    has user_id, created_at, updated_at
-       #    set_property :delta => true
-       #    where "status like 'published'"
-       #  end
+       logger.info conditions.inspect
+       logger.info with.inspect
+       logger.info order.inspect
+       logger.info sort_type.inspect
        
-       @projects = Project.published.search search.keywords
+       @projects = Project.search search.keywords, :conditions => conditions, :with => with, :order => order, :sort_mode => sort_type
        
      else
-       @projects = Project.published.search params[:terms]
+       @projects = Project.search params[:terms]
      end
     
     
