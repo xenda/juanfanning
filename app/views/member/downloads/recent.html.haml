@@ -18,7 +18,7 @@
           %td
             = link_to p.issuer_name, p.document.url
             %br
-            = truncate(p.description, 400)
+            = truncate(strip_tags(p.description), 400)
           %td= p.updated_at.to_s(:short) if p.updated_at
           %td.tdtip
             = link_to "Quick info", "#", :class=>"tip"
@@ -29,18 +29,18 @@
                   .content
                     %strong= p.issuer
                     = p.description
-                - if p.ratings
+                - if p.ratings.present?
                   %li
                     .content
                       %strong Ratings
-                      - if p.ratings
+                      - if p.ratings.present?
                         = p.ratings.split(",").join("<br />")
-                - if p.underwriters
+                - if p.underwriters.present?
                   %li
                     .content
                       %strong Underwriter(s)
                       = p.underwriters
-                - if p.bond_amount
+                - if p.bond_amount.present?
                   %li
                     .content
                       %strong Dollar value
