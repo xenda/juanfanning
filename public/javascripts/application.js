@@ -17,6 +17,8 @@ $(document).ready(function(){
   }
   });
 
+  $("input#terms").autocomplete("auto_complete_for_project_issuer")
+
 
 $("a.tip").click(function() {
 

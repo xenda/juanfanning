@@ -2,7 +2,7 @@
 %html
   %head
     %title= title
-    = stylesheet_link_tag "reset", "main", "#{controller.controller_name}", "formtastic"
+    = stylesheet_link_tag "reset", "main", "#{controller.controller_name}", "formtastic","../javascripts/lib/thickbox.css","../javascripts/jquery.autocomplete"
     /[if IE]
       :erb
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -54,7 +54,9 @@
             %li.last= link_to "FAQ", site_path("faq")
           #search_bar.right
             - form_tag "/search" do
-              = text_field_tag "terms", "Search documents by any term (Issuer, CUSIP, Description, etc)"
+              = text_field_tag "terms", "Search documents by any term (Issuer, CUSIP, Description, etc)", :autocomplete => "off"
+              
+              
               = submit_tag "Search"
             = link_to "advanced", advanced_search_path
           .clear 
@@ -79,4 +81,4 @@
             %li= link_to "Sitemap", site_path("sitemap"), :class=>"site-map"            
             %li= link_to "Share", site_path("email"), :class=>"email"
             %li= link_to "Privacy Policy", site_path("privacy-policy"), :class=>"email"
-    = javascript_include_tag "jquery", "jquery-ui", "jrails", 'tiny_mce/tiny_mce','tiny_mce/jquery.tinymce','editor_loader',"application", :cache => true
+    = javascript_include_tag "jquery", "jquery-ui", "jrails", 'tiny_mce/tiny_mce','tiny_mce/jquery.tinymce','editor_loader',"lib/jquery.bgiframe.min","lib/jquery.ajaxQueue","lib/thickbox-compressed","jquery.autocomplete.min","application", :cache => true

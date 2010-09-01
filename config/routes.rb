@@ -44,6 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.advanced_search "/search/advanced", :controller => "home", :action => "advanced"
   map.filter_date "/admin/reports/filter", :controller => "admin/reports", :action => "filter_date"
   map.filter_number "/admin/reports/filter/number", :controller => "admin/reports", :action => "filter_number"  
+  map.autocomplete "/auto_complete_for_project_issuer", :controller => "projects", :action => "auto_complete_for_project_issuer"
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
