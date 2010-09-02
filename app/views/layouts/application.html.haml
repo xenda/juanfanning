@@ -30,7 +30,7 @@
             %span.hide= "DigitalMuni"
         %nav.util
           %span= "Welcome back #{current_user.name}!" if current_user
-          #nav-main
+          .nav-main
             %ul
               - unless user_signed_in?
                 %li= link_to "Login", new_user_session_path
