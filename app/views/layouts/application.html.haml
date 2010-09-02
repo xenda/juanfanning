@@ -30,15 +30,17 @@
             %span.hide= "DigitalMuni"
         %nav.util
           %span= "Welcome back #{current_user.name}!" if current_user
-          %ul.main
-            - unless user_signed_in?
-              %li= link_to "Login", new_user_session_path
-              %li= link_to "Create new account", new_user_registration_path
-            - else
-              %li= link_to "Account", edit_user_registration_path            
-              %li= link_to "Logout", destroy_user_session_path
-              %li= link_to "Recent downloads", recent_member_downloads_path
-            %li.last= link_to "RSS", rss_path
+          #nav-main
+            %ul.main
+              - unless user_signed_in?
+                %li= link_to "Login", new_user_session_path
+                %li= link_to "Create new account", new_user_registration_path
+              - else
+                %li= link_to "Account", edit_user_registration_path            
+                %li= link_to "Logout", destroy_user_session_path
+                %li= link_to "Recent downloads", recent_member_downloads_path
+              %li.last= link_to "RSS", rss_path
+            %span.r
           %ul.secondary
             %li= link_to "Securex", "http://secfile.net"
             %li.last= link_to "DigitalMuni.com is a qualified Portal under MSRB Rule G-32", "http://emma.msrb.org"          

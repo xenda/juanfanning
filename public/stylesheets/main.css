@@ -304,10 +304,7 @@ header div#header_content.wrap nav.util {
 }
 
 header div#header_content.wrap nav.util ul.main {
-	padding-top: 5px;
-	padding-right: 15px;
-	padding-left: 15px;
-	padding-bottom: 5px;
+ padding: 5px 15px 5px 0;
 	background-color: #5e5f5f;
 	-webkit-border-bottom-left-radius: 8px;
 	-webkit-border-bottom-right-radius: 8px;
@@ -451,8 +448,9 @@ footer .wrap ul {
 footer .wrap ul li {
 	list-style: none;
 	float: left;
-	margin-right: 10px;
-}
+  margin-right: 6px;
+ }
+
 footer .opt {
 	display: inline;
 	float: left;
@@ -790,3 +788,24 @@ body.registrations #main div.right p {
 	display: inline;
 	margin-left: 20px;
 }
+
+header div#header_content.wrap nav.util div.nav-main {
+       background: #5e5f5f url(/images/nav.png) top left no-repeat;
+       padding: 0 0 0 15px;
+       position:absolute;
+       top:0;
+       right:0;
+       height:28px;
+}
+
+header div#header_content.wrap nav.util div.nav-main span.r {
+       width:15px;
+       height:28px;
+       background: #5e5f5f url(/images/nav.png) top right no-repeat;
+       position:absolute;
+       top:0;
+       margin:0;
+       padding:0;
+       right:0;
+}
+
