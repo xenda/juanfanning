@@ -20,8 +20,10 @@ class User < ActiveRecord::Base
                 
               }
 
+
   has_many :downloads
   named_scope :downloaders, :joins=>:downloads,:conditions=>["id in (select user_id from downloads group by user_id)"]
+  named_scope :listed_as, lambda{|kind| {:conditions=>{:interest => SALE_TYPE[kind]}} }
   
   def download_for(project)
     download = self.downloads.find(:all, :conditions => {:document_id => project.id })

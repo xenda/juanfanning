@@ -125,11 +125,21 @@ TEXT
     content = {:html => content_text}
     logger.info "Creating a new campaign"
     campaign_id = $hominid.create_campaign(options, content, "trans")
+    
+    #Clears all subscribers and readds them to their lists
+    selective_list = User.listed_as(self.sale_type.to_sym).map(&:email)
+    all_list = User.listed_as(:all).map(&:email)
+    
+    $hominid.unsubscribe_many(list_id,selective_list)
+    $hominid.unsubscribe_many(all_list_id,all_list)
+    
+    $hominid.subscribe_many(list_id,selective_list.map{|i| {"EMAIL"=>i}})
+    $hominid.subscribe_many(all_list_id,all_list.map{|i| {"EMAIL"=>i}})
+        
     logger.info campaign_id
     $hominid.send_now(campaign_id)
     logger.info "Sending email to suscribers"
-    #$hominid.delete(campaign_id)
-    
+    #$hominid.delete(campaign_id)    
     
     options[:list_id] = all_list_id
     campaign_id = $hominid.create_campaign(options, content, "trans")
