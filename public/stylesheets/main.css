@@ -791,7 +791,7 @@ body.registrations #main div.right p {
 
 header div#header_content.wrap nav.util div.nav-main {
        background: #5e5f5f url(/images/nav.png) top left no-repeat;
-       padding: 0 0 0 15px;
+       padding: 0 15px;
        position:absolute;
        top:0;
        right:0;
