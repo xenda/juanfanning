@@ -81,4 +81,6 @@
             %li= link_to "Sitemap", site_path("sitemap"), :class=>"site-map"            
             %li= link_to "Share", site_path("email"), :class=>"email"
             %li= link_to "Privacy Policy", site_path("privacy-policy"), :class=>"email"
-    = javascript_include_tag "jquery", "jquery-ui", "jrails", 'tiny_mce/tiny_mce','tiny_mce/jquery.tinymce','editor_loader',"lib/jquery.bgiframe.min","lib/jquery.ajaxQueue","lib/thickbox-compressed","jquery.autocomplete.min","application" #, :cache => true
+    = javascript_include_tag "jquery", "jquery-ui", "jrails", 'tiny_mce/tiny_mce','tiny_mce/jquery.tinymce', :cache => "libs"
+    = javascript_include_tag 'editor_loader',"lib/jquery.bgiframe.min","lib/jquery.ajaxQueue", :cache => "plugins"
+    = javascript_include_tag "lib/thickbox-compressed","jquery.autocomplete.min","application", :cache => "inner"
