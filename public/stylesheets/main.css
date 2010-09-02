@@ -77,7 +77,7 @@ header h1 {
 	margin-right: 10px;	
 }
 
-#header_content nav.util ul.main li a {
+#header_content nav.util ul li a {
 	text-decoration: none;
 	color: white;
 	font: 11px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
