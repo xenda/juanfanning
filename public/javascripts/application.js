@@ -32,6 +32,15 @@ $("a.tip").click(function() {
       return false;
   });
 
+  if( $.browser.msie && parseFloat($.browser.version) < 7 ){
+         $('table tbody tr')
+         .bind('mouseenter', function(){
+                 $(this).addClass('hover');
+         })
+         .bind('mouseleave', function(){
+                 $(this).removeClass('hover');
+         });
+  }
 
 
 });
