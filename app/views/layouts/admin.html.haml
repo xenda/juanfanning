@@ -8,8 +8,20 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 
     = yield :include
-        
-  %body{:class=>controller.controller_name}
+  /[if lt IE 7 ] 
+    :erb
+      <body class="ie6 <%= controller.controller_name %>">
+  /[if IE 7 ]
+    :erb
+      <body class="ie7 <%= controller.controller_name %>">
+  /[if IE 8 ]
+    :erb
+      <body class="ie8 <%= controller.controller_name %>">
+  /[if IE 9 ] 
+    :erb
+      <body class="ie9 <%= controller.controller_name %>">
+  / [if (gt IE 9)|!(IE)]><!
+  %body{:class=>controller.controller_name}      
     #header
       #header_wrapper.wrap
         #header_content
@@ -48,4 +60,4 @@
       .right
         Dashboard
       .clear
-    = javascript_include_tag 'jquery', 'jrails','fancybox/jquery.fancybox-1.3.1.pack','fancybox/jquery.easing-1.3.pack','fancybox/jquery.mousewheel-3.0.2.pack','tiny_mce/tiny_mce','tiny_mce/jquery.tinymce','editor_loader','application'
+    = javascript_include_tag 'jquery', 'jrails','fancybox/jquery.fancybox-1.3.1.pack','fancybox/jquery.easing-1.3.pack','fancybox/jquery.mousewheel-3.0.2.pack','tiny_mce/tiny_mce','tiny_mce/jquery.tinymce','editor_loader',"lib/jquery.bgiframe.min","lib/jquery.ajaxQueue","lib/thickbox-compressed","jquery.autocomplete.min",'application'

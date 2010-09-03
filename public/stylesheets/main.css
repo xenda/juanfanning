@@ -369,9 +369,9 @@ nav.util ul.secondary {
 	font: 11px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	margin-top: 10px;
 }
-nav.util ul.secondary a {
-	text-decoration: none;
-}
+/*nav.util ul.secondary a {
+  text-decoration: none;
+}*/
 div#main {
 /*  overflow: hidden;*/
 	/*border-top-style: solid;
@@ -381,10 +381,18 @@ div#main {
 	padding-bottom: 80px;
 }
 
-nav.util ul.secondary a {
-	color: #818181;
-	font-size: 10px;
+/*nav.util ul.secondary a {
+  color: #818181;
+  font-size: 10px;
+}*/
+
+#header_content nav.util ul.secondary li a {
+text-decoration: none;
+       color: #818181;
+       font-size: 10px;
+
 }
+
 #menu ul.principal li,
 #menu ul.secondary li {
 /*  float: left;
