@@ -838,3 +838,24 @@ float:none; width:auto; }
 float:left; padding-top:.2em; }
 .ie6 form.formtastic fieldset ol li p.inline-hints { color:#666;
 margin:0.5em 0 0 25%; }
+
+#new_download fieldset.inputs {
+       display:block;
+}
+
+#new_download fieldset.inputs input#download_terms {
+       float:left;
+       margin-right:5px;
+       margin-top:3px;
+}
+
+.ie6 #new_download fieldset.inputs input#download_terms,
+.ie7 #new_download fieldset.inputs input#download_terms {
+       margin:0;
+}
+
+#new_download fieldset.inputs label{
+       width:100%;
+       display:inline;
+       float:none;
+}
