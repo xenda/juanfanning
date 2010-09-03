@@ -146,7 +146,7 @@ TEXT
 
     logger.info "Sending email to suscribers"
     logger.info campaign_id    
-    $   hominid.send_now(campaign_id)
+    $hominid.send_now(campaign_id)
     
     #$hominid.delete(campaign_id)    
   end
