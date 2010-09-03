@@ -510,11 +510,11 @@ table td a:hover {
 	color: #4684ab;
 }
 table thead tr {
-	background-color: #5e5f5f;
-	border-bottom: 2px solid #4d4e4e;
-	border-top: 2px solid #4d4e4e;	
-	padding: 0px !important;
-	color: white;
+  background-color: #5e5f5f;
+  border-bottom: none;
+  border-top: 2px solid #4d4e4e;        
+  padding: 0px !important;
+  color: white;
 }
 
 
