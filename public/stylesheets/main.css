@@ -859,3 +859,11 @@ margin:0.5em 0 0 25%; }
        display:inline;
        float:none;
 }
+
+body.registrations div#main {
+ color:#404040;
+ }
+ 
+body.registrations div#main form input {
+ margin-bottom:10px !important;
+ }
