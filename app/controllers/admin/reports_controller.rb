@@ -6,12 +6,12 @@ class Admin::ReportsController < ApplicationController
   
   def index
       
-      @downloads = Download.paginate :page => params[:page]
+      @downloads = Download.paginate :page => params[:page], :order => "created_at DESC"
         
   end
   
   def print
-    @downloads = Download.for_print.paginate :page => params[:page]
+    @downloads = Download.for_print.paginate :page => params[:page], :order => "created_at DESC"
   end
   
   def filter_date
