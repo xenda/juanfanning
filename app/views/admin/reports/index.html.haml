@@ -43,11 +43,11 @@
         %td{:colspan => 13} No registered downloads found
     - @downloads.each do |download|
       %tr{:class=>cycle('even','odd') }
-        %td= download.project.bond_number
-        %td= download.project.issuer_name
-        %td= download.project.bond_amount
-        %td= download.user.name
-        %td= download.user.email
+        %td= download.try(:project).try(:bond_number)
+        %td= download.try(:project).try(:issuer_name)
+        %td= download.try(:project).try(:bond_amount)
+        %td= download.try(:user).try(:name)
+        %td= download.try(:user).try(:email)
         %td= download.created_at.to_s(:short)
       
   .pagination= will_paginate @downloads
