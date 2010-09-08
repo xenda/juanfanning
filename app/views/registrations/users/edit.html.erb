@@ -65,7 +65,8 @@
 </section>
 <div class="right" style="width: 300px">
   <h3>Contact us</h3>
-  <%= Page.get("Contact").content %>
+  <%- page = Page.get("Contact") %>
+  <%= page.content if page %>
 
 </div>
 
