@@ -63,3 +63,6 @@ $hominid = Hominid::Base.new :api_key => api_key
 $all_id = $hominid.find_list_id_by_name("All")
 $competitive_id = $hominid.find_list_id_by_name("Competitive")
 $negotiated_id = $hominid.find_list_id_by_name("Negotiated")
+$contact_id = $hominid.find_list_id_by_name("Contact")
+$share_id = $hominid.find_list_id_by_name("Share")
+

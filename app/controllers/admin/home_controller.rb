@@ -7,4 +7,8 @@ class Admin::HomeController < ApplicationController
     
   end
   
+  def contact
+    
+  end
+  
 end

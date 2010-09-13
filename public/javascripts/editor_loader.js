@@ -16,7 +16,7 @@ $(document).ready(function() {
        // Theme options
        theme_advanced_buttons1 :
        "pastetext,pasteword,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull",
-       theme_advanced_buttons2 : "formatselect,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,image,media,code,|,sub,sup,|,table",
+       theme_advanced_buttons2 : "fontsizeselect,formatselect,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,image,media,code,|,sub,sup,|,table",
        theme_advanced_buttons3 : "",
        theme_advanced_buttons4 : "",
        theme_advanced_toolbar_location : "top",

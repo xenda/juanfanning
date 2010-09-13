@@ -13,6 +13,11 @@ body {
 body .wrap * {
  /*      text-align:left;*/
 }
+
+body.contact #main div.right {
+	color: #5e5f5f;
+	font: 12px Arial, Helvetica, Geneva, sans-serif;
+}
        
        #header_content {
               position:relative;
@@ -298,9 +303,15 @@ header div#header_content.wrap nav.util {
 	margin-top: 8px;
 	display: block;
 	float: left;
-	margin-left:40px;
+	margin-left:90px;
 	font: normal 11px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	color: #5e5f5f;
+}
+
+input#admin_email,
+input#admin_password {
+	margin-bottom: 15px;	
+	margin-top: 10px;
 }
 
 header div#header_content.wrap nav.util ul.main {
@@ -368,6 +379,15 @@ nav.util ul.secondary {
 	padding-left: 0px;
 	font: 11px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	margin-top: 10px;
+	color: #ca5242;
+}
+
+form#new_share.formtastic.share {
+	margin-top: 20px;
+}
+
+input#share_submit.create {
+	margin-left: 433px !important;
 }
 /*nav.util ul.secondary a {
   text-decoration: none;
@@ -388,9 +408,13 @@ div#main {
 
 #header_content nav.util ul.secondary li a {
 text-decoration: none;
-       color: #818181;
+       color: #ca5242;
        font-size: 10px;
 
+}
+
+#header_content nav.util ul.secondary li a:hover {
+	color: #5e5f5f;
 }
 
 #menu ul.principal li,
@@ -449,9 +473,8 @@ footer .wrap {
 }
 footer .wrap ul {
 	padding-left: 0px;
-	overflow: auto;
+	overflow: auto !important;
 	margin: 0px;
-	display: inline;
 }
 footer .wrap ul li {
 	list-style: none;
@@ -460,10 +483,9 @@ footer .wrap ul li {
  }
 
 footer .opt {
-	display: inline;
-	float: left;
-	margin-right: 10px;
+	display: block;
 	color: #d5d5d5;
+	margin-bottom: 5px;
 }
 footer a {
 	color: white;
@@ -647,6 +669,7 @@ input#user_submit,
 input#admin_submit,
 input#share_submit,
 input#search_submit,
+input#contact_form_submit,
 .button a {
 	
   color: #fff5f2; 
@@ -657,6 +680,22 @@ input#search_submit,
   border-right-color: #cc895a;
   width: 90px !important; 
 	margin-left: 225px;
+}
+
+input#contact_form_submit {
+	margin-left: 176px;
+	padding: 5px;
+}
+
+#sharing a {
+	margin-bottom: 10px;
+	display: block;
+	font-size: 12px;
+}
+
+p.inline-errors {
+	color: #de0000 !important;
+	font: italic 10px Arial, Helvetica, Geneva, sans-serif !important;
 }
 
 .button a  {
@@ -867,3 +906,25 @@ body.registrations div#main {
 body.registrations div#main form input {
  margin-bottom:10px !important;
  }
+
+input#user_email,
+input#user_password {
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+form#new_contact_form.contact_form {
+	margin-top: 20px;
+	display: block;
+}
+
+
+
+a.print_pdf {
+	text-indent: -9999px;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/print.gif) no-repeat;
+}
+

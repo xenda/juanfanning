@@ -5,8 +5,9 @@ module Admin::AdminHelper
     Dir.glob( RAILS_ROOT + '/app/models/*' ).each do |f| 
       models << File.basename( f ).gsub( /^(.+).rb/, '\1') 
     end 
-    models = models.reject{|i| ["download","user", "search", "state", "share"].include? i }
-    models = models.reject{|i| ["admin","page"].include? i } unless current_admin.complete?
+    models = models.reject{|i| ["download", "contact_form","search", "state", "share"].include? i }
+    models = models.reject{|i| ["admin","page","user"].include? i } unless current_admin.complete?
+    
     models
   end
   
@@ -17,8 +18,6 @@ module Admin::AdminHelper
       "None"
     end
   end
-  
-  
     
   def display_app_models_links(options = {})
     if options[:ul]
@@ -36,7 +35,9 @@ module Admin::AdminHelper
   end
   
   def li_tag(item)    
-        content_tag(:li,link_to(t("activerecord.models.#{item.downcase}").pluralize,url_for(:controller=>"admin/#{item.downcase.pluralize}",:action=>"index")))
+       name = item
+       name = "uploader" if item.include? "admin"; 
+       content_tag(:li,link_to(t("activerecord.models.#{name.downcase}").pluralize,url_for(:controller=>"admin/#{item.downcase.pluralize}",:action=>"index")))
         
   end
   

@@ -151,6 +151,9 @@ TEXT
     #$hominid.delete(campaign_id)    
   end
   
+  def last_download_from_user(user)
+    self.downloads.find(:all, :conditions=>{:user_id =>user.id}, :order => "created_at DESC").first
+  end
   
   def unpublish
     self.status = STATUS[:unpublished]
@@ -163,6 +166,11 @@ TEXT
   
   def self.per_page
     10
+  end
+  
+  def document_in_base64
+    f = File.open(File.join(Rails.root,"public",self.document.url.gsub(/\?.*/,"")))
+    content_64 = Base64.encode64(f.read)
   end
   
 end

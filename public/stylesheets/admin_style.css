@@ -32,7 +32,7 @@ div#header_content h1 a {
 	font-weight: bold;
 	text-decoration: none;
 	text-transform: lowercase;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 #header_content h1 a strong {
@@ -111,7 +111,7 @@ div#header a {
 }
 div#options {
 	float: right;
-	width: 720px;
+	width: 770px;
 	color: #fffeff;
 	display: inline-table;
 	overflow: hidden;

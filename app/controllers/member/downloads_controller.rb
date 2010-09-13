@@ -42,7 +42,7 @@ class Member::DownloadsController < InheritedResources::Base
     @share.from = current_user.name
     @share.from_email = current_user.email
     @share.subject = "[DigitalMuni] Document Link: #{@download.project.issuer_name}"
-    @share.content = "#{@share.from} has sent you a link to the following offering: \n\n\n#{@download.project.issuer_name}\n#{@download.project.description}\n#{access_member_project_url(@download.project)}\n\n\nhttp://digitalmuni.com\nDigitalMuni"
+    @share.content = "#{@share.from} has sent you a link to the following offering: <br /><br />#{@download.project.description}\n<a href='http://digitalmuni.com#{@download.project.document.url}'>#{@download.project.issuer_name}</a><p>http://digitalmuni.com\nDigitalMuni</p>"
   end
   
 end

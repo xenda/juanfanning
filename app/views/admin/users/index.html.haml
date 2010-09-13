@@ -1,0 +1,29 @@
+- @title = "Managing #{I18n.t('activerecord.models.user').pluralize} "
+
+
+#user.index
+  %section
+    %h2= "Managing uploaders"
+
+    #user_menu
+      .message
+        %strong Delete accounts
+        or just take a look
+
+
+  %table{:id=>"projects_table"}
+    %thead
+      %tr
+        %td= I18n.t("activerecord.attributes.users.email").humanize
+        %td= I18n.t("activerecord.attributes.users.name").humanize
+        %td
+        %td
+    %tbody
+    - @users.each do |user|
+      %tr{:class=>cycle('even','odd') }
+        %td= user.email
+        %td= user.name
+        %td= link_to 'Edit', edit_admin_user_path(user)
+        %td= link_to 'Delete', ["admin",user], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
+      
+  .pagination= will_paginate @users

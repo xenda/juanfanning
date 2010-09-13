@@ -1,0 +1,52 @@
+/* @override http://localhost:3000/stylesheets/print.css */
+
+body {
+	font: 12px/1.4em Arial, Helvetica, Geneva, sans-serif;
+	color: #2d2d2d;
+}
+
+#header_content h1 a {
+	text-indent: -9999px;
+	color: white;
+}
+
+#menu div.wrap ul.principal.left,
+#header_content nav.util,
+div#search_bar.right,
+#main section table tbody tr td.tdtip,
+#pagination, footer,
+#disclaimer div.button,
+#document a {
+	display: none;
+}
+
+a.print_pdf {
+	background-image: url(../images/print.png);
+	
+}
+
+
+#main section table thead tr {
+	background-color: #000;
+	color: #fffeff;
+}
+
+#main section table{
+	border-collapse: 0px !important;
+	border-spacing: 0px;
+	padding: 5px;
+}
+	
+#main section table td,
+#main section table th {
+	padding: 5px;
+	border-collapse: 0px;
+}
+
+div#filters.right {
+	display: none;
+}
+
+#header_content h1 a img {
+	width: 200px;
+}

@@ -3,6 +3,7 @@
   %head
     %title= title
     = stylesheet_link_tag "reset", "main", "#{controller.controller_name}", "formtastic","../javascripts/lib/thickbox.css","../javascripts/jquery.autocomplete"
+    = stylesheet_link_tag "print", :media => :print
     /[if IE]
       :erb
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -52,7 +53,7 @@
             %li= link_to "Home", root_path
             %li= link_to "About", site_path("about")
             %li= link_to "Services", site_path("services")
-            %li= link_to "Contact", site_path("contact")
+            %li= link_to "Contact", contact_path
             %li.last= link_to "FAQ", site_path("faq")
           #search_bar.right
             - form_tag "/search" do
@@ -70,17 +71,16 @@
     %footer
       .wrap
         .left
-          = link_to "&copy; 2010 DigitalMuni LLC. All rights reserved", root_path
+          
         .right
-          .opt Optimized for a screen resolution of 1024 x 768
           %ul
-            %li= link_to "Home", root_path
-            %li= link_to "Copyright", site_path("copyright")
-            %li= link_to "Terms and Conditions ", site_path("terms-and-conditions")
-            %li= link_to "Print", site_path("print"), :class=>"print_pdf"
+            %li= link_to "Terms & Conditions ", site_path("terms-and-conditions")
+            %li= link_to "Privacy Policy", site_path("privacy-policy"), :class=>"email"
             %li= link_to "Sitemap", site_path("sitemap"), :class=>"site-map"            
             %li= link_to "Share", site_path("email"), :class=>"email"
-            %li= link_to "Privacy Policy", site_path("privacy-policy"), :class=>"email"
+            %li= link_to "Print", "javascript:print()", :class=>"print_pdf"
+          .opt Optimized for a screen resolution of 1024 x 768
+          = link_to "&copy; 2010 DigitalMuni LLC. All rights reserved", root_path
     = javascript_include_tag "jquery", "jquery-ui", "jrails", 'tiny_mce/tiny_mce','tiny_mce/jquery.tinymce', :cache => "libs"
     = javascript_include_tag 'editor_loader',"lib/jquery.bgiframe.min","lib/jquery.ajaxQueue", :cache => "plugins"
     = javascript_include_tag "lib/thickbox-compressed","jquery.autocomplete.min","application", :cache => "inner"

@@ -10,6 +10,8 @@ en:
       page: page
       download: download
       admin: admin users
+      user: Users
+      uploader: Uploaders
     attributes:
       projects:
         id: Id
@@ -34,3 +36,7 @@ en:
       admins:
         email: Email
         name: Name
+      users:
+        email: Email
+        name: Name
+        
