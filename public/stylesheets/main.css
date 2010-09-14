@@ -1,11 +1,54 @@
 /* @override 
 	http://digitalmuni.xendacentral.com/stylesheets/main.css?1282866455
 	http://localhost:3000/stylesheets/main.css
+	http://digitalmuni.com/stylesheets/main.css?1284347013
 */
 
 body {
 	margin: 0px;
 	font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+#disclaimer p span.adobe_reader {
+	overflow: auto;
+}
+#disclaimer p span.adobe_reader img {
+	width: 18px;
+	height: 20px;	
+	margin-right: 5px;
+}
+
+#disclaimer p span.adobe_reader a {
+	font-size: 13px;
+	color: #005bba;
+}
+section#description {
+	margin-bottom: 20px;
+}
+section#description h2,
+section#disclaimer h3,
+section#disclaimer h2 {
+	margin: 0px !important;
+	border: none !important;
+	padding: 0px !important;
+	height: auto !important;
+	display: inline;
+	margin-right: 10px !important;
+	font-weight: normal;
+	font-style: normal;
+font: normal normal 14px Arial, Helvetica, Geneva, sans-serif !important;
+	letter-spacing: 0 !important;
+}
+
+section#disclaimer h2 {
+	display: block ;
+}
+section#description h2 strong,
+section#disclaimer h2 strong {
+	margin: 0px;
+	font: normal normal 14px Arial, Helvetica, Geneva, sans-serif !important;
+	color: #686a6a;
+	letter-spacing: 0;
+	text-indent: 0;
 }
 
 /*body {text-align:center;}
@@ -113,6 +156,7 @@ header h1 {
 	text-transform: capitalize;
 }
 
+
 .registrations fieldset {
 	border: none;	
 	margin-bottom: 20px;
@@ -158,11 +202,10 @@ fieldset#additional {
 }
 
 section#disclaimer.left {
-	width: 200px;
+	width: 400px;
 }
 
 section#document.left {
-	margin-left: 40px;
 	margin-top: 20px;
 	text-align: center;
 	width: 400px;

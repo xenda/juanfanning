@@ -20,11 +20,6 @@ div#search_bar.right,
 	display: none;
 }
 
-a.print_pdf {
-	background-image: url(../images/print.png);
-	
-}
-
 
 #main section table thead tr {
 	background-color: #000;

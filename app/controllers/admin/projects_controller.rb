@@ -38,18 +38,18 @@ class Admin::ProjectsController < InheritedResources::Base
     
     if params[:filter]
       if params[:filter] == "active"
-        @projects = projects.published.paginate :page => params[:page] 
+        @projects = projects.published.paginate :page => params[:page], :order => "updated_at DESC" 
       else
-        @projects = projects.pending.paginate :page => params[:page]
+        @projects = projects.pending.paginate :page => params[:page],:order => "updated_at DESC" 
       end
     else
-      @projects = projects.paginate :page => params[:page]
+      @projects = projects.paginate :page => params[:page],:order => "updated_at DESC" 
     end
     index!
   end
   
   def collection
-    @projects ||= end_of_association_chain.paginate :page => params[:page], :per_page => (params[:per_page] || 10), :order => "created_at DESC"
+    @projects ||= end_of_association_chain.paginate :page => params[:page], :per_page => (params[:per_page] || 10), :order => "updated_at DESC"
   end
   
 end

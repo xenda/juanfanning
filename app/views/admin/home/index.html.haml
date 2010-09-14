@@ -2,14 +2,25 @@
   %h2 Dashboard
   .message
     %strong= "Welcome back #{current_admin.name}!"
-    = "There are"
+
+%actions
+  %ul.actions
     - if current_admin.complete?
-      = link_to "#{Project.all.size} registered projects on the site.", admin_projects_path
-      = "#{Project.pending.size} pending and #{Project.published.size} on the wild"
-      %p= "We have alse #{Admin.uploaders.size} uploaders registered so far."
+      %li
+        = link_to "#{Project.all.size} registered projects on the site.", admin_projects_path
+      %li
+        %strong= "#{Project.pending.size} pending"
+      %li
+        ="Total number of active projects: #{Project.published.size}"
     - else
-      = link_to "#{current_admin.projects.all.size} registered projects on your account.", admin_projects_path
-      = "#{current_admin.projects.pending.size} pending to be approved and #{current_admin.projects.published.size} published"
+      %li
+        = link_to "#{current_admin.projects.all.size} registered projects on your account.", admin_projects_path
+      %li
+        %strong= "#{current_admin.projects.pending.size} pending to be approved"
+      %li  
+        ="#{current_admin.projects.published.size} published"
+    
+
 %latest
 
 %actions
