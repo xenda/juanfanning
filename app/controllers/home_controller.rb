@@ -51,7 +51,7 @@ class HomeController < ApplicationController
   end
   
   def rss
-    @projects = Project.paginate(:page => params[:page])
+    @projects = Project.paginate(:page => params[:page], :order => "created_at DESC")
     respond_to do |wants|
       wants.html { render "index" }
       wants.atom { render "index" }
