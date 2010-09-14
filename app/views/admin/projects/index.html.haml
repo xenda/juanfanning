@@ -39,7 +39,7 @@
       %tr{:class=>cycle('even','odd') }
         %td= project.project_type
         %td= project.state
-        %td= project.description
+        %td= truncate(strip_tags(project.description),400)
         %td= project.published_at.to_s(:long) if project.published_at
         %td= project.issuer
         %td= project.bond_amount
