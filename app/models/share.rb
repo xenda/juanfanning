@@ -8,7 +8,7 @@ class Share < ActiveRecord::Base
   
     def send_share
 
-        options = { :list_id => $contact_id, :subject => self.subject, :from_email => self.from_email, :from_name=> self.from }
+        options = { :list_id => $share_id, :subject => self.subject, :from_email => self.from_email, :from_name=> self.from }
         content = { :html => self.content }
         campaign_id = $hominid.create_campaign(options, content, "trans")
 
