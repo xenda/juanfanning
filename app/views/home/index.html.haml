@@ -27,7 +27,7 @@
 
             %br
             = truncate(strip_tags(p.description), 400)
-          %td= p.created_at.to_s() if p.created_at
+          %td= p.created_at.to_s(:short) if p.created_at
           %td.tdtip
             = link_to "Quick info", "#", :class=>"tip"
             .top 
