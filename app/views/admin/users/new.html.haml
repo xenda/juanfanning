@@ -1,0 +1,16 @@
+- @title = "New #{I18n.t 'activerecord.models.user'}"
+
+#admin
+  %h1= "New #{I18n.t 'activerecord.models.user'}"
+
+  - semantic_form_for ["admin",@user] do |form|
+    - form.inputs do
+      = form.input :email
+      = form.input :name
+      = form.input :password
+      = form.input :password_confirmation
+    - form.buttons do
+      = form.commit_button 'Save',:button_html => { :class => "submit" }
+
+  .bottom_menu
+    %p= link_to "See all", admin_users_path
