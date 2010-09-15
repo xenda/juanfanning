@@ -15,8 +15,8 @@ $(document).ready(function() {
 
        // Theme options
        theme_advanced_buttons1 :
-       "pastetext,pasteword,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull",
-       theme_advanced_buttons2 : "fontsizeselect,formatselect,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,image,media,code,|,sub,sup,|,table",
+       "pastetext,pasteword,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,fontsizeselect,formatselect",
+       theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,image,media,code,|,sub,sup,|,table",
        theme_advanced_buttons3 : "",
        theme_advanced_buttons4 : "",
        theme_advanced_toolbar_location : "top",
@@ -25,7 +25,9 @@ $(document).ready(function() {
        theme_advanced_resizing : true,
        theme_advanced_resizing_min_height : 640,
        height : "640",
-       document_base_url : "http://patatoon.com/",
+       width: "540",
+       theme_advanced_resizing_max_width : 320,
+       document_base_url : "http://digitalmuni.com/",
        relative_urls : false,
        relative_path: false,
        media_strict : false,
