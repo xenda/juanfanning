@@ -66,3 +66,10 @@ $negotiated_id = $hominid.find_list_id_by_name("Negotiated")
 $contact_id = $hominid.find_list_id_by_name("Contact")
 $share_id = $hominid.find_list_id_by_name("Share")
 
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address => 'localhost',
+  :domain => 'www.digitalmuni.com',
+  :port => 25
+}

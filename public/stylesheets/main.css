@@ -971,3 +971,8 @@ a.print_pdf {
 	background: url(../images/print.gif) no-repeat;
 }
 
+.passwords input#user_submit {
+	width: auto !important;
+	margin-left: 190px;
+}
+
