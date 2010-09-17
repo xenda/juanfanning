@@ -2,6 +2,7 @@
 	http://digitalmuni.xendacentral.com/stylesheets/main.css?1282866455
 	http://localhost:3000/stylesheets/main.css
 	http://digitalmuni.com/stylesheets/main.css?1284347013
+	http://digitalmuni.com/stylesheets/main.css?1284561628
 */
 
 body {
@@ -123,6 +124,7 @@ header h1 {
 	float: left;
 	list-style: none;
 	margin-right: 10px;	
+	overflow: hidden;
 }
 
 #header_content nav.util ul li a {
@@ -170,8 +172,8 @@ fieldset#additional {
 .pages #main section p,
 .downloads #main section#disclaimer p {
 	color: #404040;
-	font-size: 12px;
-	width: 600px;
+	font-size: 13px;
+
 	line-height: 1.6em;
 }
 
@@ -245,12 +247,22 @@ section#document.left .pdf_preview {
 }
 
 #main section p a {
-	color: #585858;
+	color: #d7451e;
 	font-family: Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	font-weight: normal;
 	font-style: normal;
+	font-size: 13px;
 }
 
+#site_map li,
+#site_map li ul li {
+margin-bottom: 10px;
+list-style: none;
+font-size: 22px;
+}
+#site_map li ul li {
+	margin-top: 10px;
+}
 div#search_bar {
   height:28px;
   margin-top:-2px;
@@ -523,6 +535,7 @@ footer .wrap ul li {
 	list-style: none;
 	float: left;
   margin-right: 6px;
+  overflow: hidden;
  }
 
 footer .opt {
@@ -668,7 +681,21 @@ display: block;
 a  {
 	color: #404040;
 	font-family: Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
+}
+
+#main section div h2 strong {
+	
+}
+
+#main section div h2 {
+	border: none;
+	margin-bottom: 0px;
+}
+
+#main section div h4 strong {
+	color: #9d1118;
+	font: bold 17px Arial, Helvetica, Geneva, sans-serif;
 }
 
 a {

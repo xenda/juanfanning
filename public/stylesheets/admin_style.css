@@ -195,7 +195,7 @@ div#admin input{
 
 div#admin textarea {
 	border: 1px solid #a1a1a1;
-	width: 510px;
+	/*width: 510px;*/
 }
 
 fieldset.inputs {

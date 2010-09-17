@@ -18,7 +18,7 @@ TEXT
       content = { :html => content_text }
       campaign_id = $hominid.create_campaign(options, content, "trans")
 
-      email_list = ["info@digitalmuni.com"]
+      email_list = ["info@digitalmuni.com","niraj.khanna@gmail.com"]
 
       $hominid.subscribe_many($contact_id,email_list.map{|i| {"EMAIL"=>i}})
       $hominid.send_now(campaign_id)

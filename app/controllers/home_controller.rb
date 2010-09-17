@@ -6,6 +6,14 @@ class HomeController < ApplicationController
     @projects = Project.published.paginate(:page => params[:page], :per_page => params[:per_page], :order => "updated_at DESC")
   end
   
+  def share
+    @share = Share.new
+    @share.from = current_user.name
+    @share.from_email = current_user.email
+    @share.subject = "[DigitalMuni]"
+    @share.content = "<h2>Hi!</h2><p>#{@share.from} thinks you'd be interested in the <a href='http://digitalmuni.com'>DigitalMuni website</a></p>"
+  end
+  
   def search
      
      if params[:search]

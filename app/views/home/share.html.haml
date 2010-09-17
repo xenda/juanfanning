@@ -1,0 +1,18 @@
+%section
+  %h2 Sharing
+
+  %p Share DigitalMuni with someone you know through the following form:
+    
+  %section#disclaimer
+  
+    #sharing
+      - semantic_form_for @share do |f|
+        - f.inputs do 
+          = f.input :from
+          = f.input :from_email
+          = f.input :to_email
+          = f.input :subject
+          = f.input :content, :input_html => {:class => "tinymce"}
+        - f.buttons do
+          = f.commit_button "Send"
+  .clear
