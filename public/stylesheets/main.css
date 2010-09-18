@@ -530,6 +530,7 @@ footer .wrap ul {
 	padding-left: 0px;
 	overflow: auto !important;
 	margin: 0px;
+	 width:300px;
 }
 footer .wrap ul li {
 	list-style: none;
@@ -1003,3 +1004,6 @@ a.print_pdf {
 	margin-left: 190px;
 }
 
+.ie6 #header_content nav.util span {
+margin-left:45px !important;
+}
