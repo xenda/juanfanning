@@ -16,7 +16,7 @@
         %td= I18n.t("activerecord.attributes.pages.content").humanize
         %td= I18n.t("activerecord.attributes.pages.slug").humanize
         %td
-        /%td
+        %td
     %tbody
     - @pages.each do |page|
       %tr{:class=>cycle('even','odd') }
