@@ -683,6 +683,7 @@ a  {
 	color: #404040;
 	font-family: Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	font-size: 14px;
+	text-transform: capitalize;
 }
 
 #main section div h2 strong {
@@ -822,7 +823,7 @@ li.text textarea {
 	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	margin-bottom: 10px;
 	text-decoration: none;
-	text-transform: lowercase;
+	text-transform: capitalize;
 	border-bottom: 1px dotted #bbafba;
 }
 
