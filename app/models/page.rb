@@ -5,6 +5,8 @@ class Page < ActiveRecord::Base
   
   belongs_to :admin, :foreign_key => "user_id"
   
+  STATUS = ["unpublished", "published"]
+  
   def generate_slug
     unless self.slug
       self.slug = self.title.parameterize
@@ -14,6 +16,8 @@ class Page < ActiveRecord::Base
   def self.get(name)
     Page.find_by_title(name)
   end
+  
+  
   
 end
 

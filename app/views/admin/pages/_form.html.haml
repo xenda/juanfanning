@@ -4,7 +4,7 @@
     = form.input :content, :input_html => {:class => "tinymce"}
     = form.input :slug, :hint => "If none is entered, we will create one based on your title"
     = form.input :published_at
-    = form.input :status
+    = form.input :status, :collection => Page::STATUS
     = form.input :admin
     
   - form.buttons do
