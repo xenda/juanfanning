@@ -14,7 +14,7 @@ class Page < ActiveRecord::Base
   end
   
   def self.get(name)
-    Page.find_by_title(name)
+    Page.find_by_slug(name)
   end
   
   
