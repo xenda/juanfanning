@@ -3,11 +3,30 @@
 	http://localhost:3000/stylesheets/main.css
 	http://digitalmuni.com/stylesheets/main.css?1284347013
 	http://digitalmuni.com/stylesheets/main.css?1284561628
+	http://digitalmuni.com/stylesheets/main.css?1285104783
 */
 
 body {
 	margin: 0px;
 	font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+body.contact #main div.right p strong {
+	font-size: 16px;
+	color: #ca5242;
+}
+
+body.contact #main div.right h3 span {
+	font-size: 15px !important;
+	margin-top: 20px;
+	display: block;
+}
+
+body.contact #main div.right h4 span {
+	font-size: 20px;
+	margin-top: 20px;
+	display: block;
+	color: #ca5242;
 }
 #disclaimer p span.adobe_reader {
 	overflow: auto;
