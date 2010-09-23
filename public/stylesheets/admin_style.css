@@ -231,7 +231,35 @@ li#project_sale_date_input fieldset ol {
 	height: 100px;
 	width: 510px;
 }
+#new_project fieldset.inputs legend  {
+	display: block;
+	margin-bottom: 20px !important;
+}
+#new_project fieldset.inputs legend span {
+	font: bold 24px Arial, Helvetica, Geneva, sans-serif;
+	margin-bottom: 30px;
+	display: block !important;
+	color: #484848;
+}
 
+#new_project fieldset.inputs ol {
+	margin-top: 40px;	
+	margin-bottom: 40px;	
+}
+#new_project fieldset.inputs ol li ol {
+	margin: 0px;
+}
+
+#new_project fieldset.inputs {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #b2acae;
+}
+#new_project fieldset.inputs ol fieldset.inputs {
+	margin: 0px;
+	border: none;
+	padding: 0px;
+}
 #admin select {
 	width: auto;
 	font-size: 11px !important;
