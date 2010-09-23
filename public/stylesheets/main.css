@@ -159,7 +159,8 @@ header h1 {
   bottom:0;
   margin-top:15px;
   position:absolute;
-  right:0;
+  right:25px;
+	font-weight: bold;
 }
 
 .registrations.edit #main section p {
@@ -175,6 +176,10 @@ header h1 {
 	margin-bottom: 0em;
 	color: #404040;
 	text-transform: capitalize;
+}
+
+.registrations #main section.left h3 {
+	margin-bottom: 10px;
 }
 
 
@@ -329,6 +334,7 @@ div#search_bar {
 	font-size: 11px;
 	font-style: italic;
 	color: #8a8a8a;
+	text-transform: none;
 }
 
 #search_search_type_input fieldset ol li {
@@ -377,9 +383,10 @@ header div#header_content.wrap nav.util {
 	margin-top: 8px;
 	display: block;
 	float: left;
-	margin-left:90px;
+	width: 245px;
 	font: normal 11px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	color: #5e5f5f;
+	text-align: right;
 }
 
 input#admin_email,
@@ -484,7 +491,7 @@ div#main {
 text-decoration: none;
        color: #ca5242;
        font-size: 10px;
-
+	font-weight: bold;
 }
 
 #header_content nav.util ul.secondary li a:hover {

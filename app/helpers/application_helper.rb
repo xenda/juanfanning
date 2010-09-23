@@ -14,6 +14,12 @@ module ApplicationHelper
     [controller.controller_name,controller.action_name,@body_class].join(" ")
   end
   
+  def copyright_notice
+    page = Page.get("copyright-footer")
+    return "© DigitalMuni" unless page
+    strip_tags(page.content)
+  end
+  
   def title
     title_name = "DigitalMuni"
     title_name <<  ":: #{@title}" if @title

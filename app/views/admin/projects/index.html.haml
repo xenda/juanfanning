@@ -17,16 +17,14 @@
   %table{:id=>"projects_table"}
     %thead
       %tr
-        %td= I18n.t("activerecord.attributes.projects.project_type").humanize
-        %td= I18n.t("activerecord.attributes.projects.state").humanize
-        %td= I18n.t("activerecord.attributes.projects.description").humanize
-        %td= I18n.t("activerecord.attributes.projects.published_at").humanize
+        %td Client Name
+        %td Document Type
         %td= I18n.t("activerecord.attributes.projects.issuer").humanize
-        %td= I18n.t("activerecord.attributes.projects.bond_amount").humanize
         %td= I18n.t("activerecord.attributes.projects.sale_type").humanize
-        %td= I18n.t("activerecord.attributes.projects.status").humanize
-        %td= I18n.t("activerecord.attributes.projects.user_name").humanize
-        %td= I18n.t("activerecord.attributes.projects.delivery_date").humanize
+        %td= I18n.t("activerecord.attributes.projects.bond_amount").humanize
+        %td Sale date
+        %td Delivery date
+        %td= I18n.t("activerecord.attributes.projects.status").humanize        
         %td
         %td
         %td
@@ -37,16 +35,14 @@
         %td{:colspan => 13} No registered projects found
     - @projects.each do |project|
       %tr{:class=>cycle('even','odd') }
-        %td= project.project_type
-        %td= project.state
-        %td= truncate(strip_tags(project.description),400)
-        %td= project.published_at.to_s(:long) if project.published_at
-        %td= project.issuer
-        %td= project.bond_amount
-        %td= project.sale_type
-        %td= project.status
         %td= project.try(:admin).try(:name)
+        %td= project.project_type
+        %td= project.issuer
+        %td= project.sale_type
+        %td= number_to_currency project.bond_amount, :precision => 0
+        %td
         %td= project.delivery_date.to_s(:short) if project.delivery_date
+        %td= project.status
         - if current_admin.complete? 
           - unless project.published? 
             %td= (link_to "Activate", publish_admin_project_path(project)) 

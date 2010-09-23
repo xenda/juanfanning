@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100913004055) do
+ActiveRecord::Schema.define(:version => 20100923035412) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "",           :null => false
@@ -94,6 +94,23 @@ ActiveRecord::Schema.define(:version => 20100913004055) do
     t.string   "cusip"
     t.boolean  "delta",                                                :default => true,          :null => false
     t.string   "bond_number"
+    t.string   "contact_name"
+    t.string   "contact_company"
+    t.string   "contact_address"
+    t.string   "contact_city"
+    t.string   "contact_state"
+    t.string   "contact_zip"
+    t.string   "contact_phone"
+    t.string   "contact_email"
+    t.string   "billing_name"
+    t.string   "billing_company"
+    t.string   "billing_address"
+    t.string   "billing_city"
+    t.string   "billing_state"
+    t.string   "billing_zip"
+    t.string   "billing_phone"
+    t.string   "billing_email"
+    t.date     "sale_date"
   end
 
   create_table "shares", :force => true do |t|

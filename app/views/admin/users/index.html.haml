@@ -24,6 +24,7 @@
       %tr{:class=>cycle('even','odd') }
         %td= user.email
         %td= user.name
+        %td= user.phone
         %td= link_to 'Edit', edit_admin_user_path(user)
         %td= link_to 'Delete', ["admin",user], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
       

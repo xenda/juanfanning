@@ -6,6 +6,7 @@ class Admin::ProjectsController < InheritedResources::Base
   def new
     @project = Project.new
     @project.state = ""
+    @project.bond_number = 1000 + Project.count.next
     new!
   end
     
@@ -14,6 +15,8 @@ class Admin::ProjectsController < InheritedResources::Base
   end
   
   def update
+    @project = Project.find(params[:id])
+    params[:project][:bond_amount] = params[:project][:bond_amount].gsub(",","") if params[:project][:bond_amount]
     update! { admin_projects_path }
   end
   

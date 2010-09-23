@@ -5,9 +5,16 @@ class Project < ActiveRecord::Base
   has_many :shares
   
   PROJECT_TYPES = {
-                    :preliminary=>"preliminary Official Statement",
-                    :final=> "final Official Statement",
-                    :notice => "preliminary Official Statement + Notice of Sale"
+                    :preliminary=>"Preliminary Offering Statement",
+                    :notice => "Preliminary Offering Statement + Notice of Sale",
+                    :circular => "Preliminary Offering Circular",
+                    :remarketing => "Preliminary Remarketing Statement",
+                    :memorandum => "Preliminary Remarketing Memorandum",
+                    :final=> "Final Official Statement",
+                    :offering => "Offering Circular",
+                    :private => "Private Placement Memo",
+                    :supplement => "Supplement",
+                    :sale => "Notice of Sale"
                   }
                   
                   
@@ -17,8 +24,8 @@ class Project < ActiveRecord::Base
             }
             
   SALE_TYPE = {
-                :competitive => "competitive",
-                :negotiated => "negotiated"
+                :competitive => "Competitive",
+                :negotiated => "Negotiated"
               }
                   
   define_index do
@@ -44,6 +51,8 @@ class Project < ActiveRecord::Base
   
   named_scope :published, :conditions=>{:status => STATUS[:published]}
   named_scope :pending, :conditions=>{:status => STATUS[:unpublished]}
+  
+  validates_presence_of :contact_name, :contact_company, :contact_address, :contact_city, :contact_state, :contact_zip, :contact_phone, :contact_email, :billing_name, :billing_company, :billing_address, :billing_city, :billing_state, :billing_zip, :billing_phone, :project_type, :issuer, :state, :sale_type, :sale_date, :delivery_date, :bond_amount, :description, :underwriters, :cusip
   
   def update_thumbnail(file)
     url = file.path
@@ -186,6 +195,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -216,5 +226,22 @@ end
 #  cusip                 :string(255)
 #  delta                 :boolean(1)      default(TRUE), not null
 #  bond_number           :string(255)
+#  contact_name          :string(255)
+#  contact_company       :string(255)
+#  contact_address       :string(255)
+#  contact_city          :string(255)
+#  contact_state         :string(255)
+#  contact_zip           :string(255)
+#  contact_phone         :string(255)
+#  contact_email         :string(255)
+#  billing_name          :string(255)
+#  billing_company       :string(255)
+#  billing_address       :string(255)
+#  billing_city          :string(255)
+#  billing_state         :string(255)
+#  billing_zip           :string(255)
+#  billing_phone         :string(255)
+#  billing_email         :string(255)
+#  sale_date             :date
 #
 

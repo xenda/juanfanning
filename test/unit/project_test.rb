@@ -19,6 +19,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -49,5 +50,22 @@ end
 #  cusip                 :string(255)
 #  delta                 :boolean(1)      default(TRUE), not null
 #  bond_number           :string(255)
+#  contact_name          :string(255)
+#  contact_company       :string(255)
+#  contact_address       :string(255)
+#  contact_city          :string(255)
+#  contact_state         :string(255)
+#  contact_zip           :string(255)
+#  contact_phone         :string(255)
+#  contact_email         :string(255)
+#  billing_name          :string(255)
+#  billing_company       :string(255)
+#  billing_address       :string(255)
+#  billing_city          :string(255)
+#  billing_state         :string(255)
+#  billing_zip           :string(255)
+#  billing_phone         :string(255)
+#  billing_email         :string(255)
+#  sale_date             :date
 #
 

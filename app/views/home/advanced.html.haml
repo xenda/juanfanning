@@ -3,13 +3,13 @@
   
   - semantic_form_for :search, :url => search_path do |f|
     - f.inputs do
-      = f.input :keywords, :hint => "Filter by issues, CUSIP or any other term"
+      = f.input :keywords, :hint => "Filter by Issuer, CUSIP or any other term"
       = f.input :search_type, :as => :radio, :collection => Search::SEARCH_TYPES, :label => false
 
     - f.inputs "Filter results" do
       = f.input :results_type, :as => :radio, :collection => Search::RESULT_TYPES, :label => false
       = f.input :state, :as => :select, :collection => Project.states
-      = f.input :underwriter, :as => :select, :collection => Project.underwriters
+      = f.input :underwriter, :as => :select, :collection => Project.underwriters, :label => "Underwriter/Financial Advisor"
       = f.input :timeframe, :as => :select, :collection => Search::TIMEFRAMES
     
     - f.inputs "Sort results" do

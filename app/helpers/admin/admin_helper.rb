@@ -36,8 +36,13 @@ module Admin::AdminHelper
   
   def li_tag(item)    
        name = item
-       name = "uploader" if item.include? "admin"; 
-       content_tag(:li,link_to(t("activerecord.models.#{name.downcase}").pluralize,url_for(:controller=>"admin/#{item.downcase.pluralize}",:action=>"index")))
+       name = "user list" if item.include? "user"
+       name = "admin" if item.include? "admin"
+       
+       menu_label = t("activerecord.models.#{name.downcase}")
+       
+       menu_label = menu_label.pluralize unless menu_label.include? "user list" 
+        content_tag(:li,link_to(menu_label,url_for(:controller=>"admin/#{item.downcase.pluralize}",:action=>"index")))
         
   end
   

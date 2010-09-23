@@ -43,8 +43,8 @@
               %li.last= link_to "RSS", rss_path
             %span.r
           %ul.secondary
-            %li= link_to "Securex", "http://secfile.net"
-            %li.last= link_to "DigitalMuni.com is a qualified Portal under MSRB Rule G-32", "http://emma.msrb.org"          
+            / %li= link_to "Securex", "http://secfile.net"
+            %li.last= link_to "A Qualified Portal Under MSRB Rule G-32", "http://emma.msrb.org"          
         .clear
     #content
       %nav#menu
@@ -57,7 +57,7 @@
             %li.last= link_to "FAQ", site_path("faq")
           #search_bar.right
             - form_tag "/search" do
-              = text_field_tag "terms", "Search documents by any term (Issuer, CUSIP, Description, etc)", :autocomplete => "off"
+              = text_field_tag "terms", "Search Issuer/CUSIP, etc", :autocomplete => "off"
               
               
               = submit_tag "Search"
@@ -81,7 +81,7 @@
             %li= link_to "Share", home_share_path, :class=>"email"
             %li= link_to "Print", "javascript:print()", :class=>"print_pdf"
           .opt Optimized for a screen resolution of 1024 x 768
-          = link_to "&copy; 2010 DigitalMuni LLC. All rights reserved", root_path
+          = link_to copyright_notice, root_path
     = javascript_include_tag "jquery", "jquery-ui", "jrails", 'tiny_mce/tiny_mce','tiny_mce/jquery.tinymce', :cache => "libs"
     = javascript_include_tag 'editor_loader',"lib/jquery.bgiframe.min","lib/jquery.ajaxQueue", :cache => "plugins"
     = javascript_include_tag "lib/thickbox-compressed","jquery.autocomplete.min","application", :cache => "inner"

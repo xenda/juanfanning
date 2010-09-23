@@ -221,9 +221,15 @@ input#project_document {
 	width: 500px;
 }
 
-li#project_delivery_date_input fieldset ol {
+li#project_delivery_date_input fieldset ol,
+li#project_sale_date_input fieldset ol {
 	float: left;
 	padding-left: 245px !important;
+}
+
+#project_cusip {
+	height: 100px;
+	width: 510px;
 }
 
 #admin select {

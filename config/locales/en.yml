@@ -9,9 +9,10 @@ en:
       project: project
       page: page
       download: download
-      admin: admin users
+      admin: admin
       user: Users
       uploader: Uploaders
+      user list: User List
     attributes:
       projects:
         id: Id

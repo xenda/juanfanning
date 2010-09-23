@@ -29,9 +29,9 @@
             = truncate(strip_tags(p.description), 400)
           %td= p.created_at.to_s(:short) if p.created_at
           %td.tdtip
-            = link_to "Quick info", "#", :class=>"tip"
+            = link_to "Muni info", "#", :class=>"tip"
             .top 
-              %h3 Quick info
+              %h3 Muni info
               %ul
                 %li 
                   .content
@@ -52,7 +52,7 @@
                   %li
                     .content
                       %strong Dollar value
-                      = p.bond_amount
+                      = number_to_currency p.bond_amount, :precision => 0
                       
   
   #pagination= will_paginate(@projects)

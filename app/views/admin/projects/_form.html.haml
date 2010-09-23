@@ -1,23 +1,49 @@
 - semantic_form_for ["admin",@project], :html => { :enctype => "multipart/form-data" } do |form|
-  - form.inputs do
-    = form.input :issuer, :required => false
+
+  - form.inputs "Contact Information" do
+    = form.input :contact_name,    :label => "Name", :value => current_admin.name
+    = form.input :contact_company, :label => "Company" 
+    = form.input :contact_address, :label => "Address"  
+    = form.input :contact_city,    :label => "City"
+    = form.input :contact_state,   :label => "State", :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES
+    = form.input :contact_zip,     :label => "Zip"
+    = form.input :contact_phone,   :label => "Phone"
+    = form.input :contact_email,   :label => "Email", :value => current_admin.email
+
+  - form.inputs "Billing Information" do
+    = form.input :billing_name,       :label => "Name", :value => current_admin.name
+    = form.input :billing_company,    :label => "Company" 
+    = form.input :billing_address,    :label => "Address"  
+    = form.input :billing_city,       :label => "City"
+    = form.input :billing_state,      :label => "State",:input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES
+    = form.input :billing_zip,        :label => "Zip"
+    = form.input :billing_phone,      :label => "Phone"
+    = form.input :billing_email,      :label => "Email", :value => current_admin.email
+  
+  
+  - form.inputs "About Bond Issue" do
+    = form.input :project_type, :collection => Project::PROJECT_TYPES.values, :required => true, :label => "Type of Document"
+    = form.input :issuer, :required => true, :label => "Name of Issuer"
+    = form.input :state, :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES, :label => "State of Issuer"
+    = form.input :sale_type, :collection => Project::SALE_TYPE.values, :required => false, :label => "Type of Bond Sale"
+    = form.input :sale_date, :as => :date
+    = form.input :delivery_date, :as => :date
+    = form.input :bond_amount, :required => false
+    = form.input :description, :required => false, :input_html => {:class => "tinymce"}, :label => "Issue Description"
+    = form.input :underwriters, :required => false, :label => "Underwriter/FA"
+    = form.input :cusip, :required => false, :label => "CUSIP",:hint => "Separate them by commas, such as: '774892, 774982'", :as => :text
+
     = "Uploaded: #{file_name}"
     = form.inputs :document, :required => false
 
     = form.input :bond_number, :required => false  
-    = form.input :state, :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES
-    = form.input :project_type, :collection => Project::PROJECT_TYPES, :required => false
-    
-    = form.input :description, :required => false, :input_html => {:class => "tinymce"}
-    = form.input :underwriters, :required => false
+  
     = form.input :ratings, :required => false, :hint => "Separate them by commas, such as: 'S&P: AA-, Moody\'s: Aa2'"
 
-    = form.input :bond_amount, :required => false
-    = form.input :cusip, :required => false, :label => "CUSIP"
 
-    = form.input :sale_type, :collection => Project::SALE_TYPE, :required => false
-    = form.input :delivery_date, :required => false, :as => :date, :order => [:month, :day, :year] #, :selected => Time.now
     = hidden_field_tag "project[user_id]", current_admin.id
-    
+
   - form.buttons do
     = form.commit_button 'Save',:button_html => { :class => "submit" }
+
+
