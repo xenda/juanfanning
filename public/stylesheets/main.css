@@ -567,11 +567,11 @@ footer .wrap ul li {
 
 footer .opt {
 	display: block;
-	color: #d5d5d5;
+	color: #040404;
 	margin-bottom: 5px;
 }
 footer a {
-	color: white;
+	color: #585858;
 	font-size: 11px;
 }
 footer a:hover {
@@ -872,13 +872,13 @@ footer {
 	overflow: auto;
 	width: 100%;
 	color: white !important;
-	background-color: #5e5f5f;
 	padding-bottom: 2em;
 	bottom: 0px;
-	border-top: 2px solid #494949;
+	border-top: 2px solid #e1e3e3;
 	clear: both;
 	margin-top: 4.5em;
 	display: block;
+	background: #fff url(../images/footer.jpg) repeat-x 0 top;
 }
 
 footer {left:0;}
@@ -1033,4 +1033,22 @@ a.print_pdf {
 
 .ie6 #header_content nav.util span {
 margin-left:45px !important;
+}
+
+#main section table tbody tr td span {
+	font-weight: bold;
+}
+
+footer a img,
+footer a {
+	border: none;
+}
+#main section table tbody tr td span.green {
+	color: #009f31;
+}
+#main section table tbody tr td span.red{
+	color: #db0000;
+}
+#main section table tbody tr td span.blue {
+	color: #2c48c1;
 }

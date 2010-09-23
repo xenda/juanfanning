@@ -19,6 +19,28 @@ module ApplicationHelper
     return "© DigitalMuni" unless page
     strip_tags(page.content)
   end
+
+  def colorize(project_type)
+    
+    red_targets = [Project::PROJECT_TYPES[:preliminary], Project::PROJECT_TYPES[:notice], Project::PROJECT_TYPES[:remarketing], Project::PROJECT_TYPES[:memorandum]]
+    
+    green_targets = [Project::PROJECT_TYPES[:circular],Project::PROJECT_TYPES[:offering]]
+    
+    blue_targets = [Project::PROJECT_TYPES[:supplement]]
+    
+    color_class = if red_targets.include? project_type
+                    "red"
+                  elsif green_targets.include? project_type
+                    "green"
+                  elsif blue_targets.include? project_type
+                    "blue"
+                  end
+
+    content_tag(:span, project_type.humanize, :class => color_class)
+    
+  
+  end
+  
   
   def title
     title_name = "DigitalMuni"

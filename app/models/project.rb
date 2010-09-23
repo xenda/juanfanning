@@ -32,6 +32,22 @@ class Project < ActiveRecord::Base
      indexes project_type, :sortable => true
      indexes state
      indexes cusip
+     indexes contact_name
+     indexes contact_company
+     indexes contact_address
+     indexes contact_city
+     indexes contact_state
+     indexes contact_zip     
+     indexes contact_phone   
+     indexes contact_email   
+     indexes billing_name    
+     indexes billing_company 
+     indexes billing_address 
+     indexes billing_city    
+     indexes billing_state   
+     indexes billing_zip     
+     indexes billing_phone   
+     indexes billing_email   
      indexes description
      indexes issuer, :sortable => true
      indexes bond_amount
@@ -40,7 +56,7 @@ class Project < ActiveRecord::Base
      indexes ratings
      indexes admin(:name), :as => :author, :sortable => true
      has user_id, created_at, updated_at
-     has "IF (project_type like '%preliminary%',0,1)", :type => :integer, :as => :project_type_mapping
+     has "IF (project_type like '%preliminary%',0,IF (project_type like '%final%',1,2))", :type => :integer, :as => :project_type_mapping
      set_property :delta => true
      where "status like 'published'"
    end
