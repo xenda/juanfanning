@@ -233,11 +233,9 @@ li#project_sale_date_input fieldset ol {
 }
 #new_project fieldset.inputs legend  {
 	display: block;
-	margin-bottom: 20px !important;
 }
 #new_project fieldset.inputs legend span {
 	font: bold 24px Arial, Helvetica, Geneva, sans-serif;
-	margin-bottom: 30px;
 	display: block !important;
 	color: #484848;
 }
