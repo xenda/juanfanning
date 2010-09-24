@@ -56,7 +56,7 @@ class Project < ActiveRecord::Base
      indexes ratings
      indexes admin(:name), :as => :author, :sortable => true
      has user_id, created_at, updated_at
-     has "IF (project_type like '%preliminary%',0,IF (project_type like '%final%',1,2))", :type => :integer, :as => :project_type_mapping
+     has "IF (project_type like '%Preliminary%',0,IF (project_type like '%Final%',1,2))", :type => :integer, :as => :project_type_mapping
      set_property :delta => true
      where "status like 'published'"
    end

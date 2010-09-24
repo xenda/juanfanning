@@ -3,7 +3,7 @@ class Search
   attr_accessor :keywords, :search_type, :results_type, :state, :underwriter, :timeframe, :sort, :sort_type
   
   SEARCH_TYPES = { "All Keywords" => "all", "Any Keywords" => "any", "Exact Keywords" => "exact"}
-  RESULT_TYPES = {"Final Only" => "finals","Preliminary only" => "preliminaries","Both" => "both"}
+  RESULT_TYPES = {"Final Only" => "Finals","Preliminary only" => "Preliminaries","Both" => "Both"}
   TIMEFRAMES = { "Past day" => "day", "Past week" => "week", "Past month" => "month", "Past year" => "year"}
   
   SORT_LIST = { "By date" => "date", "Alphabetically" => "alpha"}
@@ -67,9 +67,9 @@ class Search
         
         when RESULT_TYPES["Both"]
           nil
-        when RESULT_TYPES["Preliminaries only"]
+        when RESULT_TYPES["Preliminary only"]
           0
-        when RESULT_TYPES["Finals Only"]
+        when RESULT_TYPES["Final Only"]
           1
       end
     else
