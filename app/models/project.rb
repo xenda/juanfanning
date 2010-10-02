@@ -68,7 +68,7 @@ class Project < ActiveRecord::Base
   named_scope :published, :conditions=>{:status => STATUS[:published]}
   named_scope :pending, :conditions=>{:status => STATUS[:unpublished]}
   
-  # validates_presence_of :contact_name, :contact_company, :contact_address, :contact_city, :contact_state, :contact_zip, :contact_phone, :contact_email, :billing_name, :billing_company, :billing_address, :billing_city, :billing_state, :billing_zip, :billing_phone, :project_type, :issuer, :state, :sale_type, :sale_date, :delivery_date, :bond_amount, :description, :underwriters, :cusip
+  validates_presence_of :contact_name, :contact_company, :contact_address, :contact_city, :contact_state, :contact_zip, :contact_phone, :contact_email, :billing_name, :billing_company, :billing_address, :billing_city, :billing_state, :billing_zip, :billing_phone, :project_type, :issuer, :state, :sale_type, :sale_date, :delivery_date, :bond_amount, :description, :underwriters, :cusip
 
 
   def validate    
@@ -147,11 +147,12 @@ class Project < ActiveRecord::Base
 TEXT
     
     case self.sale_type
-      when  SALE_TYPE[:competitive]
+      when Project::SALE_TYPE[:competitive]
          list_id = $competitive_id
-      when SALE_TYPE[:negotiated]
+      when Project::SALE_TYPE[:negotiated]
          list_id = $negotiated_id
     end
+    
     
     all_list_id = $all_id
     options = {:list_id => list_id, :subject => "[DigitalMuni] A new project uploaded", :from_email => "contact@digitalmuni.com",
@@ -164,11 +165,8 @@ TEXT
     selective_list = User.listed_as(self.sale_type.to_sym).map(&:email)
     all_list = User.listed_as(:all).map(&:email)
     
-    $hominid.unsubscribe_many(list_id,selective_list)
-    $hominid.unsubscribe_many(all_list_id,all_list)
-    
+    $hominid.unsubscribe_many(list_id,selective_list)    
     $hominid.subscribe_many(list_id,selective_list.map{|i| {"EMAIL"=>i}})
-    $hominid.subscribe_many(all_list_id,all_list.map{|i| {"EMAIL"=>i}})
         
     logger.info campaign_id
     $hominid.send_now(campaign_id)
@@ -177,6 +175,9 @@ TEXT
     
     options[:list_id] = all_list_id
     campaign_id = $hominid.create_campaign(options, content, "trans")
+
+    $hominid.unsubscribe_many(all_list_id,all_list)
+    $hominid.subscribe_many(all_list_id,all_list.map{|i| {"EMAIL"=>i}})
 
     logger.info "Sending email to suscribers"
     logger.info campaign_id    
