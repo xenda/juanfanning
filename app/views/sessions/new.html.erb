@@ -1,5 +1,12 @@
 <section>
-<h2>Sign in</h2>
+  <div class="session_header">
+    <h2>
+      <span class="left">Sign in</span>
+      <span class="or">or <strong><%= link_to "Sign up", new_user_registration_path %></strong> and create your     account</span>       
+    </h2>
+    
+  </div>
+
 
 <% form_for resource_name, resource, :url => session_path(resource_name) do |f| -%>
   <p><%= f.label :email %></p>

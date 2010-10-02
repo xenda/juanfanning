@@ -1,6 +1,14 @@
 <section>
 
-<h2>Sign up</h2>
+  <div class="session_header">
+    <h2>
+      <span class="left">Sign up</span>
+      <span class="or">or <strong><%= link_to "Sign in", new_user_session_path %></strong> to your existing account</span>       
+    </h2>
+    
+  </div>
+  
+
 
 <% form_for resource_name, resource, :url => registration_path(resource_name) do |f| -%>
   <%= f.error_messages %>
