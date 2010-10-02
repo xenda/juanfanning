@@ -3,7 +3,8 @@
 #admin
 
   %h1= "Viewing #{I18n.t 'activerecord.models.project'}"
-
+    
+    
   %p
     %strong Issuer
     = @project.issuer        
@@ -17,30 +18,36 @@
 
   %p
     %strong Project Type:
-    = @project.project_type        
+    = @project.project_type
   %p
     %strong State:
-    = @project.state       
+    = @project.state
   %p
     %strong Description
-    = @project.description        
+    = @project.description
   %p
     %strong Description
-    = @project.published_at        
+    = @project.published_at
   %p
     %strong Bond amount
-    = @project.bond_amount        
+    = number_to_currency @project.bond_amount, :precision => 0
   %p
     %strong Sale Type:
-    = @project.sale_type        
+    = @project.sale_type
 
   %p
     %strong Delivery Date
-    = @project.delivery_date    
+    = @project.delivery_date
 
   %p
-    %strong Uploader:
-    = @project.admin.name        
+    %strong Administrator:
+    = @project.admin.name
+
+  %section#description
+    %h2.bond_amount= link_to (number_to_currency @project.bond_amount, :precision => 0), access_member_project_path(@project)
+    %h3= link_to @project.issuer, access_member_project_path(@project)
+    %p= link_to truncate(strip_tags(@project.description), 400), access_member_project_path(@project)
+
 
   .bottom_menu
     = link_to "See all", admin_projects_path

@@ -4,6 +4,7 @@
 	http://digitalmuni.com/stylesheets/main.css?1284347013
 	http://digitalmuni.com/stylesheets/main.css?1284561628
 	http://digitalmuni.com/stylesheets/main.css?1285104783
+	http://digitalmuni.com/stylesheets/main.css?1285956898
 */
 
 body {
@@ -43,6 +44,7 @@ body.contact #main div.right h4 span {
 }
 section#description {
 	margin-bottom: 20px;
+	display: block;
 }
 section#description h2,
 section#disclaimer h3,
@@ -71,11 +73,6 @@ section#disclaimer h2 strong {
 	text-indent: 0;
 }
 
-/*body {text-align:center;}
-*/
-body .wrap * {
- /*      text-align:left;*/
-}
 
 body.contact #main div.right {
 	color: #5e5f5f;
@@ -197,7 +194,7 @@ fieldset#additional {
 .downloads #main section#disclaimer p {
 	color: #404040;
 	font-size: 13px;
-
+	
 	line-height: 1.6em;
 }
 
@@ -704,7 +701,6 @@ display: block;
 .sessions #main section form p label,
 .passwords #main section form p label,
 .registrations #main section form p label,
-#main section p,
 a  {
 	color: #404040;
 	font-family: Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
@@ -1036,6 +1032,23 @@ margin-left:45px !important;
 }
 
 #main section table tbody tr td span {
+font-weight: bold !important;	
+}
+
+#description h2.bond_amount {
+	color: #005bba;
+	font-weight: bold !important;
+}
+
+.downloads section#description {
+	text-align: center;
+}
+
+span.small {
+	color: #5d5d5d;
+}
+
+#main section table tbody tr td span.green {
 	font-weight: bold;
 }
 

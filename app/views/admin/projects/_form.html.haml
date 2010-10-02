@@ -1,5 +1,5 @@
 - semantic_form_for ["admin",@project], :html => { :enctype => "multipart/form-data" } do |form|
-
+  = form.error_messages
   - form.inputs "Contact Information" do
     = form.input :contact_name,    :label => "Name", :value => current_admin.name
     = form.input :contact_company, :label => "Company" 
@@ -26,8 +26,10 @@
     = form.input :issuer, :required => true, :label => "Name of Issuer"
     = form.input :state, :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES, :label => "State of Issuer"
     = form.input :sale_type, :collection => Project::SALE_TYPE.values, :required => false, :label => "Type of Bond Sale"
-    = form.input :sale_date, :as => :date
-    = form.input :delivery_date, :as => :date
+    = form.input :sale_date, :as => :date, :order => [:day, :month, :year]
+    
+    = form.input :delivery_date, :as => :date, :order => [:day, :month, :year]
+    
     = form.input :bond_amount, :required => false
     = form.input :description, :required => false, :input_html => {:class => "tinymce"}, :label => "Issue Description"
     = form.input :underwriters, :required => false, :label => "Underwriter/FA"

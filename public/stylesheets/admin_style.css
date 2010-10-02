@@ -60,6 +60,48 @@ div#header {
 	margin-bottom: 1em;
 }
 
+#description h2.bond_amount {
+	margin-bottom: 0px;
+	border: none;
+	font-size: 12px;
+	padding: 0px;
+}
+
+#description h3 {
+	margin: 0px;
+}
+
+#description p {
+	margin: 0px;	
+}
+
+section#description {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+div#errorExplanation.errorExplanation {
+	padding: 20px 10px;
+	background-color: #ffbabf;
+	color: #93280b;
+	border-top: 1px solid #c89196;
+	border-bottom: 1px solid #c89196;
+	margin-bottom: 10px;
+}
+
+textarea#page_metatags {
+	height: 100px;
+}
+
+#errorExplanation h2 {
+	margin: 0px;	
+}
+
+#description h2.bond_amount a {
+	font-size: 16px;
+}
+
 #main section div.message {
 	
 	padding: 15px 30px;

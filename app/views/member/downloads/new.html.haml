@@ -2,6 +2,7 @@
   %h2 Download Notice and Disclaimer
   
   %section#description
+    %h2.bond_amount= number_to_currency @download.project.bond_amount, :precision => 0
     %h3= @download.project.issuer
     %p= truncate(strip_tags(@download.project.description), 400)
   

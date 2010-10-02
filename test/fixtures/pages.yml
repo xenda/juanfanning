@@ -14,6 +14,7 @@ two:
   published_at: MyString
   status: MyString
 
+
 # == Schema Information
 #
 # Table name: pages
@@ -27,5 +28,6 @@ two:
 #  user_id      :integer(4)
 #  created_at   :datetime
 #  updated_at   :datetime
+#  metatags     :text
 #
 

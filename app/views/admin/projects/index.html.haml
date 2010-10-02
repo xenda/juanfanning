@@ -35,7 +35,7 @@
         %td{:colspan => 13} No registered projects found
     - @projects.each do |project|
       %tr{:class=>cycle('even','odd') }
-        %td= project.try(:admin).try(:name)
+        %td= project.contact_name
         %td= project.project_type
         %td= project.issuer
         %td= project.sale_type

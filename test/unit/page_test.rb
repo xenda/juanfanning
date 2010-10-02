@@ -7,6 +7,7 @@ class PageTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: pages
@@ -20,5 +21,6 @@ end
 #  user_id      :integer(4)
 #  created_at   :datetime
 #  updated_at   :datetime
+#  metatags     :text
 #
 

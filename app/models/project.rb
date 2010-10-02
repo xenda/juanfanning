@@ -68,7 +68,16 @@ class Project < ActiveRecord::Base
   named_scope :published, :conditions=>{:status => STATUS[:published]}
   named_scope :pending, :conditions=>{:status => STATUS[:unpublished]}
   
-  validates_presence_of :contact_name, :contact_company, :contact_address, :contact_city, :contact_state, :contact_zip, :contact_phone, :contact_email, :billing_name, :billing_company, :billing_address, :billing_city, :billing_state, :billing_zip, :billing_phone, :project_type, :issuer, :state, :sale_type, :sale_date, :delivery_date, :bond_amount, :description, :underwriters, :cusip
+  # validates_presence_of :contact_name, :contact_company, :contact_address, :contact_city, :contact_state, :contact_zip, :contact_phone, :contact_email, :billing_name, :billing_company, :billing_address, :billing_city, :billing_state, :billing_zip, :billing_phone, :project_type, :issuer, :state, :sale_type, :sale_date, :delivery_date, :bond_amount, :description, :underwriters, :cusip
+
+
+  def validate    
+    self.cusip = "1" if self.cusip.blank?
+    if self.cusip.gsub(" ","").split(",").any? {|s| s.size != 9 }
+      errors.add("All CUSIP numbers must be 9 characters long. One of them ") 
+    end
+  end
+  
   
   def update_thumbnail(file)
     url = file.path

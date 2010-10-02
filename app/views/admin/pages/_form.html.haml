@@ -5,6 +5,7 @@
     = form.input :slug, :hint => "If none is entered, we will create one based on your title"
     = form.input :published_at
     = form.input :status, :collection => Page::STATUS
+    = form.input :metatags, :hint => "If you wish, you can add descriptive keywords to be used on this page"
     = form.input :admin
     
   - form.buttons do

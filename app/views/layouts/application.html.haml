@@ -2,8 +2,11 @@
 %html
   %head
     %title= title
+    - if @page && @page.metatags
+      %meta{ :name=>"keywords", :content=>@page.metatags}
     = stylesheet_link_tag "reset", "main", "#{controller.controller_name}", "formtastic","../javascripts/lib/thickbox.css","../javascripts/jquery.autocomplete"
     = stylesheet_link_tag "print", :media => :print
+    
     /[if IE]
       :erb
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,6 +75,8 @@
       .wrap
         .left
           = link_to image_tag("securex.png"), "http://secfile.net"
+          %br
+          %span.small A Securex Company
         .right
           %ul
             %li= link_to "Terms & Conditions ", site_path("terms-and-conditions")
