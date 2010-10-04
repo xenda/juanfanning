@@ -68,7 +68,7 @@ class Project < ActiveRecord::Base
   named_scope :published, :conditions=>{:status => STATUS[:published]}
   named_scope :pending, :conditions=>{:status => STATUS[:unpublished]}
   
-  validates_presence_of :contact_name, :contact_company, :contact_address, :contact_city, :contact_state, :contact_zip, :contact_phone, :contact_email, :billing_name, :billing_company, :billing_address, :billing_city, :billing_state, :billing_zip, :billing_phone, :project_type, :issuer, :state, :sale_type, :sale_date, :delivery_date, :bond_amount, :description, :underwriters, :cusip
+  validates_presence_of :contact_name, :contact_company, :contact_address, :contact_city, :contact_state, :contact_zip, :contact_phone, :contact_email, :billing_name, :billing_company, :billing_address, :billing_city, :billing_state, :billing_zip, :billing_phone, :project_type, :issuer, :state, :sale_type, :sale_date, :delivery_date, :bond_amount, :description, :underwriters
 
 
   def validate    
@@ -222,6 +222,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -269,5 +270,6 @@ end
 #  billing_phone         :string(255)
 #  billing_email         :string(255)
 #  sale_date             :date
+#  head_title            :string(255)
 #
 

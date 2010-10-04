@@ -20,6 +20,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -67,5 +68,6 @@ end
 #  billing_phone         :string(255)
 #  billing_email         :string(255)
 #  sale_date             :date
+#  head_title            :string(255)
 #
 

@@ -26,9 +26,9 @@
     = form.input :issuer, :required => true, :label => "Name of Issuer"
     = form.input :state, :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES, :label => "State of Issuer"
     = form.input :sale_type, :collection => Project::SALE_TYPE.values, :required => false, :label => "Type of Bond Sale"
-    = form.input :sale_date, :as => :date, :order => [:day, :month, :year]
+    = form.input :sale_date, :as => :date, :order => [:month, :day, :year]
     
-    = form.input :delivery_date, :as => :date, :order => [:day, :month, :year]
+    = form.input :delivery_date, :as => :date, :order => [:month, :day, :year]
     
     = form.input :bond_amount, :required => false
     = form.input :description, :required => false, :input_html => {:class => "tinymce"}, :label => "Issue Description"

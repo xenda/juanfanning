@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :registerable, :database_authenticatable, :recoverable,
          :rememberable, :trackable, :validatable
 
+  validates_presence_of :phone
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :name, :role,:company, :address1, :address2, :city, :state, :zip, :phone, :interest 
   

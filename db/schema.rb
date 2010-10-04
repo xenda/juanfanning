@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101002045949) do
+ActiveRecord::Schema.define(:version => 20101004221538) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "",           :null => false
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20101002045949) do
     t.string   "billing_phone"
     t.string   "billing_email"
     t.date     "sale_date"
+    t.string   "head_title"
   end
 
   create_table "shares", :force => true do |t|
