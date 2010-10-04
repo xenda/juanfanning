@@ -15,6 +15,7 @@ two:
   status: MyString
 
 
+
 # == Schema Information
 #
 # Table name: pages
@@ -29,5 +30,6 @@ two:
 #  created_at   :datetime
 #  updated_at   :datetime
 #  metatags     :text
+#  head_title   :string(255)
 #
 

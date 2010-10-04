@@ -22,6 +22,7 @@ class Page < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: pages
@@ -36,5 +37,6 @@ end
 #  created_at   :datetime
 #  updated_at   :datetime
 #  metatags     :text
+#  head_title   :string(255)
 #
 
