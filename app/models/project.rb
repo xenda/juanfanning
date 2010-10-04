@@ -72,7 +72,6 @@ class Project < ActiveRecord::Base
 
 
   def validate    
-    self.cusip = "1" if self.cusip.blank?
     if self.cusip.gsub(" ","").split(",").any? {|s| s.size != 9 }
       errors.add("All CUSIP numbers must be 9 characters long. One of them ") 
     end
