@@ -13,7 +13,7 @@ class HomeController < ApplicationController
       @share.from_email = current_user.email
     end
     @share.subject = "[DigitalMuni]"
-    @share.content = "<h2>Hi!</h2><p>#{@share.from} thinks you'd be interested in the <a href='http://digitalmuni.com'>DigitalMuni website</a></p>"
+    @share.content = "Hi!. #{@share.from} thinks you'd be interested in the DigitalMuni website(http://digitalmuni.com)"
   end
   
   def search
