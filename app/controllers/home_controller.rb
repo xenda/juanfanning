@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   
-   # before_filter :authenticate_user!, :except => :rss
+   #before_filter :authenticate_user!, :except => :rss
       
   def index
     @projects = Project.published.paginate(:page => params[:page], :per_page => params[:per_page], :order => "updated_at DESC")
@@ -8,8 +8,10 @@ class HomeController < ApplicationController
   
   def share
     @share = Share.new
-    @share.from = current_user.name
-    @share.from_email = current_user.email
+    if current_user
+      @share.from = current_user.name
+      @share.from_email = current_user.email
+    end
     @share.subject = "[DigitalMuni]"
     @share.content = "<h2>Hi!</h2><p>#{@share.from} thinks you'd be interested in the <a href='http://digitalmuni.com'>DigitalMuni website</a></p>"
   end
