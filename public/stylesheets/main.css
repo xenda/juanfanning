@@ -569,7 +569,7 @@ footer .wrap ul {
 	padding-left: 0px;
 	overflow: auto !important;
 	margin: 0px;
-	 width:350px;
+	 width:326px;
 }
 footer .wrap ul li {
 	list-style: none;
@@ -1031,7 +1031,8 @@ form#new_contact_form.contact_form {
 
 
 a.print_pdf {
-	text-indent: -9999px;
+	text-indent: -9999px !important;
+	text-align: left;
 	display: block;
 	width: 16px;
 	height: 16px;
@@ -1080,4 +1081,9 @@ footer a {
 }
 #main section table tbody tr td span.blue {
 	color: #2c48c1;
+}
+
+footer div.right {
+	text-align: right;
+	color: #242424;
 }

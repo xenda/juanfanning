@@ -1,7 +1,7 @@
 
 atom_feed do |feed|
   feed.title("DigitalMuni Projects")
-  feed.updated(@projects.try(:first).try(:updated_at)
+  feed.updated(@projects.try(:first).try(:updated_at))
   
   @projects.each do |post|
     feed.entry(post,:url=>access_member_project_url(post)) do |entry|

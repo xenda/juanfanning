@@ -44,9 +44,9 @@
     = @project.admin.name
 
   %section#description
-    %h2.bond_amount= link_to number_to_currency(@project.bond_amount, :precision => 0), access_member_project_path(@project)
-    %h3= link_to @project.issuer, access_member_project_path(@project)
-    %p= link_to truncate(strip_tags(@project.description), 400), access_member_project_path(@project)
+    %h2.bond_amount= link_to number_to_currency(@project.bond_amount, :precision => 0), @project.document.url
+    %h3= link_to @project.issuer, @project.document.url
+    %p= link_to truncate(strip_tags(@project.description), 400), @project.document.url
 
 
   .bottom_menu{:style=>"margin-top:2em;"}
