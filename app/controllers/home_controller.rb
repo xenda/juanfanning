@@ -11,6 +11,8 @@ class HomeController < ApplicationController
     if current_user
       @share.from = current_user.name
       @share.from_email = current_user.email
+    else
+      @share.from = "Someone"
     end
     @share.subject = "[DigitalMuni]"
     @share.content = "Hi!. #{@share.from} thinks you'd be interested in the DigitalMuni website (http://digitalmuni.com)"
