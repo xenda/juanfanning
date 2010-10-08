@@ -5,11 +5,16 @@
 	http://digitalmuni.com/stylesheets/main.css?1284561628
 	http://digitalmuni.com/stylesheets/main.css?1285104783
 	http://digitalmuni.com/stylesheets/main.css?1285956898
+	http://digitalmuni.com/stylesheets/main.css?1286456467
 */
 
 body {
 	margin: 0px;
 	font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+#main section.left p {
+	color: #484848;
 }
 
 body.contact #main div.right p strong {
@@ -490,9 +495,13 @@ div#main {
 /*  overflow: hidden;*/
 	/*border-top-style: solid;
 	border-top-width: 3px;*/
-	color: #90c6e9;
+	color: #6b6a64;
 	height: auto;
 	padding-bottom: 80px;
+}
+
+.pages.show #main section div h3 {
+	margin-top: 10px;
 }
 
 /*nav.util ul.secondary a {
