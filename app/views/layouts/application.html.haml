@@ -4,7 +4,7 @@
     %title= title
     - if @page && @page.metatags
       %meta{ :name=>"keywords", :content=>@page.metatags}
-    = stylesheet_link_tag "reset", "main", "#{controller.controller_name}", "formtastic","../javascripts/lib/thickbox.css","../javascripts/jquery.autocomplete"
+    = stylesheet_link_tag "reset", "main", "#{controller.controller_name}", "formtastic","../javascripts/lib/thickbox.css","../javascripts/jquery.autocomplete", :cache => "styles"
     = stylesheet_link_tag "print", :media => :print
     
     /[if IE]
