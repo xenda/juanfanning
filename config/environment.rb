@@ -6,6 +6,9 @@ RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+$GMAPS_KEY = "ABQIAAAAXMgBsic0JFR5LXYOW2dCVxSa_nye1L2YH4CL875ICUYPopNcbhTu_XA2aeUD0BRKXQgMnf738S9M8g"
+
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -26,16 +29,6 @@ Rails::Initializer.run do |config|
   config.gem "inherited_resources", :version=>"1.0.6"
   config.gem 'will_paginate', :version => '~> 2.3.11'
   config.gem "haml"
-  config.gem(
-    'thinking-sphinx',
-    :lib     => 'thinking_sphinx',
-    :version => '1.3.11'
-  )
-  
-  config.gem "aws-s3", :lib => "aws/s3"
-  config.gem "cancan"
-  config.gem "docsplit"
-  config.gem "hominid"
   config.gem 'hoptoad_notifier'
   
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -51,25 +44,9 @@ Rails::Initializer.run do |config|
 
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
-  config.time_zone = 'Eastern Time (US & Canada)'
+  config.time_zone = 'Lima'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
-
-api_key = "8a19960db8d192c0d7857bd434e277b7-us1"
-$hominid = Hominid::Base.new :api_key => api_key
-$all_id = $hominid.find_list_id_by_name("All")
-$competitive_id = $hominid.find_list_id_by_name("Competitive")
-$negotiated_id = $hominid.find_list_id_by_name("Negotiated")
-$contact_id = $hominid.find_list_id_by_name("Contact")
-$share_id = $hominid.find_list_id_by_name("Share")
-
-
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-  :address => 'localhost',
-  :domain => 'www.digitalmuni.com',
-  :port => 25
-}

@@ -1,60 +1,18 @@
-%section
-  %h2 Recent Municipal Bond Offerings
-  
-  #filters.right
-    = page_entries_info @projects
-    - form_tag url_for(:action => "index") do
-      View
-      = select_tag "per_page", options_for_select([["10 per page", "10"], ["25 per page", "25"],["50 per page", "50"],["100 per page", "100"]])
-      = submit_tag "filter"
-  
-  %table
-    %thead
-      %tr
-        %th{:width => 100} Status
-        %th{:width => 100} State
-        %th{:width => 400} Issuer Description
-        %th Date Posted
-        %th 
-    %tbody
-      - @projects.each do |p|
-        %tr{:class => (cycle("even","odd"))}
-          %td= colorize(p.project_type) if p.project_type
-          %td= p.state.upcase
-          %td
-            - link_to access_member_project_path(p) do
-              = p.issuer_name
+#top
+  %p
+    Somos lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare augue ac velit aliquet pretium. Quisque id lacus sem, a iaculis nisl. Praesent et quam id quam adipiscing auctor dignissim non neque. Maecenas malesuada scelerisque quam sed vulputate. Mauris ante arcu, sagittis at pharetra in, blandit in mauris.
+    %a{:href => "#"}
+      %strong Sobre nosotros
+#projects
+  %h1 Proyectos
+  .place
+    %select
+      %option Todos
+      %option Jesús María
+      %option Miraflores
+      %option San Borja
+      %option Santiago de Surco
 
-            %br
-            = truncate(strip_tags(p.description), 400)
-          %td= p.created_at.to_s(:short) if p.created_at
-          %td.tdtip
-            = link_to "Muni info", "#", :class=>"tip"
-            .top 
-              %h3 Muni info
-              %ul
-                %li 
-                  .content
-                    %strong= p.issuer_name
-                    = strip_tags p.description
-                - unless p.ratings.blank?
-                  %li
-                    .content
-                      %strong Ratings
-                      - if p.ratings
-                        = p.ratings.split(",").join("<br />")
-                - unless p.underwriters.blank?
-                  %li
-                    .content
-                      %strong Underwriter(s)
-                      = p.underwriters
-                - unless p.bond_amount.blank?
-                  %li
-                    .content
-                      %strong Dollar value
-                      = number_to_currency p.bond_amount, :precision => 0
-                      
-  
-  #pagination= will_paginate(@projects)
-                  
-          
+    = render :partial => "project", :collection => @projects
+    / 
+/ /projects

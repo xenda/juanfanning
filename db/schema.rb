@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004223624) do
+ActiveRecord::Schema.define(:version => 20101012013018) do
 
   create_table "admins", :force => true do |t|
-    t.string   "email",                               :default => "",           :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",           :null => false
-    t.string   "password_salt",                       :default => "",           :null => false
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20101004223624) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role",                                :default => "supervisor"
     t.string   "name"
   end
 
@@ -46,118 +45,59 @@ ActiveRecord::Schema.define(:version => 20101004223624) do
     t.datetime "updated_at"
   end
 
-  create_table "downloads", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "document_id"
-    t.datetime "enabled_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "printed",     :default => false
-  end
-
   create_table "pages", :force => true do |t|
     t.string   "title",        :default => "Untitled",    :null => false
     t.text     "content"
     t.string   "slug"
     t.string   "published_at"
     t.string   "status",       :default => "unpublished"
-    t.integer  "user_id"
+    t.integer  "admin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "metatags"
     t.string   "head_title"
   end
 
-  add_index "pages", ["user_id"], :name => "index_pages_on_user_id"
+  add_index "pages", ["admin_id"], :name => "index_pages_on_admin_id"
+
+  create_table "project_images", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "image_file_name"
+    t.integer  "image_file_size"
+    t.string   "image_content_type"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "temp_id"
+  end
 
   create_table "projects", :force => true do |t|
-    t.string   "project_type",                                         :default => "preliminary", :null => false
-    t.string   "state",                                                :default => "0",           :null => false
+    t.string   "state",                                             :default => "0",            :null => false
     t.text     "description"
     t.datetime "published_at"
-    t.string   "issuer"
-    t.decimal  "bond_amount",           :precision => 12, :scale => 2
-    t.string   "sale_type",                                            :default => "competitive"
-    t.string   "status",                                               :default => "unpublished"
+    t.string   "status",                                            :default => "unpublished"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.datetime "delivery_date"
-    t.string   "document_file_name"
-    t.integer  "document_file_size"
-    t.string   "document_content_type"
-    t.datetime "document_updated_at"
-    t.string   "underwriters"
-    t.string   "ratings"
-    t.string   "preview_file_name"
-    t.integer  "preview_file_size"
-    t.string   "preview_content_type"
-    t.datetime "preview_updated_at"
-    t.string   "cusip"
-    t.boolean  "delta",                                                :default => true,          :null => false
-    t.string   "bond_number"
-    t.string   "contact_name"
-    t.string   "contact_company"
-    t.string   "contact_address"
-    t.string   "contact_city"
-    t.string   "contact_state"
-    t.string   "contact_zip"
-    t.string   "contact_phone"
-    t.string   "contact_email"
-    t.string   "billing_name"
-    t.string   "billing_company"
-    t.string   "billing_address"
-    t.string   "billing_city"
-    t.string   "billing_state"
-    t.string   "billing_zip"
-    t.string   "billing_phone"
-    t.string   "billing_email"
-    t.date     "sale_date"
-    t.string   "head_title"
+    t.integer  "admin_id"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string   "name",                                              :default => "Proyecto"
+    t.string   "code"
+    t.decimal  "sales_price",         :precision => 8, :scale => 2, :default => 0.0
+    t.string   "property_type",                                     :default => "departamento"
+    t.integer  "terrain_area",                                      :default => 0
+    t.integer  "constructed_area",                                  :default => 0
+    t.integer  "rooms",                                             :default => 0
+    t.integer  "bathrooms",                                         :default => 0
+    t.integer  "garages",                                           :default => 0
+    t.date     "construction_year"
+    t.integer  "floors_per_building",                               :default => 0
+    t.boolean  "with_furniture",                                    :default => false
+    t.string   "lat"
+    t.string   "long"
+    t.string   "address"
   end
-
-  create_table "shares", :force => true do |t|
-    t.string   "from"
-    t.string   "from_email"
-    t.string   "to_email"
-    t.string   "subject"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "project_id"
-    t.text     "content"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",     :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",     :null => false
-    t.string   "password_salt",                       :default => "",     :null => false
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "role",                                :default => "user"
-    t.string   "company"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "interest",                            :default => "all"
-  end
-
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

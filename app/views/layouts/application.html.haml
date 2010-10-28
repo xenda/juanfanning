@@ -1,93 +1,44 @@
-!!! 5
-%html
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title= title
-    - if @page && @page.metatags
-      %meta{ :name=>"keywords", :content=>@page.metatags}
-    = stylesheet_link_tag "reset", "main", "#{controller.controller_name}", "formtastic","../javascripts/lib/thickbox.css","../javascripts/jquery.autocomplete", :cache => "styles"
-    = stylesheet_link_tag "print", :media => :print
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    - unless controller.controller_name == "sessions"
+      %meta{ "http-equiv" => "refresh", :content=>"0;url=http://www.facebook.com/pages/Miraflores-Peru/Inmobiliaria-Juan-Fanning/132867600058481"}
     
-    /[if IE]
-      :erb
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  = yield :include        
-  /[if lt IE 7 ] 
-    :erb
-      <body class="ie6 <%= body_classes %>">
-  /[if IE 7 ]
-    :erb
-      <body class="ie7 <%= body_classes %>">
-  /[if IE 8 ]
-    :erb
-      <body class="ie8 <%= body_classes %>">
-  /[if IE 9 ] 
-    :erb
-      <body class="ie9 <%= body_classes %>">
-  / [if (gt IE 9)|!(IE)]><!
-  %body{:class=>body_classes}
-    / <![endif]>        
-    %header
-      #header_content.wrap
-        %h1
-          - link_to root_path do
-            = image_tag ("logo.jpg")
-            %span.hide= "DigitalMuni"
-        %nav.util
-          %span= "Welcome back #{current_user.name}!" if current_user
-          .nav-main
-            %ul
-              - unless user_signed_in?
-                %li= link_to "Login", new_user_session_path
-                %li= link_to "Create new account", new_user_registration_path
-              - else
-                %li= link_to "Account", edit_user_registration_path            
-                %li= link_to "Logout", destroy_user_session_path
-                %li= link_to "Recent downloads", recent_member_downloads_path
-              %li.last= link_to "RSS", rss_path
-            %span.r
-          %ul.secondary
-            / %li= link_to "Securex", "http://secfile.net"
-            %li.last= link_to "A Qualified Portal Under MSRB Rule G-32", "http://emma.msrb.org"          
-        .clear
-    #content
-      %nav#menu
-        .wrap
-          %ul.principal.left
-            %li= link_to "Home", root_path
-            %li= link_to "About", site_path("about")
-            %li= link_to "Services", site_path("services")
-            %li= link_to "Contact", contact_path
-            %li= link_to "FAQ", site_path("faq")
-            %li.last= link_to "Careers", site_path("careers")
-          #search_bar.right
-            - form_tag "/search" do
-              = text_field_tag "terms", "Search Issuer/CUSIP, etc", :autocomplete => "off"
-              
-              
-              = submit_tag "Search"
-            = link_to "advanced", advanced_search_path
-          .clear 
-
-      #wrapper.wrap    
-        #main
-          = display_flashes
-          = yield
-    %footer
-      .wrap
-        .left
-          = link_to image_tag("securex.png"), "http://secfile.net"
-          %br
-          %span.small A Securex Company
-        .right
-          %ul
-            %li= link_to "Terms & Conditions ", site_path("terms-and-conditions")
-            %li= link_to "Contact", contact_path, :class=>"contact"
-            %li= link_to "Privacy Policy", site_path("privacy-policy"), :class=>"email"
-            %li= link_to "Sitemap", site_path("sitemap"), :class=>"site-map"            
-            %li= link_to "Share", home_share_path, :class=>"email"
-            %li= link_to "Print", "javascript:print()", :class=>"print_pdf"
-          .opt Optimized for a screen resolution of 1024 x 768
-          = copyright_notice
-    = javascript_include_tag "jquery", "jquery-ui", "jrails", 'tiny_mce/tiny_mce','tiny_mce/jquery.tinymce', 'editor_loader'
-    = javascript_include_tag "lib/jquery.bgiframe.min","lib/jquery.ajaxQueue", :cache => "plugins"
-    = javascript_include_tag "lib/thickbox-compressed","jquery.autocomplete.min","application", :cache => "inner"
+    %title JFanning
+    %link{:href => "/stylesheets/style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/javascripts/fancybox/jquery.fancybox-1.3.1.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/jquery.cycle.all.min.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/cufon-yui.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/Helvetica-UltraCompressed_400.font.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/functions.js", :type => "text/javascript"}
+    %script{:src =>"/javascripts/fancybox/jquery.fancybox-1.3.1.pack.js"}
+    %script{:src =>"/javascripts/application.js"}
+    /[if lt IE 7]
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css"/>
+  %body{:onload => @onload, :onunload => @onunload}
+    #wrapper
+      #header
+        #logo
+          %a{:href => root_path} JFanning Inmobiliaria
+        %ul
+          %li
+            %a{:href => "#"} Quiénes Somos
+          %li
+            %span Telf.
+            483-0545
+          %li.last
+            %a{:href => "mailto:info@jfanning.com.pe"} info@jfanning.com.pe
+      / /header
+      #content
+        = yield
+      / /content
+      .clr
+      #footer
+        %p © 2010 www.jfanning.com.pe
+      / /footer
+      / /wrapper
+      / /Fix delay on IE
+      /[if gte IE 6]
+      <script type="text/javascript"> Cufon.now(); </script>

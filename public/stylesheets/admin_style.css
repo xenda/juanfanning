@@ -4,9 +4,38 @@
 	http://digitalmuni.xendacentral.com/stylesheets/admin_style.css?1282013480
 */
 
+div#gmaps {
+	margin-bottom: 20px;	
+}
+
+div#map_canvas {
+	margin-left: 200px;	
+	padding: ;
+}
+
+#gmaps p.inline-hints {
+	margin-left: 200px;
+	color: #686a6a;
+	font: 12px Arial, Helvetica, Geneva, sans-serif;
+}
+
+#project_with_furniture_input label {
+	padding-left: 200px;
+}
+
 body {
 	margin: 0px;
 	font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+#project_address_input label {
+	width: 200px;	
+	display: block;
+	float: left;
+}
+
+li#project_address_input.string.optional {
+	margin-bottom: 10px;
 }
 
 .clear {
@@ -225,14 +254,30 @@ div#logged_as {
 }
 
 div#admin label {
-	font: bold 16px Arial, Helvetica, Geneva, sans-serif;
+	font: bold 14px Arial, Helvetica, Geneva, sans-serif;
+	width: 200px;
+	color: #494949;
+}
+
+#project_construction_year_input fieldset ol {
+	padding-left: 200px;
 }
 div#admin input{
-	width: 500px;
+	/*width: 500px;*/
 	padding: 5px;
 	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 	color: #8b8d8d;
-	border: 1px solid #838383;
+	border: 1px solid #9d9f9f;
+}
+
+#gmaps li {
+	overflow: auto;
+	padding-left: ;
+}
+
+button#find_me {
+	padding-left: 197px;
+	margin-bottom: 10px;
 }
 
 div#admin textarea {
@@ -283,17 +328,13 @@ li#project_sale_date_input fieldset ol {
 }
 
 #new_project fieldset.inputs ol {
-	margin-top: 40px;	
-	margin-bottom: 40px;	
 }
 #new_project fieldset.inputs ol li ol {
 	margin: 0px;
 }
 
 #new_project fieldset.inputs {
-	margin-bottom: 20px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #b2acae;
+
 }
 #new_project fieldset.inputs ol fieldset.inputs {
 	margin: 0px;
@@ -301,7 +342,7 @@ li#project_sale_date_input fieldset ol {
 	padding: 0px;
 }
 #admin select {
-	width: auto;
+
 	font-size: 11px !important;
 }
 
@@ -323,7 +364,7 @@ input.small {
 	padding-top: 1em;
 	padding-bottom: 1em;
 	border-bottom: 1px dotted #cccfcf;
-
+	overflow: auto;
 	padding-left: 2em;
 	background-color: #f0f3f3;
 }
@@ -331,15 +372,12 @@ input.small {
 #admin div.bottom_menu p a {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
-	background-color: #edffa1;
-	padding: 5px 15px;
 	color: #000;
 	text-decoration: none;
 	font: 12px Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
 }
 
 #admin div.bottom_menu p a:hover {
-	background-color: #f4f819;
 }
 
 fieldset.buttons {
@@ -347,7 +385,63 @@ fieldset.buttons {
 	float: none !important;
 	margin-top: 10em;
 	display: block !important;
-	padding-left: 665px !important;
+	padding-left: 425px !important;
+}
+
+#project_image_image_input {
+	margin: 0;
+}
+
+#new_project_image fieldset.buttons {
+	padding-left: 280px !important;
+}
+
+#new_project_image fieldset.inputs {
+	
+}
+
+
+
+#project_image_image_input label {
+	color: #585858;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+	width: 180px;
+}
+
+#image_list li {
+	list-style: none;	
+	overflow: auto;
+	padding: 5px 0px;
+	margin-bottom: 10px;
+	color: #60625f;
+	vertical-align: 0;
+	font: 11px Arial, Helvetica, Geneva, sans-serif;
+	border-bottom: 1px dotted #ae9e5b;
+}
+
+form#new_project_image.formtastic.project_image {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dotted #c1c1c1;
+}
+
+#project_images div.pagination div.pagination {
+	margin-left: 40px;
+}
+
+ul#image_list {
+	width: 420px;
+	vertical-align: top;
+}
+
+#image_list li a.button span {
+	font-size: 11px;
+	color: #555;
+}
+
+#image_list li a.button {
+	margin-top: 10px;
+	margin-right: 10px;
 }
 
 #filters {
@@ -452,4 +546,12 @@ margin:0.5em 0 0 25%; }
        background-color: #f8ffb3;
        margin:0;
        margin-bottom: 20px;
+}
+
+#admin h1 {
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #222;
+}
+div#project_images {
+	width: 600px;	
 }

@@ -9,6 +9,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: pages
@@ -19,7 +20,7 @@ end
 #  slug         :string(255)
 #  published_at :string(255)
 #  status       :string(255)     default("unpublished")
-#  user_id      :integer(4)
+#  admin_id     :integer(4)
 #  created_at   :datetime
 #  updated_at   :datetime
 #  metatags     :text

@@ -1,13 +1,11 @@
 - semantic_form_for ["admin",@page] do |form|
   - form.inputs do
-    = form.input :title
-    = form.input :content, :input_html => {:class => "tinymce"}
-    = form.input :slug, :hint => "If none is entered, we will create one based on your title"
-    = form.input :published_at
-    = form.input :status, :collection => Page::STATUS
-    = form.input :head_title, :label => "SEO Title", :hint => "Useful for setting keywords or text readed by search engines"
-    = form.input :metatags, :hint => "If you wish, you can add descriptive keywords to be used on this page"
-    = form.input :admin
+    = form.input :title, :label => "Título"
+    = form.input :content, :input_html => {:class => "tinymce"}, :label => "Contenido"
+    = form.input :slug, :hint => "Si no se coloca ninguno, se usará el título", :label => "URL"
+    = form.input :published_at, :label => "Fecha de publicación"
+    = form.input :head_title, :label => "Título para buscadores", :hint => "Puede definir un título adicional para que los buscadores las reconozcan: Ej. 'Inmobiliaria Juan Fanning :: Edificios, Construcción'"
+    = form.input :metatags, :hint => "Si lo desea, puede agregar también otras etiquetas que algunos navegadores reconozcan: Ej: edificios, san isidro"
     
   - form.buttons do
-    = form.commit_button 'Save',:button_html => { :class => "submit" }
+    = pretty_button_tag "Grabar"

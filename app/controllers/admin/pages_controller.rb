@@ -3,12 +3,16 @@ class Admin::PagesController < InheritedResources::Base
   layout "admin"
   before_filter :authenticate_admin!
   
+  def default_path
+    admin_pages_path
+  end
+  
   def create
-    create! { admin_pages_path }
+    create! { default_path }
   end
   
   def update
-    update! { admin_pages_path }
+    update! { default_path }
   end
   
   def collection

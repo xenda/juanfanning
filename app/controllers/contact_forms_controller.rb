@@ -4,13 +4,13 @@ class ContactFormsController < InheritedResources::Base
     create! do |s,f| 
       
       s.html { 
-        flash[:notice] = "Your contact form was succesfully sent"
+        flash[:notice] = "Consulta enviada exitosamente"
         redirect_to root_path 
       
       }
       f.html { 
   
-        flash[:notice] = "There were some issues while sending your contact form. Did you entered all your required details?"
+        flash[:notice] = "Hubieron problemas enviando tu formulario. ¿Enviaste todos los datos necesarios?"
         render "home/contact"
 
       }

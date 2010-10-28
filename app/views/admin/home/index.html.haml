@@ -1,30 +1,19 @@
 %section
   %h2 Dashboard
   .message
-    %strong= "Welcome back #{current_admin.name}!"
+    %strong= "Bienvenido #{current_admin.name}!"
 
 %actions
   %ul.actions
-    - if current_admin.complete?
+    - if current_admin
       %li
-        = link_to "#{Project.all.size} registered projects on the site.", admin_projects_path
+        = link_to "#{Project.all.size} proyectos registrados.", admin_projects_path
       %li
-        %strong= "#{Project.pending.size} pending"
-      %li
-        ="Total number of active projects: #{Project.published.size}"
-    - else
-      %li
-        = link_to "#{current_admin.projects.all.size} registered projects on your account.", admin_projects_path
-      %li
-        %strong= "#{current_admin.projects.pending.size} pending to be approved"
-      %li  
-        ="#{current_admin.projects.published.size} published"
-    
+        %strong= "#{Project.pending.size} pendientes de publicación"
 
 %latest
 
 %actions
   %ul.actions
-    %li= link_to "Upload new project", new_admin_project_path
-    - if current_admin.complete?
-      %li= link_to "Update your site contents", admin_pages_path
+    %li= link_to "Crear nuevo proyecto", new_admin_project_path
+    %li= link_to "Actualizar textos", admin_pages_path

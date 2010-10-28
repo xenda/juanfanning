@@ -9,7 +9,7 @@ $(document).ready(function() {
       // General options
 
        mode : "textareas",
-       language: "en",
+       language: "es",
        // 
        plugins : "autosave,safari,pagebreak,style,table,advhr,advimage,advlink,iespell,inlinepopups,preview,media,print,contextmenu,paste,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras",
 
@@ -24,10 +24,10 @@ $(document).ready(function() {
        theme_advanced_statusbar_location : "bottom",
        theme_advanced_resizing : true,
        theme_advanced_resizing_min_height : 640,
-       height : "640",
+       height : "340",
        width: "540",
-       theme_advanced_resizing_max_width : 320,
-       document_base_url : "http://digitalmuni.com/",
+       theme_advanced_resizing_max_width : 250,
+       document_base_url : "http://juanfanning.com/",
        relative_urls : false,
        relative_path: false,
        media_strict : false,

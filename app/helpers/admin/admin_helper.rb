@@ -1,24 +1,23 @@
 module Admin::AdminHelper
   
+  def text_button_tag(text,path, options={})  
+    options.merge!({:class => "button"})
+    link_to content_tag(:span,content_tag(:span,text)), path, options
+  end
+  
+  def pretty_button_tag(text, options = {})
+    content_tag(:button,content_tag(:span,content_tag(:span,text)),options)
+  end
+  
   def app_models
     models = [] 
     Dir.glob( RAILS_ROOT + '/app/models/*' ).each do |f| 
       models << File.basename( f ).gsub( /^(.+).rb/, '\1') 
     end 
-    models = models.reject{|i| ["download", "contact_form","search", "state", "share"].include? i }
-    models = models.reject{|i| ["admin","page","user"].include? i } unless current_admin.complete?
-    
+    models = models.reject{|i| ["contact_form","state","admin","project_image"].include? i }    
     models
   end
-  
-  def file_name
-    if @project.document_file_name
-      @project.document_file_name
-    else
-      "None"
-    end
-  end
-    
+      
   def display_app_models_links(options = {})
     if options[:ul]
       list = ul_tag(app_models)
@@ -35,10 +34,7 @@ module Admin::AdminHelper
   end
   
   def li_tag(item)    
-       name = item
-       name = "user list" if item.include? "user"
-       name = "admin" if item.include? "admin"
-       
+       name = item       
        menu_label = t("activerecord.models.#{name.downcase}")
        
        menu_label = menu_label.pluralize unless menu_label.include? "user list" 

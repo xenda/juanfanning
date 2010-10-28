@@ -2,7 +2,7 @@
   <%= link_to t('devise.sessions.link'), new_session_path(resource_name) %>
 <% end -%>
 
-<% unless current_user %>
+<% unless current_admin %>
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
     <%= link_to t('devise.passwords.link'), new_password_path(resource_name) %>
   <% end -%>

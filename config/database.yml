@@ -18,7 +18,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: digitalmuni_development
+  database: juanfanning_development
   pool: 5
   username: root
   password:
@@ -31,7 +31,7 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: digitalmuni_test
+  database: juanfanning_test
   pool: 5
   username: root
   password:
@@ -40,8 +40,8 @@ test:
 
 production:
   adapter: mysql
-  database: digitalmuni_production
+  database: juanfanning_production
   host: localhost
   username: root
-  password: digitalmuni2
+  password: yaraher2
   encoding: utf8

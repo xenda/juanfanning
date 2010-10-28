@@ -36,53 +36,40 @@ two:
 
 
 
+
+
+
+
 # == Schema Information
 #
 # Table name: projects
 #
-#  id                    :integer(4)      not null, primary key
-#  project_type          :string(255)     default("preliminary"), not null
-#  state                 :string(255)     default("0"), not null
-#  description           :text
-#  published_at          :datetime
-#  issuer                :string(255)
-#  bond_amount           :decimal(12, 2)
-#  sale_type             :string(255)     default("competitive")
-#  status                :string(255)     default("unpublished")
-#  created_at            :datetime
-#  updated_at            :datetime
-#  user_id               :integer(4)
-#  delivery_date         :datetime
-#  document_file_name    :string(255)
-#  document_file_size    :integer(4)
-#  document_content_type :string(255)
-#  document_updated_at   :datetime
-#  underwriters          :string(255)
-#  ratings               :string(255)
-#  preview_file_name     :string(255)
-#  preview_file_size     :integer(4)
-#  preview_content_type  :string(255)
-#  preview_updated_at    :datetime
-#  cusip                 :string(255)
-#  delta                 :boolean(1)      default(TRUE), not null
-#  bond_number           :string(255)
-#  contact_name          :string(255)
-#  contact_company       :string(255)
-#  contact_address       :string(255)
-#  contact_city          :string(255)
-#  contact_state         :string(255)
-#  contact_zip           :string(255)
-#  contact_phone         :string(255)
-#  contact_email         :string(255)
-#  billing_name          :string(255)
-#  billing_company       :string(255)
-#  billing_address       :string(255)
-#  billing_city          :string(255)
-#  billing_state         :string(255)
-#  billing_zip           :string(255)
-#  billing_phone         :string(255)
-#  billing_email         :string(255)
-#  sale_date             :date
-#  head_title            :string(255)
+#  id                  :integer(4)      not null, primary key
+#  state               :string(255)     default("0"), not null
+#  description         :text
+#  published_at        :datetime
+#  status              :string(255)     default("unpublished")
+#  created_at          :datetime
+#  updated_at          :datetime
+#  admin_id            :integer(4)
+#  banner_file_name    :string(255)
+#  banner_content_type :string(255)
+#  banner_file_size    :integer(4)
+#  banner_updated_at   :datetime
+#  name                :string(255)     default("Proyecto")
+#  code                :string(255)
+#  sales_price         :decimal(8, 2)   default(0.0)
+#  property_type       :string(255)     default("departamento")
+#  terrain_area        :integer(4)      default(0)
+#  constructed_area    :integer(4)      default(0)
+#  rooms               :integer(4)      default(0)
+#  bathrooms           :integer(4)      default(0)
+#  garages             :integer(4)      default(0)
+#  construction_year   :date
+#  floors_per_building :integer(4)      default(0)
+#  with_furniture      :boolean(1)      default(FALSE)
+#  lat                 :string(255)
+#  long                :string(255)
+#  address             :string(255)
 #
 

@@ -1,8 +1,8 @@
 !!! 5
 %html
   %head
-    %title= [@title, "DigitalMuni"].compact.join(" | ")
-    = stylesheet_link_tag 'reset', '../javascripts/fancybox/jquery.fancybox-1.3.1','style','formtastic', 'formtastic_changes','admin_style', :cache => "admin_styles"
+    %title= [@title, "JuanFanning"].compact.join(" | ")
+    = stylesheet_link_tag 'reset', '../javascripts/fancybox/jquery.fancybox-1.3.1','formtastic', 'formtastic_changes','admin_style','../javascripts/uniform/css/uniform.default', 'SimplyButtons'
     /[if IE]
       :erb
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -10,37 +10,35 @@
     = yield :include
   /[if lt IE 7 ] 
     :erb
-      <body class="ie6 <%= controller.controller_name %>">
+      <body class="ie6 <%= controller.controller_name %>" onload="<%= @onload %>" onunload="<%= @onunload %>">
   /[if IE 7 ]
     :erb
-      <body class="ie7 <%= controller.controller_name %>">
+      <body class="ie7 <%= controller.controller_name %> onload="<%= @onload %>" onunload="<%= @onunload %>"">
   /[if IE 8 ]
-    :erb
-      <body class="ie8 <%= controller.controller_name %>">
+    :erb 
+      <body class="ie8 <%= controller.controller_name %> onload="<%= @onload %>" onunload="<%= @onunload %>"">
   /[if IE 9 ] 
     :erb
-      <body class="ie9 <%= controller.controller_name %>">
+      <body class="ie9 <%= controller.controller_name %> onload="<%= @onload %>" onunload="<%= @onunload %>"">
   / [if (gt IE 9)|!(IE)]><!
-  %body{:class=>controller.controller_name}      
+  %body{:class=>controller.controller_name, :onload => @onload, :onunload => @onunload }      
     #header
       #header_wrapper.wrap
         #header_content
           %h1
             - link_to "/admin" do
-              <strong>DigitalMuni</strong>Dashboard
+              <strong>JuanFanning</strong>admin
           #options
             %ul.menu
-              %li= link_to 'Site', root_path
-              %li= link_to 'Dashboard', "/admin"
+              %li= link_to 'Sitio', root_path
+              %li= link_to 'Admin', "/admin"
               = display_app_models_links :ul => false
-              - if current_admin.complete?
-                %li= link_to 'Reports', admin_reports_path
               
             - if admin_signed_in?
               #logged_as
-                = "Logged as"
+                = "Iniciada sesión como"
                 = link_to current_admin.name, edit_registration_path(current_admin)
-                = link_to "logout", destroy_admin_session_path
+                = link_to "cerrar sesión", destroy_admin_session_path
           .clear
           
     #container.wrap
@@ -55,9 +53,9 @@
     #footer.wrap
       .left
         Copyright &copy; 2010 
-        = link_to "DigitalMuni", root_path
-        All rights reserved &reg;
+        = link_to "JuanFanning", root_path
+        Todos los derechos reservados
       .right
-        Dashboard
+        Administrador
       .clear
-    = javascript_include_tag 'jquery', 'jrails','fancybox/jquery.fancybox-1.3.1.pack','fancybox/jquery.easing-1.3.pack','fancybox/jquery.mousewheel-3.0.2.pack','tiny_mce/tiny_mce','tiny_mce/jquery.tinymce','editor_loader',"lib/jquery.bgiframe.min","lib/jquery.ajaxQueue","lib/thickbox-compressed","jquery.autocomplete.min",'application'
+    = javascript_include_tag 'jquery','uniform/jquery.uniform','jrails','tiny_mce/tiny_mce','tiny_mce/jquery.tinymce','editor_loader','SimplyButtons','admin_application'

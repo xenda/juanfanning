@@ -1,20 +1,19 @@
-- @title = "Managing #{I18n.t('activerecord.models.page').pluralize} "
+- @title = "Administrando #{I18n.t('activerecord.models.page').pluralize} "
 
 #admin.index
   %section
-    %h2= "Managing #{I18n.t('activerecord.models.page').pluralize}"
+    %h2= "Administrando #{I18n.t('activerecord.models.page').pluralize}"
    
     #admin_menu
       .message
-        %strong= link_to "Create a new page", new_admin_page_path
-        or edit your contents
+        %strong Actualice los textos del sitio web
 
   %table{:id=>"projects_table"}
     %thead
       %tr
-        %td= I18n.t("activerecord.attributes.pages.title").humanize
-        %td= I18n.t("activerecord.attributes.pages.content").humanize
-        %td= I18n.t("activerecord.attributes.pages.slug").humanize
+        %td Titulo
+        %td Contenido
+        %td Direccion
         %td
         %td
     %tbody
@@ -23,7 +22,7 @@
         %td= page.title
         %td= truncate(strip_tags(page.content),150)
         %td= page.slug
-        %td= link_to 'Edit', edit_admin_page_path(page)
-        %td= link_to 'Delete', ["admin",page], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
+        %td= link_to 'Editar', edit_admin_page_path(page)
+        %td= link_to 'Eliminar', ["admin",page], :confirm => '¿Estás seguro? Todos los datos relacionados se eliminarán', :method => :delete
       
   .pagination= will_paginate @pages

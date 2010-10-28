@@ -1,51 +1,57 @@
+- @onload = "initialize()"; @onunload = "GUnload()"
+
 - semantic_form_for ["admin",@project], :html => { :enctype => "multipart/form-data" } do |form|
   = form.error_messages
-  - form.inputs "Contact Information" do
-    = form.input :contact_name,    :label => "Name", :value => current_admin.name
-    = form.input :contact_company, :label => "Company" 
-    = form.input :contact_address, :label => "Address"  
-    = form.input :contact_city,    :label => "City"
-    = form.input :contact_state,   :label => "State", :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES
-    = form.input :contact_zip,     :label => "Zip"
-    = form.input :contact_phone,   :label => "Phone"
-    = form.input :contact_email,   :label => "Email", :value => current_admin.email
-
-  - form.inputs "Billing Information" do
-    = form.input :billing_name,       :label => "Name", :value => current_admin.name
-    = form.input :billing_company,    :label => "Company" 
-    = form.input :billing_address,    :label => "Address"  
-    = form.input :billing_city,       :label => "City"
-    = form.input :billing_state,      :label => "State",:input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES
-    = form.input :billing_zip,        :label => "Zip"
-    = form.input :billing_phone,      :label => "Phone"
-    = form.input :billing_email,      :label => "Email", :value => current_admin.email
   
-  
-  - form.inputs "About Bond Issue" do
-    = form.input :project_type, :collection => Project::PROJECT_TYPES.values, :required => true, :label => "Type of Document"
-    = form.input :issuer, :required => true, :label => "Name of Issuer"
-    = form.input :state, :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES, :label => "State of Issuer"
-    = form.input :sale_type, :collection => Project::SALE_TYPE.values, :required => false, :label => "Type of Bond Sale"
-    = form.input :sale_date, :as => :date, :order => [:month, :day, :year]
+  - form.inputs do
+    - form.inputs do
+      = form.input :name, :label => "Nombre del proyecto"
+      = form.input :code, :label => "Código referencia"
+      = form.input :state, :input_html => {:class=> "small"}, :as => :select, :collection => State::NAMES, :label => "Distrito"
+      %li
+        %label= "Imagen principal:"
+        = image_tag @project.banner.url(:thumb)
+      = form.input :banner, :required => false, :label => "&nbsp;"
+      = form.input :description, :input_html => {:class=> "tinymce"}
     
-    = form.input :delivery_date, :as => :date, :order => [:month, :day, :year]
     
-    = form.input :bond_amount, :required => false
-    = form.input :description, :required => false, :input_html => {:class => "tinymce"}, :label => "Issue Description"
-    = form.input :underwriters, :required => false, :label => "Underwriter/FA"
-    = form.input :cusip, :required => false, :label => "CUSIP",:hint => "Separate them by commas, such as: '774892, 774982'", :as => :text
+    #gmaps
+      %h2 Ubicación en Google Maps
+      = form.input :address, :label => "Dirección"
+      %li
+        %label &nbsp;
+        = pretty_button_tag "Ubicar", :id => "find_me"
+      - lat, long = "-12.09726", "-77.03503"
+      - lat, long = @project.lat, @project.long unless @project.lat.blank?
+      = render :partial => "gmaps", :locals => {:lat => lat, :long => long}
+      %p.inline-hints Haga click en el lugar donde estará el inmueble
+      = hidden_field_tag "project[lat]", @project.lat
+      = hidden_field_tag "project[long]", @project.long
 
-    = "Uploaded: #{file_name}"
-    = form.inputs :document, :required => false
+    
+    - form.inputs do
+      %h2 Datos adicionales
+      = form.input :sales_price, :label => "Precio"
+      = form.input :property_type, :collection => Project::PROPERTY_TYPES.values, :label => "Tipo de Propiedad"
+      = form.input :terrain_area, :label => "Área del terreno"
+      = form.input :constructed_area, :label => "Area construida"
+      = form.input :rooms, :label => "Número de Cuartos"
+      = form.input :bathrooms, :label => "Número de Baños"
+      = form.input :garages, :label => "Número de Garages"
+      = form.input :construction_year, :label => "Año de construcción", :order => [:year]
+      = form.input :floors_per_building, :label => "Número de Pisos"
+      = form.input :with_furniture, :label => "¿Amoblado?", :as => :boolean
 
-    = form.input :bond_number, :required => false  
-  
-    = form.input :ratings, :required => false, :hint => "Separate them by commas, such as: 'S&P: AA-, Moody\'s: Aa2'"
+      = hidden_field_tag "project[admin_id]", current_admin.id
 
-
-    = hidden_field_tag "project[user_id]", current_admin.id
-
+  #project_images
+    %h2 Imágenes adicionales para el proyecto
+    
+    - if @project.new_record?
+      - iframe_path = admin_project_images_path
+    -else
+      - iframe_path = admin_project_project_images_path(@project)
+    %iframe{:src=>iframe_path, :height => "400px", :width => "500px", :style=>"overflow:hidden;border:none;",  :border=>"0", :cellspacing=>"0", :scrolling=>"no",:marginwidth=>"0", :marginheight=>"0",:frameborder=>"0",:scrolling=>"no"}
+    
   - form.buttons do
-    = form.commit_button 'Save',:button_html => { :class => "submit" }
-
-
+    = pretty_button_tag "Grabar proyecto"

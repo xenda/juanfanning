@@ -5,11 +5,11 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
-admin = Admin.create :name => "Administrator", :email=>"user@domain.org", :password=>"12345678", :password_confirmation=>"12345678", :role => "admin"
+admin = Admin.create :name => "Administrador", :email=>"admin@domain.com", :password=>"12345678", :password_confirmation=>"12345678"
 
-["About", "Services", "Contact", "FAQ", "Copyright","Terms and Conditions","Print","Email", "Privacy Policy","Disclaimer"].each do |t|
+["Quienes Somos"].each do |t|
   
-  Page.create :title => t, :slug => t.parameterize, :content => "<p>A trim puruloid disbind nenta wag radiographically par, dearly, disconsideration casualties parapherna, em arm, weathermen, ya, rut emu prat. Bit, axon acrisia uses incoherences, peat, verticillaster camases, smut net, toyman sextain gulf, subsyndication. Dumb, roc whiz gurgeon, bows beshow. Syntasis imperf, trica, do. Ye, barkevikite, nowhither, dis campiness sny whirl fobs peronnei anglaise tones, a ruck, a dorms, ow tchai deener. Unabsorbed a of ha yucca em dicot, agend bit, ablate monkeyfied freet, coo. Toled busy ski yore, um reveled sciomachy assagai, bore hers ingrately.</p>", :status => "published", :user_id => admin.id, :published_at => Date.today
+  Page.create :title => t, :slug => t.parameterize, :content => "<p>A trim puruloid disbind nenta wag radiographically par, dearly, disconsideration casualties parapherna, em arm, weathermen, ya, rut emu prat. Bit, axon acrisia uses incoherences, peat, verticillaster camases, smut net, toyman sextain gulf, subsyndication. Dumb, roc whiz gurgeon, bows beshow. Syntasis imperf, trica, do. Ye, barkevikite, nowhither, dis campiness sny whirl fobs peronnei anglaise tones, a ruck, a dorms, ow tchai deener. Unabsorbed a of ha yucca em dicot, agend bit, ablate monkeyfied freet, coo. Toled busy ski yore, um reveled sciomachy assagai, bore hers ingrately.</p>", :status => "published", :admin_id => admin.id, :published_at => Date.today
   
 end
 

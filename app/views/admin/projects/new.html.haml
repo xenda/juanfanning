@@ -1,12 +1,12 @@
-- @title = "New Project"
+- @title = "Nuevo proyecto"
 
 #admin
   %section
-    %h2 New project
+    %h2 Registrando proyecto
     .message
-      %strong= "Use the below form to insert your new project"
+      %strong= "Use el formulario para registrar información del nuevo proyecto"
 
   = render :partial => 'form'
 
   .bottom_menu
-    %p= link_to "See all", admin_projects_path
+    %p= text_button_tag("Ver todos",admin_projects_path)

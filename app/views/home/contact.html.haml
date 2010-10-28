@@ -1,25 +1,19 @@
 %section.left{:style=>"width: 400px"}
-  %h2 Contact us
+  %h2 Contactanos
 
-  %p Get in touch with us to share your concerns and ideas
+  %p Ponte en contacto con nosotros
   
   %section#disclaimer
   
     #sharing
       - semantic_form_for (@contact_form || ContactForm.new) do |f|
         - f.inputs do 
-          = f.input :name, :required => true
+          = f.input :name, :required => true, :label => "Nombre"
           = f.input :email, :required => true
-          = f.input :phone
-          = f.input :company
-          = f.input :message
+          = f.input :phone, :label => "Teléfono"
+          = f.input :message, :label => "Contenido"
         - f.buttons do
-          = f.commit_button "Send"
-      =link_to "Cancel", root_path
+          = f.commit_button "Enviar"
+      =link_to "Cancelar", root_path
     
   .clear
-  
-.right{:style=>"width: 300px"}
-  %div{:style =>"margin-top:100px;"}
-  - page = Page.get("contact")
-  = page.content if page

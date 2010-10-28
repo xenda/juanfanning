@@ -1,9 +1,9 @@
-- @title = "Editing #{I18n.t 'activerecord.models.page'}"
+- @title = "Editando #{I18n.t 'activerecord.models.page'}"
 
 #admin
-  %h1= "Editing #{I18n.t 'activerecord.models.page'}"
+  %h1= "Editando #{I18n.t 'activerecord.models.page'}"
 
   = render :partial => 'form'
 
   .bottom_menu
-    %p= link_to "See all", admin_pages_path
+    %p= link_to text_button_tag "Ver todos", admin_pages_path

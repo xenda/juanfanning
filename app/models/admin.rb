@@ -5,24 +5,13 @@ class Admin < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :role,:name,:remember_me
-  
-  ROLES = %w[admin supervisor]
-  
-  has_many :pages, :class_name => "page", :foreign_key => "user_id"
-  has_many :projects,:foreign_key => "user_id"
-  named_scope :uploaders, :conditions=>{:role => "supervisor"}
-  
-  def upgrade
-    self.role = "admin"
-    self.save
-  end
-  
-  def complete?
-    role != "supervisor"
-  end
+  attr_accessible :email, :password, :password_confirmation, :name,:remember_me
     
+  has_many :pages
+  has_many :projects
+        
 end
+
 
 
 # == Schema Information
@@ -46,7 +35,6 @@ end
 #  last_sign_in_ip      :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
-#  role                 :string(255)     default("supervisor")
 #  name                 :string(255)
 #
 

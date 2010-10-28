@@ -2,21 +2,25 @@ class Admin::ProjectsController < InheritedResources::Base
   
   layout "admin"
   before_filter :authenticate_admin!
-  
+      
   def new
     @project = Project.new
-    @project.state = ""
-    @project.bond_number = 1000 + Project.count.next
+    session[:temp_id] = Digest::MD5.hexdigest(Time.zone.now.to_s)
     new!
-  end
-    
+  end    
+      
   def create
-    create! { admin_projects_path }
+    create! { 
+      
+      ProjectImage.find_all_by_temp_id(session[:temp_id]).each{|i| i.project = @project;i.save}
+      session[:temp_id] = nil
+      admin_projects_path
+    
+      }
   end
   
   def update
     @project = Project.find(params[:id])
-    params[:project][:bond_amount] = params[:project][:bond_amount].gsub(",","") if params[:project][:bond_amount]
     update! { admin_projects_path }
   end
   
@@ -33,20 +37,14 @@ class Admin::ProjectsController < InheritedResources::Base
   end
   
   def index
-    if current_admin.complete?
-      projects = Project
-    else
-      projects = current_admin.projects
-    end
-    
     if params[:filter]
       if params[:filter] == "active"
-        @projects = projects.published.paginate :page => params[:page], :order => "updated_at DESC" 
+        @projects = Project.published.paginate :page => params[:page], :order => "updated_at DESC" 
       else
-        @projects = projects.pending.paginate :page => params[:page],:order => "updated_at DESC" 
+        @projects = Project.pending.paginate :page => params[:page],:order => "updated_at DESC" 
       end
     else
-      @projects = projects.paginate :page => params[:page],:order => "updated_at DESC" 
+      @projects = Project.paginate :page => params[:page],:order => "created_at DESC" 
     end
     index!
   end

@@ -12,38 +12,10 @@ module ApplicationHelper
 
   def body_classes
     [controller.controller_name,controller.action_name,@body_class].join(" ")
-  end
-  
-  def copyright_notice
-    page = Page.get("copyright-footer")
-    return "© DigitalMuni" unless page
-    strip_tags(page.content)
-  end
-
-  def colorize(project_type)
-    
-    red_targets = [Project::PROJECT_TYPES[:preliminary], Project::PROJECT_TYPES[:notice], Project::PROJECT_TYPES[:remarketing], Project::PROJECT_TYPES[:memorandum]]
-    
-    green_targets = [Project::PROJECT_TYPES[:circular],Project::PROJECT_TYPES[:offering]]
-    
-    blue_targets = [Project::PROJECT_TYPES[:supplement]]
-    
-    color_class = if red_targets.include? project_type
-                    "red"
-                  elsif green_targets.include? project_type
-                    "green"
-                  elsif blue_targets.include? project_type
-                    "blue"
-                  end
-
-    content_tag(:span, project_type.humanize, :class => color_class)
-    
-  
-  end
-  
+  end  
   
   def title
-    title_name = "DigitalMuni"
+    title_name = "Juan Fanning"
     title_name <<  ":: #{@title}" if @title
     title_name
   end

@@ -1,30 +1,27 @@
-- @title = "Managing #{I18n.t('activerecord.models.project').pluralize} "
+- @title = "Administrando #{I18n.t('activerecord.models.project').pluralize} "
 
 #admin.index
   %section
-    %h2= "Managing #{I18n.t('activerecord.models.project').pluralize}"
+    %h2= "Administrando #{I18n.t('activerecord.models.project').pluralize}"
 
     #admin_menu
       .message
-        %strong= link_to "Create a new #{I18n.t('activerecord.models.project')}", new_admin_project_path
+        %strong= link_to "Registrar un nuevo #{I18n.t('activerecord.models.project')}", new_admin_project_path
 
-  - if current_admin.complete?
-    %ul#filters
-      %li= link_to "All projects", admin_projects_path
-      %li= link_to "Active projects", :filter => "active"
-      %li= link_to "Pending projects", :filter => "pending"
+  %ul#filters
+    %li= link_to "Todos los proyectos", admin_projects_path
+    %li= link_to "Proyectos publicados", :filter => "active"
+    %li= link_to "Proyectos sin publicar", :filter => "pending"
 
   %table{:id=>"projects_table"}
     %thead
       %tr
-        %td Client Name
-        %td Document Type
-        %td= I18n.t("activerecord.attributes.projects.issuer").humanize
-        %td= I18n.t("activerecord.attributes.projects.sale_type").humanize
-        %td= I18n.t("activerecord.attributes.projects.bond_amount").humanize
-        %td Sale date
-        %td Delivery date
-        %td= I18n.t("activerecord.attributes.projects.status").humanize        
+        %td Distrito
+        %td Precio
+        %td Descripción
+        %td Imagen
+        %td Tipo
+        %td
         %td
         %td
         %td
@@ -32,24 +29,21 @@
     %tbody
     - if @projects.empty?
       %tr
-        %td{:colspan => 13} No registered projects found
+        %td{:colspan => 13} No hay proyectos registrados
     - @projects.each do |project|
       %tr{:class=>cycle('even','odd') }
-        %td= project.contact_name
-        %td= project.project_type
-        %td= project.issuer
-        %td= project.sale_type
-        %td= number_to_currency project.bond_amount, :precision => 0
-        %td
-        %td= project.delivery_date.to_s(:short) if project.delivery_date
-        %td= project.status
-        - if current_admin.complete? 
-          - unless project.published? 
-            %td= (link_to "Activate", publish_admin_project_path(project)) 
-          - else
-            %td= (link_to "Deactivate", unpublish_admin_project_path(project)) 
-        %td= link_to "Show", admin_project_path(project)
-        %td= link_to 'Edit', edit_admin_project_path(project)
-        %td= link_to 'Delete', ["admin",project], :confirm => 'Are you sure? All related data will be deleted', :method => :delete
+        %td= project.state
+        %td= project.sales_price
+        %td= summary project.description
+        %td= image_tag project.banner.url(:small)
+        %td= project.property_type
+        %td= project.published? ? "publicado" : "sin publicar"
+        - unless project.published? 
+          %td= (link_to "Publicar", publish_admin_project_path(project)) 
+        - else
+          %td= (link_to "Despublicar", unpublish_admin_project_path(project)) 
+        %td= link_to "Ver", project, :target => "_blank"
+        %td= link_to 'Editar', edit_admin_project_path(project)
+        %td= link_to 'Eliminar', ["admin",project], :confirm => '¿Está seguro?  ', :method => :delete
       
   .pagination= will_paginate @projects

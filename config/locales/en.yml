@@ -6,13 +6,8 @@ en:
   
   activerecord:
     models:
-      project: project
-      page: page
-      download: download
-      admin: admin
-      user: Users
-      uploader: Uploaders
-      user list: User List
+      project: proyecto
+      page: texto
     attributes:
       projects:
         id: Id
