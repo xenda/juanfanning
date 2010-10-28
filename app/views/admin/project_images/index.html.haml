@@ -1,0 +1,18 @@
+#project_images
+  - semantic_form_for ["admin",@project_image.project, @project_image],:html => { :enctype => "multipart/form-data" } do |f|
+    - f.inputs do
+      = f.input :image, :label => "Elija su nueva imagen"
+      - if session[:temp_id]
+        = f.hidden_field :temp_id, :value => @project_image.temp_id
+      - else
+        = f.hidden_field :project_id, :value => @project_image.project.id
+    - f.buttons do
+      = pretty_button_tag "Agregar imagen"
+
+  %h3 Imágenes actuales
+  %ul#image_list
+    - if @project_images.empty?
+      %li Todavía no ha agregado imágenes adicionales
+    - else
+      = render :partial => "project_image", :collection => @project_images
+  .pagination= will_paginate @project_images, :previous_label => "Anterior", :next_label => "Siguiente"

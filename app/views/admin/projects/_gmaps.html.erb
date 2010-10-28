@@ -1,0 +1,73 @@
+<script src="http://maps.google.com/maps?file=api&v=2.x&key=<%= $GMAPS_KEY %>"
+        type="text/javascript"></script>
+<script type="text/javascript">
+
+var marker;
+var geocoder; 
+var map;
+function initialize() {
+  if (GBrowserIsCompatible()) {
+    map = new GMap2(document.getElementById("map_canvas"));
+    
+    
+    var latlng = new GLatLng(<%= lat %>, <%= long %>);
+    map.setCenter(latlng, 15);
+    marker = new GMarker(latlng, {draggable:true});
+    GEvent.addListener(marker, "dragend", function(latlng) {
+      if (latlng) {
+        marker.setLatLng(latlng);
+        saveData();
+        };
+      }
+    );
+    
+    map.addOverlay(marker);
+
+
+    GEvent.addListener(map, "click", function(overlay, latlng) {
+      if (latlng) {
+        marker.setLatLng(latlng);
+        saveData();
+        };
+      }
+    );
+
+    sw = new GLatLng(-12.216,-77.143);
+    ne = new GLatLng(-11.849,-76.898);
+    limaViewport = new GLatLngBounds(sw,ne);
+    
+    geocoder = new GClientGeocoder();
+    geocoder.setViewport(limaViewport);
+    geocoder.setBaseCountryCode("pe");
+    
+    
+  }
+}
+
+
+
+function showAddress(address) {
+      if (geocoder) {
+        geocoder.getLatLng(
+          address,
+          function(point) {
+            if (point) {
+              map.setCenter(point, 13);
+            }
+          }
+        );
+      }
+}
+
+function saveData() {
+  var latlng = marker.getLatLng();
+  var lat = latlng.lat();
+  var lng = latlng.lng();
+
+  $("#project_lat").val(lat);
+  $("#project_long").val(lng);
+
+}
+</script>
+
+<div id="map_canvas" style="width: 500px; height: 300px"></div>

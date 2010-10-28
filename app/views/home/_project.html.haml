@@ -1,0 +1,13 @@
+.project
+  %p
+    - link_to project do
+      = image_tag project.banner.url(:thumb), :size => "217x164"
+      %span.bg
+      
+  %p
+    %strong= project.state
+  %p= summary project.description
+
+- if (project_counter + 1) % 4 == 0
+  .clr
+    / 

@@ -1,0 +1,92 @@
+- @onload = "initialize()"; @onunload = "GUnload()"
+
+%h1= @project.name
+#main-col
+  #slide-holder
+    %ul#images
+      - if @project.banner_file_name.present?
+        %li#img1
+          = link_to image_tag(@project.banner.url(:large), :size => "290x244"), @project.banner.url, {:rel => "fancybox"}
+      - @project.project_images.each_with_index do |image,index|
+        %li{:id=>"img#{index+2}"}
+          = link_to image_tag(image.image.url(:large), :size => "290x244"), image.image.url, {:rel => "fancybox"}
+    %ul#slider-pager
+      - if @project.banner_file_name.present?
+        %li
+          - link_to :anchor => "img1" do
+            = image_tag @project.banner.url(:medium), :size => "52x44"
+      - @project.project_images.each_with_index do |image,index|
+        %li
+          %a{:href => "#img#{index+2}"}
+            = image_tag image.image.url(:medium), :size => "52x44"
+  
+    .clr
+    / /slide-holder
+  #project-info
+    .details
+      - if @project.code?
+        %p
+          %label Código
+          = @project.code
+      %p
+        - if @project.sales_price
+          %label P. venta
+          %strong= number_to_currency(@project.sales_price)
+      %p
+        %label Tipo de propiedad
+        = @project.property_type
+      %p
+        %label Área Terreno (AT)
+        = @project.terrain_area
+        m
+        %sup 2
+      %p
+        %label Área Construida (AC)
+        = @project.constructed_area
+        m
+        %sup 2
+      %p
+        %label Habitaciones
+        = @project.rooms
+      %p
+        %label Baños
+        = @project.bathrooms
+      %p
+        %label Garaje
+        = @project.garages
+      - if @project.construction_year
+        %p
+          %label Año de construcción
+          = @project.try(:construction_year).try(:year)
+      %p
+        %label Pisos / Pisos por edificio
+        = @project.floors_per_building
+      %p
+        %label Amoblado
+        = @project.with_furniture? ? "Si" : "No"
+    - if @project.description?
+      %p
+        %strong Descripción
+        = strip_tags @project.description
+  .clr
+  
+  - if @project.lat
+    %h2 Ubicación
+    %p.address= @project.address
+    #gmaps= render "gmaps"
+    / /gmaps
+    
+    
+  
+    / 
+/ /main-col
+#side-col
+  #contact-wrapper
+    #contact
+      %p
+        %a{:href => "#"}
+          %img{:alt => "Contáctenos por este inmueble", :height => "102", :src => "/images/contact.gif", :width => "180"}/
+/ /side-col
+.clr
+  /
+  
