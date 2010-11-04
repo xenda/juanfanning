@@ -33,9 +33,6 @@
           %label P. venta
           %strong= number_to_currency(@project.sales_price)
       %p
-        %label Tipo de propiedad
-        = @project.property_type
-      %p
         %label Área Terreno (AT)
         = @project.terrain_area
         m
@@ -45,15 +42,6 @@
         = @project.constructed_area
         m
         %sup 2
-      %p
-        %label Habitaciones
-        = @project.rooms
-      %p
-        %label Baños
-        = @project.bathrooms
-      %p
-        %label Garaje
-        = @project.garages
       - if @project.construction_year
         %p
           %label Año de construcción
@@ -61,13 +49,24 @@
       %p
         %label Pisos / Pisos por edificio
         = @project.floors_per_building
-      %p
-        %label Amoblado
-        = @project.with_furniture? ? "Si" : "No"
+      / %p
+      /   %label Amoblado
+      /   = @project.with_furniture? ? "Si" : "No"
     - if @project.description?
       %p
         %strong Descripción
         = strip_tags @project.description
+    
+    .departments
+      %h3 Departamentos del edificio    
+      %ul
+        - @project.departments.each do |department|
+          %li
+            - link_to department_path(department) do
+              Departamento
+              = "(#{department.size})"
+              m
+              %sup 2
   .clr
   
   - if @project.lat

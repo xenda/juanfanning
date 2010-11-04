@@ -32,15 +32,15 @@
     - form.inputs do
       %h2 Datos adicionales
       = form.input :sales_price, :label => "Precio"
-      = form.input :property_type, :collection => Project::PROPERTY_TYPES.values, :label => "Tipo de Propiedad"
+      / = form.input :property_type, :collection => Project::PROPERTY_TYPES.values, :label => "Tipo de Propiedad"
       = form.input :terrain_area, :label => "Área del terreno"
       = form.input :constructed_area, :label => "Area construida"
-      = form.input :rooms, :label => "Número de Cuartos"
-      = form.input :bathrooms, :label => "Número de Baños"
-      = form.input :garages, :label => "Número de Garages"
+      / = form.input :rooms, :label => "Número de Cuartos"
+      / = form.input :bathrooms, :label => "Número de Baños"
+      / = form.input :garages, :label => "Número de Garages"
       = form.input :construction_year, :label => "Año de construcción", :order => [:year]
       = form.input :floors_per_building, :label => "Número de Pisos"
-      = form.input :with_furniture, :label => "¿Amoblado?", :as => :boolean
+      / = form.input :with_furniture, :label => "¿Amoblado?", :as => :boolean
 
       = hidden_field_tag "project[admin_id]", current_admin.id
 

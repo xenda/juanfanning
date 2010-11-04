@@ -1,0 +1,24 @@
+
+- semantic_form_for ["admin",@department.project,@department], :html => { :enctype => "multipart/form-data" } do |form|
+  = form.error_messages
+  
+  - form.inputs do
+    - form.inputs do
+      = form.input :size, :label => "Metraje"
+      = form.input :bathroom_number, :label => "Número de baños"
+      = form.input :garages_number, :input_html => {:class=> "small"}, :label => "Número de cocheras"
+      = form.input :rooms_number, :required => false, :label => "Número de cuartos"
+        
+      = hidden_field_tag "department[project_id]", @department.project.id
+
+  #project_images
+    %h2 Imágenes adicionales para el departamento
+    
+    - if @department.new_record?
+      - iframe_path = admin_department_images_path
+    -else
+      - iframe_path = admin_project_department_department_images_path(@department.project,@department)
+    %iframe{:src=>iframe_path, :height => "400px", :width => "500px", :style=>"overflow:hidden;border:none;",  :border=>"0", :cellspacing=>"0", :scrolling=>"no",:marginwidth=>"0", :marginheight=>"0",:frameborder=>"0",:scrolling=>"no"}
+    
+  - form.buttons do
+    = pretty_button_tag "Grabar departamento"

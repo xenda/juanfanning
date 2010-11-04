@@ -1,0 +1,12 @@
+- @title = "Nuevo departamento"
+
+#admin
+  %section
+    %h2 Registrando departamento
+    .message
+      %strong= "Use el formulario para registrar información del nuevo departamento"
+
+  = render :partial => 'form'
+
+  .bottom_menu
+    %p= text_button_tag("Ver todos",admin_project_departments_path(@department.project))

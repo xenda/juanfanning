@@ -1,0 +1,6 @@
+%li
+  = image_tag department_image.image.url(:medium)
+  = department_image.image_file_name
+  |
+  = department_image.try(:image_updated_at).try(:to_s,:long)
+  = text_button_tag "Eliminar",["admin",department_image.department,department_image], :confirm => '¿Está seguro?  ', :method => :delete  

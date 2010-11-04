@@ -1,0 +1,11 @@
+- @title = "Editar #{I18n.t 'activerecord.models.department'}"
+
+#admin
+  %h1= "Editando #{I18n.t 'activerecord.models.department'}"
+
+  = render :partial => 'form'
+
+  .bottom_menu
+    %p= text_button_tag("Ver todos",admin_project_departments_path(@department.project))
+    
+    

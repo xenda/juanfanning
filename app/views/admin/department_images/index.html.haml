@@ -1,0 +1,20 @@
+#project_images
+  - path = ["admin", @department_image.department.project, @department_image.department, @department_image] if @department_image.department
+  - path = ["admin",@department_image]
+  - semantic_form_for path,:html => { :enctype => "multipart/form-data" } do |f|
+    - f.inputs do
+      = f.input :image, :label => "Elija su nueva imagen"
+      - if session[:department_temp_id]
+        = f.hidden_field :temp_id, :value => @department_image.temp_id
+      - else
+        = f.hidden_field :department_id, :value => @department_image.department.id
+    - f.buttons do
+      = pretty_button_tag "Agregar imagen"
+
+  %h3 Imágenes actuales
+  %ul#image_list
+    - if @department_images.empty?
+      %li Todavía no ha agregado imágenes
+    - else
+      = render :partial => "department_image", :collection => @department_images
+  .pagination= will_paginate @department_images, :previous_label => "Anterior", :next_label => "Siguiente"

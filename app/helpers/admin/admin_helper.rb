@@ -14,7 +14,7 @@ module Admin::AdminHelper
     Dir.glob( RAILS_ROOT + '/app/models/*' ).each do |f| 
       models << File.basename( f ).gsub( /^(.+).rb/, '\1') 
     end 
-    models = models.reject{|i| ["contact_form","state","admin","project_image"].include? i }    
+    models = models.reject{|i| ["contact_form","state","admin","project_image","department","department_image"].include? i }    
     models
   end
       

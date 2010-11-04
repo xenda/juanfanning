@@ -8,6 +8,7 @@ en:
     models:
       project: proyecto
       page: texto
+      department: departamento
     attributes:
       projects:
         id: Id

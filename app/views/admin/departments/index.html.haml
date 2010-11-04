@@ -1,0 +1,40 @@
+- @title = "Administrando #{I18n.t('activerecord.models.department').pluralize} "
+
+#admin.index
+  %section
+    %h2
+      = "Administrando #{I18n.t('activerecord.models.department').pluralize} "
+      = "de #{@project.name}"
+
+    #admin_menu
+      .message
+        %strong= link_to "Registrar un nuevo #{I18n.t('activerecord.models.department')}", new_admin_project_department_path(@project)
+
+  %ul#filters
+    %li= link_to "Todos los proyectos", admin_projects_path
+ 
+  %table{:id=>"projects_table"}
+    %thead
+      %tr
+        %td Metraje
+        %td Baños
+        %td Cocheras
+        %td Cuartos
+        %td
+        %td
+        %td        
+    %tbody
+    - if @departments.empty?
+      %tr
+        %td{:colspan => 13} No hay departamentos registrados
+    - @departments.each do |department|
+      %tr{:class=>cycle('even','odd') }
+        %td= department.size
+        %td= department.bathroom_number
+        %td= department.garages_number
+        %td= department.rooms_number
+        %td= link_to "Ver", [department.project,department], :target => "_blank"
+        %td= link_to 'Editar', edit_admin_project_department_path(department.project,department)
+        %td= link_to 'Eliminar', ["admin",department.project,department], :confirm => '¿Está seguro?  ', :method => :delete
+      
+  .pagination= will_paginate @departments

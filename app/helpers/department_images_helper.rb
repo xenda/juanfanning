@@ -1,0 +1,2 @@
+module DepartmentImagesHelper
+end

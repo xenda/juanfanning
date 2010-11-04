@@ -18,3 +18,5 @@ config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
 ENV['RAILS_ASSET_ID'] = '' 
+
+Paperclip.options[:command_path] = "/opt/local/bin/identify"

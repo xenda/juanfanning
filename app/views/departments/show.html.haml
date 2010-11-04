@@ -1,0 +1,62 @@
+
+%h1= @department.project.name
+#main-col
+  #slide-holder
+    %ul#images
+      - @department.department_images.each_with_index do |image,index|
+        %li{:id=>"img#{index+2}"}
+          = link_to image_tag(image.image.url(:large), :size => "290x244"), image.image.url, {:rel => "fancybox"}
+    %ul#slider-pager
+      - @department.department_images.each_with_index do |image,index|
+        %li
+          %a{:href => "#img#{index+2}"}
+            = image_tag image.image.url(:medium), :size => "52x44"
+  
+    .clr
+    / /slide-holder
+  #project-info
+    .details
+      %p
+        %label Tamaño
+        = @department.size
+        m
+        %sup
+          2
+      %p
+        %label Habitaciones
+        = @department.rooms_number
+      %p
+        %label Baños
+        = @department.bathroom_number
+      %p
+        %label Garaje
+        = @department.garages_number
+
+    .departments
+      %h3 Departamentos del edificio    
+      %ul
+        - @department.project.departments.each do |department|
+          %li
+            - link_to department_path(department) do
+              Departamento
+              = "(#{department.size})"
+              m
+              %sup 2
+      = link_to "Regresar al edificio", project_path(@department.project)
+
+
+  .clr
+      
+    
+  
+    / 
+/ /main-col
+#side-col
+  #contact-wrapper
+    #contact
+      %p
+        %a{:href => "#"}
+          %img{:alt => "Contáctenos por este inmueble", :height => "102", :src => "/images/contact.gif", :width => "180"}/
+/ /side-col
+.clr
+  /

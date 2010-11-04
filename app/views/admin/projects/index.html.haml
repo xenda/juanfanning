@@ -26,6 +26,7 @@
         %td
         %td
         %td
+        %td        
     %tbody
     - if @projects.empty?
       %tr
@@ -43,6 +44,7 @@
         - else
           %td= (link_to "Despublicar", unpublish_admin_project_path(project)) 
         %td= link_to "Ver", project, :target => "_blank"
+        %td= link_to "Departamentos (#{project.departments.count})", admin_project_departments_path(project)
         %td= link_to 'Editar', edit_admin_project_path(project)
         %td= link_to 'Eliminar', ["admin",project], :confirm => '¿Está seguro?  ', :method => :delete
       

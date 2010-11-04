@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  image_file_name: MyString
+  image_content_type: MyString
+  image_file_size: 1
+  image_updated_at: 2010-11-03 20:08:43
+  department_id: 1
+  temp_id: MyString
+
+two:
+  image_file_name: MyString
+  image_content_type: MyString
+  image_file_size: 1
+  image_updated_at: 2010-11-03 20:08:43
+  department_id: 1
+  temp_id: MyString
+
+# == Schema Information
+#
+# Table name: department_images
+#
+#  id                 :integer(4)      not null, primary key
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer(4)
+#  image_updated_at   :datetime
+#  department_id      :integer(4)
+#  temp_id            :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+

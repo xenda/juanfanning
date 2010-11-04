@@ -1,10 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :department_images
+
+  map.resources :departments
+
   map.resources :project_images
 
   
   map.devise_for :admins
 
-  map.resources :projects, :as => "proyectos"
+  map.resources :projects, :as => "proyectos" do |projects|
+    projects.resources :departments, :as => "departamentos"
+  end
 
   map.resources :pages, :as => "paginas"
   
@@ -14,7 +20,11 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :pages 
     admin.connect "/", :controller => "home", :action => "index"
     admin.resources :project_images
-		admin.resources :projects, :member => { :publish => :get, :unpublish => :get }, :has_many => :project_images
+    admin.resources :department_images
+		admin.resources :projects, :member => { :publish => :get, :unpublish => :get } do |projects|
+		  projects.resources :project_images
+		  projects.resources :departments, :has_many => :department_images
+	  end
 	end
     
   map.with_options :controller => "home" do |home|
