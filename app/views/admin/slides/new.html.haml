@@ -1,0 +1,9 @@
+- @title = "Nuevo slide"
+
+#admin
+  %h1= "Nuevo slide"
+
+  = render :partial => 'form'
+
+  .bottom_menu
+    %p= link_to "Ver todos", admin_slides_path

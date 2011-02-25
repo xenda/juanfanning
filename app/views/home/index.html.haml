@@ -1,17 +1,17 @@
 #top
   %p
     VIVE BIEN. Diseñamos y construimos proyectos de vivienda que combinan la justa medida de estilo, practicidad, confort y mucha atención al detalle en los acabados.
-    %a{:href => "#"}
+    %a{:href => "/web/quienes-somos"}
       %strong Sobre nosotros
 #projects
   %h1 Proyectos
   .place
-    %select
-      %option Todos
-      %option Jesús María
-      %option Miraflores
-      %option San Borja
-      %option Santiago de Surco
+    / %select
+    /   %option Todos
+    /   %option Jesús María
+    /   %option Miraflores
+    /   %option San Borja
+    /   %option Santiago de Surco
 
     = render :partial => "project", :collection => @projects
     / 

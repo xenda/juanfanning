@@ -555,3 +555,48 @@ margin:0.5em 0 0 25%; }
 div#project_images {
 	width: 600px;	
 }
+
+#sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+#sortable li span { position: absolute; margin-left: -1.3em; }
+
+#projects-list span.handle { 
+  cursor: pointer ;
+  color: #f39719;
+	text-decoration: none;
+}
+#projects-list {
+	margin-bottom: 10px;
+	overflow: auto;
+	width: 400px;
+}
+#projects-list li {
+	margin-bottom: 20px !important;
+	overflow: auto;
+	
+}
+
+#projects-list li span.name {
+	display: block;
+	clear: both;
+	color: #3b3737;
+	font: 24px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	margin-bottom: 10px;
+}
+
+#projects-list li img {
+	padding: 5px;
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-right: 10px ;
+	border: 1px solid #c3c2c3;
+}
+
+#projects-list span {
+	color: #7b7b7b;
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+#projects-list span.handle {
+	float: right;
+}

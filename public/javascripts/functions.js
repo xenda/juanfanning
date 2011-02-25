@@ -16,19 +16,27 @@ $(function(){
 		$(this).find ('.bg').hide(); 
 	});
 	
-	var top = $('#contact').offset().top;
+	if ($("#contact")){
+	  var top = $('#contact').offset().top;
+	}
 	
 	$(window).scroll(function (event) {
 	  // what the y position of the scroll is
 	  var y = $(this).scrollTop();
 	
-	  // whether that's below the form
-	  if (y >= top) {
-		// if so, ad the fixed class
-		$('#contact').addClass('fixed');
-	  } else {
-		// otherwise remove it
-		$('#contact').removeClass('fixed');
+	  if ($("#contact")){
+
+  	  // whether that's below the form
+  	  if (y >= top) {
+  		// if so, ad the fixed class
+  		$('#contact').addClass('fixed');
+  	  } else {
+  		// otherwise remove it
+  		$('#contact').removeClass('fixed');
+  	  }
+
+	    
+	    
 	  }
 	});
 	

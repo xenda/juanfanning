@@ -13,6 +13,7 @@
         = image_tag @project.banner.url(:thumb)
       = form.input :banner, :required => false, :label => "&nbsp;"
       = form.input :description, :input_html => {:class=> "tinymce"}
+      = form.input :sold, :label => "¿Está vendido?"
     
     
     #gmaps

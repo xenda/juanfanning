@@ -1,0 +1,7 @@
+- semantic_form_for ["admin",@slide], :html => { :enctype => "multipart/form-data" } do |form|
+  - form.inputs do
+    = form.input :description, :label => "Descripción"
+    = form.input :image
+    
+  - form.buttons do
+    = pretty_button_tag "Grabar"

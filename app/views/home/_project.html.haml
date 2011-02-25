@@ -2,6 +2,8 @@
   %p
     - link_to project do
       = image_tag project.banner.url(:thumb), :size => "217x164"
+      - if project.sold?
+        %span.sold
       %span.bg
       
   %p

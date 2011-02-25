@@ -4,7 +4,11 @@
   
   - form.inputs do
     - form.inputs do
+      = form.input :description, :label => "Descripción"
+      = form.input :sold, :label => "Vendido?"
       = form.input :size, :label => "Metraje"
+      = form.input :meter_price, :label => "Precio por metro"
+      = form.input :total_price, :label => "Precio total"
       = form.input :bathroom_number, :label => "Número de baños"
       = form.input :garages_number, :input_html => {:class=> "small"}, :label => "Número de cocheras"
       = form.input :rooms_number, :required => false, :label => "Número de cuartos"

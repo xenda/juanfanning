@@ -1,0 +1,27 @@
+- @title = "Administrando slides"
+
+#admin.index
+  %section
+    %h2= "Administrando slides"
+   
+    #admin_menu
+      .message
+        %strong
+          = link_to "Agregar image al slide", new_admin_slide_path
+
+  %table{:id=>"projects_table"}
+    %thead
+      %tr
+        %td Imagen
+        %td Descripción
+        %td
+        %td
+    %tbody
+    - @slides.each do |slide|
+      %tr{:class=>cycle('even','odd') }
+        %td= image_tag slide.image.url, :size => "100x100"
+        %td= slide.description
+        %td= link_to 'Editar', edit_admin_slide_path(slide)
+        %td= link_to 'Eliminar', ["admin",slide], :confirm => '¿Estás seguro? Todos los datos relacionados se eliminarán', :method => :delete
+      
+  .pagination= will_paginate @slides

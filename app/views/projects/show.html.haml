@@ -1,4 +1,9 @@
 - @onload = "initialize()"; @onunload = "GUnload()"
+- content_for :fb_tags do
+  %meta{:property=>"og:title", :content=>"Juan Fanning | Proyecto #{@project.name}"}
+  %meta{:property=>"og:site_name", :content=>"Juan Fanning"}
+  %meta{:property=>"og:image", :content=>@project.banner.url(:large)}
+
 
 %h1= @project.name
 #main-col
@@ -24,49 +29,56 @@
     / /slide-holder
   #project-info
     .details
-      - if @project.code?
+      - unless @project.sold?
+        - if @project.code?
+          %p
+            %label Código
+            = @project.code
         %p
-          %label Código
-          = @project.code
-      %p
-        - if @project.sales_price
-          %label P. venta
-          %strong= number_to_currency(@project.sales_price)
-      %p
-        %label Área Terreno (AT)
-        = @project.terrain_area
-        m
-        %sup 2
-      %p
-        %label Área Construida (AC)
-        = @project.constructed_area
-        m
-        %sup 2
-      - if @project.construction_year
-        %p
-          %label Año de construcción
-          = @project.try(:construction_year).try(:year)
-      %p
-        %label Pisos / Pisos por edificio
-        = @project.floors_per_building
-      / %p
-      /   %label Amoblado
-      /   = @project.with_furniture? ? "Si" : "No"
+          - if @project.sales_price && (not @project.sales_price.zero?)
+            %label P. venta
+            %strong= number_to_currency(@project.sales_price)
+        - if @project.terrain_area && (not @project.terrain_area.zero?)    
+          %p
+            %label Área Terreno (AT)
+            = @project.terrain_area
+            m
+            %sup 2
+        - if @project.constructed_area && (not @project.constructed_area.zero?    )
+          %p
+            %label Área Construida (AC)
+            = @project.constructed_area
+            m
+            %sup 2
+        - if @project.construction_year
+          %p
+            %label Año de construcción
+            = @project.try(:construction_year).try(:year)
+        - if @project.floors_per_building && (not @project.floors_per_building.zero?)
+          %p
+            %label Pisos / Pisos por edificio
+            = @project.floors_per_building
+        / %p
+        /   %label Amoblado
+        /   = @project.with_furniture? ? "Si" : "No"
     - if @project.description?
       %p
         %strong Descripción
+        - if @project.sold?
+          %strong VENDIDO
         = strip_tags @project.description
     
-    .departments
-      %h3 Departamentos del edificio    
-      %ul
-        - @project.departments.each do |department|
-          %li
-            - link_to department_path(department) do
-              Departamento
-              = "(#{department.size})"
-              m
-              %sup 2
+    - unless @project.departments.empty?
+      .departments
+        %h3 Departamentos del edificio    
+        %ul
+          - @project.departments.each do |department|
+            %li
+              - link_to department_path(department) do
+                Departamento
+                = "(#{department.size})"
+                m
+                %sup 2
   .clr
   
   - if @project.lat
@@ -83,8 +95,10 @@
   #contact-wrapper
     #contact
       %p
-        %a{:href => "#"}
+        %a{:href => "/contacto"}
           %img{:alt => "Contáctenos por este inmueble", :height => "102", :src => "/images/contact.gif", :width => "180"}/
+      %p
+        %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "http://www.facebook.com/plugins/like.php?href=#{CGI::escape(project_url(@project))}&amp;layout=standard&amp;show_faces=false&amp;width=400&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=40", :style => "border:none; overflow:hidden; width:400px; height:40px;margin-top:0px;"}
 / /side-col
 .clr
   /

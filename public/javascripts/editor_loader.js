@@ -32,7 +32,7 @@ $(document).ready(function() {
        relative_path: false,
        media_strict : false,
 
-       extended_valid_elements : "object[classid|codebase|width|height|align],param[name|value],embed[quality|type|pluginspage|width|height|src|align|wmode,allowscriptaccess,allowfullscreen]",
+       extended_valid_elements : "object[classid|codebase|width|height|align],param[name|value],embed[quality|type|pluginspage|width|height|src|align|wmode,allowscriptaccess,allowfullscreen],iframe[src|width|height|frameborder|marginheight|marginwidth]",
 
 		});
 	});

@@ -1,4 +1,7 @@
-/* @override http://localhost:3000/stylesheets/style.css */
+/* @override 
+	http://localhost:3000/stylesheets/style.css
+	http://juanfanning.com/stylesheets/style.css
+*/
 
 /* RESET CSS */
 
@@ -33,7 +36,9 @@ a:hover{text-decoration:underline}
 /*CONTENT*/
 #slider{margin:26px 0 5px 0; position:relative; width:893px; height:218px; overflow:hidden}
 #top{background:url(../images/bg-top.jpg) no-repeat; width:892px; height:128px; margin:26px 0 5px 0; color:#fff}
-#top p{padding:17px 0 0 28px; width:364px; line-height:18px}
+#top p{padding:17px 0 0 28px; width:364px;
+	font: 14px/22px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
 #top a{color:#d2d400;}
 #projects{position:relative}
 .place select{color:#999; border:1px solid #cdcccc; font-size:11px; padding:2px; position:absolute; right:20px; top:40px}
@@ -42,6 +47,7 @@ a:hover{text-decoration:underline}
 .project img{display:block; margin-bottom:3px}
 .project p{line-height:11px; padding:1px 0;}
 .project .bg{position:absolute; top:1px; left:0; background:url(../images/overlay.png) no-repeat; width:217px; height:164px; display:none}
+.project .sold{position:absolute; top:1px; right:0; background:url(../images/sold.png) no-repeat; width:66px; height:164px;}
 #main-col{width:622px; float:left}
 #side-col{width:180px; float:right; position:relative;}
 #main-col, #side-col {line-height:20px}

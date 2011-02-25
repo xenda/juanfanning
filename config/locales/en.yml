@@ -9,6 +9,7 @@ en:
       project: proyecto
       page: texto
       department: departamento
+      slide: slide
     attributes:
       projects:
         id: Id

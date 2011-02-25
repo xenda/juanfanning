@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     / - unless controller.controller_name == "sessions"
     /   %meta{ "http-equiv" => "refresh", :content=>"0;url=http://www.facebook.com/pages/Miraflores-Peru/Inmobiliaria-Juan-Fanning/132867600058481"}
-    
+    = yield :fb_tags
     %title JFanning
     %link{:href => "/stylesheets/style.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/javascripts/fancybox/jquery.fancybox-1.3.1.css", :rel => "stylesheet", :type => "text/css"}/
@@ -24,19 +24,25 @@
           %a{:href => root_path} JFanning Inmobiliaria
         %ul
           %li
-            %a{:href => "#"} Quiénes Somos
+            %a{:href => "/web/quienes-somos"} Quiénes Somos
           %li
             %span Telf.
-            483-0545
+            422-1870
+            -
+            99823*1961
+            -
+            99834*1246
+          %li
+            %a{:href => "/contacto"} Contáctanos
           %li.last
-            %a{:href => "mailto:info@jfanning.com.pe"} info@jfanning.com.pe
+            %a{:href => "mailto:contacto@juanfanning.com"} contacto@juanfanning.com
       / /header
       #content
         = yield
       / /content
       .clr
       #footer
-        %p © 2010 www.jfanning.com.pe
+        %p © 2010 www.juanfanning.com
       / /footer
       / /wrapper
       / /Fix delay on IE

@@ -1,0 +1,13 @@
+- @title = "Viewing #{I18n.t 'activerecord.models.page'}"
+
+#admin
+
+  %h1= "Viewing #{I18n.t 'activerecord.models.page'}"
+
+  - show_for @page do |a| 
+    = a.attribute :title        = a.attribute :content        = a.attribute :slug        = a.attribute :published_at        = a.attribute :status        = a.attribute :user    
+
+  .bottom_menu
+    = link_to "See all", admin_pages_path
+    = link_to "Edit #{I18n.t 'activerecord.models.page'}",  edit_admin_page_path(page)
+    = link_to "Create another", new_admin_page_path

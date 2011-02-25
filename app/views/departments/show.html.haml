@@ -1,37 +1,76 @@
+- content_for :fb_tags do
+  %meta{:property=>"og:title", :content=>"Juan Fanning | Departamento de Proyecto #{@department.project.name}"}
+  %meta{:property=>"og:site_name", :content=>"Juan Fanning"}
+  - if @department.department_images.empty?
+    %meta{:property=>"og:image", :content=>@department.project.banner.url(:large)}
+  - else
+    %meta{:property=>"og:image", :content=>@department.department_images.first.image.url(:large)}
 
 %h1= @department.project.name
 #main-col
   #slide-holder
     %ul#images
-      - @department.department_images.each_with_index do |image,index|
-        %li{:id=>"img#{index+2}"}
-          = link_to image_tag(image.image.url(:large), :size => "290x244"), image.image.url, {:rel => "fancybox"}
+      - unless @department.department_images.empty?
+        - @department.department_images.each_with_index do |image,index|
+          %li{:id=>"img#{index+2}"}
+            = link_to image_tag(image.image.url(:large), :size => "290x244"), image.image.url, {:rel => "fancybox"}
+      - else
+        - @department.project.project_images.each_with_index do |image, index|
+          %li{:id =>"img#{index+2}"}
+            = link_to image_tag(image.image.url(:large), :size => "290x244"), image.image.url, {:rel => "fancybox"}
     %ul#slider-pager
-      - @department.department_images.each_with_index do |image,index|
-        %li
-          %a{:href => "#img#{index+2}"}
-            = image_tag image.image.url(:medium), :size => "52x44"
-  
+      - unless @department.department_images.empty?
+        - @department.department_images.each_with_index do |image,index|
+          %li
+            %a{:href => "#img#{index+2}"}
+              = image_tag image.image.url(:medium), :size => "52x44"
+      - else
+        - @department.project.project_images.each_with_index do |image, index|
+          %li{:id =>"img#{index+2}"}
+            = link_to image_tag(image.image.url(:large), :size => "290x244"), image.image.url, {:rel => "fancybox"}
     .clr
     / /slide-holder
   #project-info
     .details
+      %p
+        %label Vendido
+        - if @department.sold?
+          SI
+        - else
+          NO
       %p
         %label Tamaño
         = @department.size
         m
         %sup
           2
-      %p
-        %label Habitaciones
-        = @department.rooms_number
-      %p
-        %label Baños
-        = @department.bathroom_number
+      - unless @department.rooms_number.empty? or @department.rooms_number.zero?
+        %p
+          %label Habitaciones
+          = @department.rooms_number
+      - unless @department.bathroom_number.empty? or @department.bathroom_number.zero?
+        %p
+          %label Baños
+          = @department.bathroom_number
       %p
         %label Garaje
         = @department.garages_number
-
+      - if @department.total_price
+        %p
+          %label Precio Total
+          = @department.total_price
+      - if @department.meter_price
+        %p
+          %label 
+            Precio por m
+            %sup
+              2
+          = @department.meter_price
+      - if @department.description.present?
+        %label
+          Descripción
+        = @department.description
+      
     .departments
       %h3 Departamentos del edificio    
       %ul
@@ -57,6 +96,8 @@
       %p
         %a{:href => "#"}
           %img{:alt => "Contáctenos por este inmueble", :height => "102", :src => "/images/contact.gif", :width => "180"}/
+      %p
+        %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "http://www.facebook.com/plugins/like.php?href=#{CGI::escape(department_url(@department))}&amp;layout=standard&amp;show_faces=false&amp;width=400&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=40", :style => "border:none; overflow:hidden; width:400px; height:40px;margin-top:0px;"}
 / /side-col
 .clr
   /

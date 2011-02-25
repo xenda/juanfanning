@@ -1,0 +1,25 @@
+#slider
+  - Slide.all.each do |slide|
+    = image_tag slide.image.url, :size => "893x218"
+  /%img{:height => "218", :src => "/images/slider/img1.jpg", :width => "893"}/
+  /%img{:height => "218", :src => "/images/slider/img2.jpg", :width => "893"}/
+  /%img{:height => "218", :src => "/images/slider/img3.jpg", :width => "893"}/
+%h1 Contacto
+#main-col
+  :erb
+    <iframe src="http://spreadsheets.google.com/a/juanfanning.com/embeddedform?formkey=dFRQN295MDZwLWdNZXpSSEtCRHdRcmc6MQ" width="760" height="672" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  
+/ /main-col
+#side-col
+  %p
+    %strong Inmobiliaria Juan Fanning SAC
+    %br/
+    Malecon Garcia Ribeyro Nro. 288
+    %br/
+    Rimac - Lima
+    %br/
+    Teléfono 422-1870 | 99823*1961 | 99834*1246
+    %br/
+    Email
+    %a{:href => "mailto:contacto@juanfanning.com"} contacto@juanfanning.com
+/ /side-col

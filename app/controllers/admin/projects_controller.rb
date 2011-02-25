@@ -36,6 +36,19 @@ class Admin::ProjectsController < InheritedResources::Base
     redirect_to admin_projects_path
   end
   
+  def reorder
+    @projects = Project.find(:all, :order => "position" )
+  end
+  
+  def order
+      projects = Project.all
+      projects.each do |project|
+        project.position = params['project'].index(project.id.to_s) + 1
+        project.save
+      end
+      render :nothing => true
+  end
+  
   def index
     if params[:filter]
       if params[:filter] == "active"

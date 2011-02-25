@@ -7,6 +7,7 @@
     #admin_menu
       .message
         %strong= link_to "Registrar un nuevo #{I18n.t('activerecord.models.project')}", new_admin_project_path
+        %strong= link_to "Actualizar orden de edificios", reorder_admin_projects_path
 
   %ul#filters
     %li= link_to "Todos los proyectos", admin_projects_path
